@@ -66,7 +66,9 @@ public class MyGame : Game
 		PrintInfo();
 
 		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(1, 0));
+		_movers.Add(ball);
 		AddChild(ball);
+		AddLine(new Vec2(200, 200), new Vec2(400, 400));
 
 	}
 
