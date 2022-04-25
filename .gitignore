@@ -1,2 +1,7 @@
 **/obj
 *.vs
+
+*.config
+*.csproj
+*.sln
+*.userprefs
