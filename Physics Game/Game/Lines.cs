@@ -7,17 +7,22 @@ using GXPEngine;
 
 public class Lines : LineSegment {
 
+    Vec2 Half;
+    bool stuck = false;
 
     public Lines(Vec2 start, Vec2 end) : base(start, end, 0xff00ff00, 4) { 
     
+        Half = start - end;
     
     }
 
     void Update() {
 
-
-        start += new Vec2(1,0);
-        end += new Vec2(1, 0);
-
+        if (Input.GetMouseButtonDown(0)) stuck = true;
+        if (!stuck)
+        {
+            start = new Vec2(Input.mouseX, Input.mouseY) + Half;
+            end = new Vec2(Input.mouseX, Input.mouseY) - Half;
+        }
     }
 }
