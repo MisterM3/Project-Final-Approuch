@@ -68,7 +68,11 @@ public class MyGame : Game
 		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(2, 0));
 		_movers.Add(ball);
 		AddChild(ball);
-		AddLines(new Vec2(200, 200), new Vec2(400, 400));
+		//AddLines(new Vec2(200, 200), new Vec2(400, 400));
+
+
+		Inventory inventory = new Inventory();
+		AddChild(inventory);
 
 	}
 
@@ -79,7 +83,7 @@ public class MyGame : Game
 		_lines.Add(line);
 	}
 
-	void AddLines(Vec2 start, Vec2 end) {
+	public void AddLines(Vec2 start, Vec2 end) {
 		LineSegment line = new Lines(start, end);
 		AddChild(line);
 		_lines.Add(line);
