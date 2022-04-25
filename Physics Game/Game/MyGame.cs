@@ -65,10 +65,10 @@ public class MyGame : Game
 
 		PrintInfo();
 
-		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(1, 0));
+		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(2, 0));
 		_movers.Add(ball);
 		AddChild(ball);
-		AddLine(new Vec2(200, 200), new Vec2(400, 400));
+		AddLines(new Vec2(200, 200), new Vec2(400, 400));
 
 	}
 
@@ -77,6 +77,13 @@ public class MyGame : Game
 		LineSegment line = new LineSegment(start, end, 0xff00ff00, 4);
 		AddChild(line);
 		_lines.Add(line);
+	}
+
+	void AddLines(Vec2 start, Vec2 end) {
+		LineSegment line = new Lines(start, end);
+		AddChild(line);
+		_lines.Add(line);
+
 	}
 
 
