@@ -5,3 +5,8 @@
 *.csproj
 *.sln
 *.userprefs
+
+*.suo
+*.exe
+*.pdb
+*.cache
