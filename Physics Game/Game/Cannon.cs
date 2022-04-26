@@ -64,7 +64,7 @@ public class Cannon : Sprite
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ball ball = new Ball(20 ,bulletPos, velocity);
+            Ball ball = new Ball(10 ,bulletPos, velocity);
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);
             ball.rotation = rotation;

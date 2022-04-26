@@ -65,7 +65,7 @@ public class MyGame : Game
 		_lines = new List<LineSegment>();
 
 		//Cannon
-		cannon = new Cannon(height / 2 - 200, width / 2 + 50, 2);
+		cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
 		AddChild(cannon);
 
 
@@ -127,7 +127,7 @@ public class MyGame : Game
 				_lines.Add(new LineSegment(new Vec2(750, 550), new Vec2(50, 550)));
 				_lines.Add(new LineSegment(new Vec2(50, 550), new Vec2(50, 50)));
 
-				_movers.Add(new Ball(10, new Vec2(100, 250), new Vec2(0, 10)));
+				//_movers.Add(new Ball(10, new Vec2(100, 250), new Vec2(0, 10)));
 
 
 
