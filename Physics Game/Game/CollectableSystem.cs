@@ -5,17 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class CollectableSystem {
+public class CollectableSystem : Pivot {
 
 
 
-    List<int> stars = new List<int>();
+    int[] stars;
 
-    public CollectableSystem() { }
+    public CollectableSystem() {
+
+        MyGame myGame = ((MyGame)game);
+        int levels = myGame.GetLevelCount;
+
+        stars = new int[levels];
+    }
 
 
 
-    public void CheckStars() { 
-    
+
+    //Change if levels start with 1 otherwise keep the same
+    public void CheckStars(int index, int amountStars) { 
+        if (amountStars > stars[index]) stars[index] = amountStars;
+
+        for (int i = 0; i < stars.Length; i++)
+        {
+            Console.WriteLine(stars[i]);
+        }
     }
 }
