@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectableSystem.cs" />
+    <Compile Include="Enemy2Way.cs" />
     <Compile Include="z.Physics\Ball.cs" />
     <Compile Include="z.Physics\Box.cs" />
     <Compile Include="z.Physics\CollisionInfo.cs" />
