@@ -69,9 +69,10 @@ public class MyGame : Game
 
 		CollectableSystem CS = new CollectableSystem();
 		AddChild(CS);
-
-		CS.CheckStars(1, 3);
-		CS.CheckStars(2, 5);
+		CS.LoadStars();
+		CS.PrintStars();
+	//	CS.CheckStars(1, 3);
+	//	CS.CheckStars(2, 5);
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
