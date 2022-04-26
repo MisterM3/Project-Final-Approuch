@@ -71,6 +71,7 @@ public class MyGame : Game
 		AddChild(CS);
 
 		CS.CheckStars(1, 3);
+		CS.CheckStars(2, 5);
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
