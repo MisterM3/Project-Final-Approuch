@@ -162,7 +162,7 @@ public class MyGame : Game
 
 			case 3: // Level2 
 				currentScene = 3;
-				Clouds cloud = new Clouds();
+				Clouds cloud = new Clouds(new Vec2(100, 100), new Vec2(200, 200));
 				AddChild(cloud);
 
 
