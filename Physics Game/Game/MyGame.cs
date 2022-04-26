@@ -118,11 +118,47 @@ public class MyGame : Game
 
 			case 2: // Level1
 				currentScene = 2;
-				_lines.Add(new LineSegment(100, 200, 400, 200, 0xff00ff00, 3));
+			
+			
 
-				Enemy2Way enemy = new Enemy2Way(30, new Vec2(400, 300), new Vec2(300, 200), new Vec2(500, 400));
-				AddChild(enemy);
-			break;
+				//Outer walls
+				_lines.Add(new LineSegment(new Vec2(50, 50), new Vec2(750, 50)));
+				_lines.Add(new LineSegment(new Vec2(750, 50), new Vec2(750, 550)));
+				_lines.Add(new LineSegment(new Vec2(750, 550), new Vec2(50, 550)));
+				_lines.Add(new LineSegment(new Vec2(50, 550), new Vec2(50, 50)));
+
+				_movers.Add(new Ball(10, new Vec2(100, 250), new Vec2(0, 10)));
+
+
+
+				//Bottom left part
+				_lines.Add(new LineSegment(new Vec2(200, 375), new Vec2(50, 375)));
+				_lines.Add(new LineSegment(new Vec2(225, 550), new Vec2(225,400)));
+				_movers.Add(new Ball(25, new Vec2(200, 400), moving: false));
+
+				_lines.Add(new LineSegment(new Vec2(750, 540), new Vec2(225, 480)));
+
+
+
+				//Side lines
+				_lines.Add(new LineSegment(new Vec2(0, 200), new Vec2(200, 0)));
+				_lines.Add(new LineSegment(new Vec2(600, 0), new Vec2(800, 200)));
+				_lines.Add(new LineSegment(new Vec2(200, 0), new Vec2(0, 200)));
+				_lines.Add(new LineSegment(new Vec2(800, 400), new Vec2(600, 600)));
+
+
+
+				//Middle part
+
+				_lines.Add(new LineSegment(new Vec2(590, 420), new Vec2(585, 200)));
+				_lines.Add(new LineSegment(new Vec2(515, 200), new Vec2(530, 420)));
+
+				_movers.Add(new Ball(35, new Vec2(550, 200), moving: false));
+				_movers.Add(new Ball(30, new Vec2(560, 420), moving: false));
+
+
+				
+				break;
 
 			case 3: // Level2 
 				currentScene = 3;
