@@ -253,7 +253,7 @@ public class Ball : EasyDraw
 
 			velocity = velocity - (1 + bounciness) * (firstNormal.Dot(velocity - CenterOfMass)) * firstNormal;
 
-			if (otherBall.radius != 0) otherBall.velocity = otherBall.velocity - (1 + bounciness) * (firstNormal.Dot(otherBall.velocity - CenterOfMass)) * firstNormal;
+			if (otherBall.moving == true) otherBall.velocity = otherBall.velocity - (1 + bounciness) * (firstNormal.Dot(otherBall.velocity - CenterOfMass)) * firstNormal;
 
 			velocity.Reflect(firstNormal);
 

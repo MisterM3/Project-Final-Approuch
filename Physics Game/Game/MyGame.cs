@@ -121,6 +121,8 @@ public class MyGame : Game
 				_lines.Add(new LineSegment(new Vec2(50, 550), new Vec2(50, 50)));
 
 				_movers.Add(new Ball(30, new Vec2(100, 100), new Vec2(1, 1)));
+
+				_movers.Add(new Ball(25, new Vec2(175, 200), moving: false));
 				break;
 
 			case 3: // Level2 
