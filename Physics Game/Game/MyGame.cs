@@ -65,7 +65,7 @@ public class MyGame : Game
 		_lines = new List<LineSegment>();
 
 		//Cannon
-		cannon = new Cannon(height / 2 - 200, width / 2 + 50, 2);
+		cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 2);
 		AddChild(cannon);
 
 
