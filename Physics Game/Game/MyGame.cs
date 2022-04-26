@@ -65,6 +65,10 @@ public class MyGame : Game
 
 		PrintInfo();
 
+		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(1, 0));
+		addMover(ball);
+		AddChild(ball);
+
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
