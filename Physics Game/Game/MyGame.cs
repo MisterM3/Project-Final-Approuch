@@ -112,8 +112,16 @@ public class MyGame : Game
 
 			case 2: // Level1
 				currentScene = 2;
-				_lines.Add(new LineSegment(100, 200, 400, 200, 0xff00ff00, 3));
-			break;
+				
+
+				//Outer walls
+				_lines.Add(new LineSegment(new Vec2(50, 50), new Vec2(750, 50)));
+				_lines.Add(new LineSegment(new Vec2(750, 50), new Vec2(750, 550)));
+				_lines.Add(new LineSegment(new Vec2(750, 550), new Vec2(50, 550)));
+				_lines.Add(new LineSegment(new Vec2(50, 550), new Vec2(50, 50)));
+
+				_movers.Add(new Ball(30, new Vec2(100, 100), new Vec2(1, 1)));
+				break;
 
 			case 3: // Level2 
 				currentScene = 3;
