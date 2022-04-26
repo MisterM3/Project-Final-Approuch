@@ -19,7 +19,7 @@ public class Ball : EasyDraw
 	public readonly bool moving;
 
 	//Makes so I can check which collision happened and with which element.
-	protected GameObject latestCollision = null;
+	public GameObject latestCollision = null;
 
 
 	// Mass = density * volume.
