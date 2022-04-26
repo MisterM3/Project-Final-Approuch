@@ -8,28 +8,31 @@ using GXPEngine;
 public class Clouds : Pivot {
 
     LineSegment[] lines = new LineSegment[4];
+    Ball[] caps = new Ball[4];
 
 
 
-    public Clouds(Vec2 pTopLeft, Vec2 pBottomRight, float pRot = 0) : base()
+    //pRot is in Deg
+    public Clouds(Vec2 pBottomLeft, Vec2 pBottomRight, Vec2 pTopLeft, Vec2 pTopRight, float pRot = 0) : base()
     {
 
 
-        lines[0] = new LineSegment(pTopLeft, new Vec2(pTopLeft.x, pBottomRight.y));
-        lines[1] = new LineSegment(new Vec2(pTopLeft.x, pBottomRight.y), pBottomRight);
-        lines[2] = new LineSegment(pBottomRight, new Vec2(pBottomRight.x, pTopLeft.y));
-        lines[3] = new LineSegment(new Vec2(pBottomRight.x, pTopLeft.y), pTopLeft);
+        lines[0] = new LineSegment(pTopLeft, pBottomLeft);
+        lines[1] = new LineSegment(pBottomLeft, pBottomRight);
+        lines[2] = new LineSegment(pBottomRight, pTopRight);
+        lines[3] = new LineSegment(pTopRight, pTopLeft);
 
-        if (pRot != 0) {
+        caps[0] = new Ball(0, pTopLeft, moving: false);
+        caps[1] = new Ball(0, pBottomLeft, moving: false);
+        caps[2] = new Ball(0, pBottomRight, moving: false);
+        caps[3] = new Ball(0, pTopRight, moving: false);
 
-            for (int i = 0; i < lines.Length; i++) { 
-            
-            }
-        
-        }
-        
+
+
+
         MyGame myGame = ((MyGame)game);
         for (int i = 0; i < lines.Length; i++) myGame.addLine(lines[i]);
+        for (int i = 0; i < caps.Length; i++) myGame.addMover(caps[i]);
     }
 
     public void Update() {

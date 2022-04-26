@@ -55,7 +55,7 @@ public class Cannon : Sprite
         {
             rotation = 56;
         }
-        Console.WriteLine(rotation);
+      //  Console.WriteLine(rotation);
         velocity = Vec2.GetUnitVectorDeg(rotation) * _speed;
         bulletPos = Vec2.GetUnitVectorDeg(rotation) * 100   + _position;
     }
