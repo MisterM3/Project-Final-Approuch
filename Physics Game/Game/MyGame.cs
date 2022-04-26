@@ -113,6 +113,9 @@ public class MyGame : Game
 			case 2: // Level1
 				currentScene = 2;
 				_lines.Add(new LineSegment(100, 200, 400, 200, 0xff00ff00, 3));
+
+				Enemy2Way enemy = new Enemy2Way(30, new Vec2(400, 300), new Vec2(300, 200), new Vec2(500, 400));
+				AddChild(enemy);
 			break;
 
 			case 3: // Level2 
