@@ -251,9 +251,14 @@ public class Ball : EasyDraw
 			Vec2 CenterOfMass = (velocity * Mass + otherBall.velocity * otherBall.Mass) / (Mass + otherBall.Mass);
 			Vec2 firstNormal = (position - otherBall.position).Normalized();
 
-			velocity = velocity - (1 + bounciness) * (firstNormal.Dot(velocity - CenterOfMass)) * firstNormal;
 
-			if (otherBall.moving == true) otherBall.velocity = otherBall.velocity - (1 + bounciness) * (firstNormal.Dot(otherBall.velocity - CenterOfMass)) * firstNormal;
+
+			if (otherBall.moving == true)
+			{
+				velocity = velocity - (1 + bounciness) * (firstNormal.Dot(velocity - CenterOfMass)) * firstNormal;
+				otherBall.velocity = otherBall.velocity - (1 + bounciness) * (firstNormal.Dot(otherBall.velocity - CenterOfMass)) * firstNormal;
+			}
+			else velocity *= bounciness;
 
 			velocity.Reflect(firstNormal);
 
