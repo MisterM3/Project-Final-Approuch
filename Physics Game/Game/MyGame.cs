@@ -68,13 +68,19 @@ public class MyGame : Game
 		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(1, 0));
 		_movers.Add(ball);
 		AddChild(ball);
-		AddLine(new Vec2(200, 200), new Vec2(400, 400));
+		AddLines(new Vec2(200, 200), new Vec2(400, 400));
 
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
 	{
 		LineSegment line = new LineSegment(start, end, 0xff00ff00, 4);
+		AddChild(line);
+		_lines.Add(line);
+	}
+
+	void AddLines(Vec2 start, Vec2 end) {
+		Lines line = new Lines(start, end);
 		AddChild(line);
 		_lines.Add(line);
 	}
