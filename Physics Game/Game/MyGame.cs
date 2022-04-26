@@ -68,6 +68,8 @@ public class MyGame : Game
 		Ball ball = new Ball(30, new Vec2(100, 300), new Vec2(1, 0));
 		addMover(ball);
 		AddChild(ball);
+		Powers pow = new Powers(new Vec2(200, 300));
+		AddChild(pow);
 
 	}
 
