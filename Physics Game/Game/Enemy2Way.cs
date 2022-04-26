@@ -13,6 +13,8 @@ public class Enemy2Way : Ball {
 
     Vec2 direction;
 
+
+    float totalLenght;
     bool toEnd = true;
     public Enemy2Way(int radius, Vec2 pPos, Vec2 startLinePos, Vec2 endLinePos, float speed = 1f) : base(radius, pPos) {
 
@@ -20,10 +22,11 @@ public class Enemy2Way : Ball {
         startLine = startLinePos;
         endLine = endLinePos;
 
-        position = pPos;
+        position = endLine;
 
         direction = endLine - startLine;
 
+        totalLenght = direction.Length();
         velocity = direction.Normalized();
         velocity *= speed;
 
@@ -37,7 +40,9 @@ public class Enemy2Way : Ball {
 
         Vec2 disToEnd = position - endLine;
         Vec2 disToStart = position - startLine;
-        if (disToEnd.Length() <= 0.05f || disToStart.Length() <= 0.05f)
+
+        //change so it's lenght between > total lenght
+        if (disToEnd.Length() >= totalLenght || disToStart.Length() >= totalLenght)
         {
             Console.WriteLine("wa");
             velocity *= -1;
