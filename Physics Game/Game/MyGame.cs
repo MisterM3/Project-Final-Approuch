@@ -120,7 +120,7 @@ public class MyGame : Game
 				_lines.Add(new LineSegment(new Vec2(750, 550), new Vec2(50, 550)));
 				_lines.Add(new LineSegment(new Vec2(50, 550), new Vec2(50, 50)));
 
-				_movers.Add(new Ball(30, new Vec2(100, 250), new Vec2(0, 10)));
+				_movers.Add(new Ball(10, new Vec2(100, 250), new Vec2(0, 10)));
 
 
 
@@ -139,6 +139,18 @@ public class MyGame : Game
 				_lines.Add(new LineSegment(new Vec2(200, 0), new Vec2(0, 200)));
 				_lines.Add(new LineSegment(new Vec2(800, 400), new Vec2(600, 600)));
 
+
+
+				//Middle part
+
+				_lines.Add(new LineSegment(new Vec2(590, 420), new Vec2(585, 200)));
+				_lines.Add(new LineSegment(new Vec2(515, 200), new Vec2(530, 420)));
+
+				_movers.Add(new Ball(35, new Vec2(550, 200), moving: false));
+				_movers.Add(new Ball(30, new Vec2(560, 420), moving: false));
+
+
+				
 				break;
 
 			case 3: // Level2 
