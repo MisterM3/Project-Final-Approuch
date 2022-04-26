@@ -162,7 +162,10 @@ public class MyGame : Game
 
 			case 3: // Level2 
 				currentScene = 3;
-				_lines.Add(new LineSegment(200, 400, 500, 400, 0xff00ff00, 3));
+				Clouds cloud = new Clouds();
+				AddChild(cloud);
+
+
 			break;
 
 			case 4: //End screen
@@ -222,6 +225,13 @@ public class MyGame : Game
 		_movers.Add(ball);
 	}
 
+	public void addLine(LineSegment line) { 
+		_lines.Add(line);
+	}
+
+	public void RemoveLine(LineSegment line) {
+		_lines.Remove(line);
+	}
 
 
 	public void RemoveBalls(Ball remove)
