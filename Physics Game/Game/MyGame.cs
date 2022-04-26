@@ -12,7 +12,9 @@ public class MyGame : Game
 
 	Canvas _lineContainer = null;
 
-	List<Ball> _movers;
+	public Cannon cannon;
+
+	public List<Ball> _movers;
 	List<LineSegment> _lines;
 
 
@@ -59,8 +61,12 @@ public class MyGame : Game
 
 		targetFps = 60;
 
-		_movers = new List<Ball>();
+		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
+
+		//Cannon
+		cannon = new Cannon(height / 2 - 200, width / 2 + 50, 2);
+		AddChild(cannon);
 
 
 		LoadScene(_startSceneNumber);

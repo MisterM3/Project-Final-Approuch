@@ -7,6 +7,12 @@ public struct Vec2
 	public float y;
 
 
+	public Vec2 MousePosition()
+    {
+		Vec2 mousePos = new Vec2(Input.mouseX, Input.mouseY);
+		return mousePos; 
+    }
+
 	public Vec2(float pX = 0, float pY = 0)
 	{
 		x = pX;
