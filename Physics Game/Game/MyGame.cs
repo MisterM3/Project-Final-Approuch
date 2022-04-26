@@ -7,6 +7,7 @@ public class MyGame : Game
 {
 	int _startSceneNumber = 2;
 	int currentScene = 0;
+	int totalLevels = 5;
 	
 
 	Canvas _lineContainer = null;
@@ -66,6 +67,13 @@ public class MyGame : Game
 
 		PrintInfo();
 
+
+		CollectableSystem CS = new CollectableSystem();
+		AddChild(CS);
+		CS.LoadStars();
+		CS.PrintStars();
+	//	CS.CheckStars(1, 3);
+	//	CS.CheckStars(2, 5);
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
@@ -75,6 +83,10 @@ public class MyGame : Game
 		_lines.Add(line);
 	}
 
+	public int GetLevelCount
+	{
+		get { return totalLevels; }
+	}
 
 	/****************************************************************************************/
 
