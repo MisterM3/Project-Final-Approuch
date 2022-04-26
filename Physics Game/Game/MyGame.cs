@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class MyGame : Game
 {
-	int _startSceneNumber = 0;
-
+	int _startSceneNumber = 2;
+	int currentScene = 0;
 	
 
 	Canvas _lineContainer = null;
@@ -61,7 +61,8 @@ public class MyGame : Game
 		_movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
-		
+
+		LoadScene(_startSceneNumber);
 
 		PrintInfo();
 
@@ -75,8 +76,53 @@ public class MyGame : Game
 	}
 
 
-
 	/****************************************************************************************/
+
+	void LoadScene(int sceneNumber)
+    {
+		foreach (Ball ball in _movers)
+		{
+			ball.Destroy();
+		}
+		_movers.Clear();
+		foreach (LineSegment line in _lines)
+        {
+			line.Destroy();
+        }
+		_lines.Clear();
+
+		switch (sceneNumber)
+        {
+
+			case 1: // Main Menu
+
+			break;
+
+			case 2: // Level1
+				currentScene = 2;
+				_lines.Add(new LineSegment(100, 200, 400, 200, 0xff00ff00, 3));
+			break;
+
+			case 3: // Level2 
+				currentScene = 3;
+				_lines.Add(new LineSegment(200, 400, 500, 400, 0xff00ff00, 3));
+			break;
+
+			case 4: //End screen
+
+			break;
+        }
+		foreach (Ball _ball in _movers)
+        {
+			AddChild(_ball);
+        }
+
+		foreach(LineSegment _line in _lines)
+        {
+			AddChild(_line);
+        }
+
+    }
 
 	void PrintInfo()
 	{
@@ -95,7 +141,22 @@ public class MyGame : Game
 		{
 			Ball.bounciness = 1.5f - Ball.bounciness;
 		}
-		
+
+        //Load/reset scenes:
+        if (Input.GetKeyDown(Key.R))
+        {
+			LoadScene(currentScene);
+        }
+
+        if (Input.GetKeyDown(Key.F1))
+        {
+			LoadScene(2);
+        }
+
+        if (Input.GetKeyDown(Key.F2))
+        {
+			LoadScene(3);
+        }
 	}
 
 
