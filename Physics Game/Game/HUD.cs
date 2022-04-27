@@ -40,7 +40,13 @@ public class HUD : Pivot {
         shots.Text("Shots left: " + ((MyGame)game).cannon.shots, 50, 50);
     }
 
-    public void UpdateCol() { 
+    public void UpdateCol(int col) {
+        collectables.ClearTransparent();
+
+        for (int i = 0; i < col; i++)
+        {
+            collectables.Ellipse(25 + i * 50, 25, 25, 25);
+        }
     
     }
 }
