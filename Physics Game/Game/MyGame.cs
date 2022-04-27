@@ -177,6 +177,16 @@ public class MyGame : Game
 				_movers.Add(new Ball(35, new Vec2(550, 200), moving: false));
 				_movers.Add(new Ball(30, new Vec2(560, 420), moving: false));
 
+				//Collectables
+				Collectable col = new Collectable(30, new Vec2(460, 123));
+				AddChild(col);
+				Collectable col1 = new Collectable(30, new Vec2(422, 452));
+				AddChild(col1);
+				Collectable col2 = new Collectable(30, new Vec2(660, 293));
+				AddChild(col2);
+
+
+
 				break;
 
 			case 3: // Level2 
@@ -185,8 +195,8 @@ public class MyGame : Game
 				Fan fan = new Fan(new Vec2(400, 300), 100, 100);
 				AddChild(fan);
 
-				Collectable col = new Collectable(30, new Vec2(400, 300));
-				AddChild(col);
+				Collectable col4 = new Collectable(30, new Vec2(400, 300));
+				AddChild(col4);
 
 				_endCircle = new EndCircle(new Vec2(400, 300));
 				AddChild(_endCircle);
@@ -231,11 +241,13 @@ public class MyGame : Game
 			Ball.bounciness = 1.5f - Ball.bounciness;
 		}
 
+        if (Input.GetMouseButtonDown(1)) Console.WriteLine(new Vec2(Input.mouseX, Input.mouseY));
         //Load/reset scenes:
         if (Input.GetKeyDown(Key.R))
         {
 			LoadScene(currentScene);
 			CS.RestartStarsLevel();
+			cannon.shots = 2;
         }
 
         if (Input.GetKeyDown(Key.F1))
