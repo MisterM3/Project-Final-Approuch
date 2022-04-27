@@ -15,6 +15,7 @@ public class MyGame : Game
 	public Cannon cannon;
 
 	CollectableSystem CS;
+	HUD _hud;
 
 	public List<Ball> _movers;
 	List<LineSegment> _lines;
@@ -83,6 +84,9 @@ public class MyGame : Game
 		AddChild(CS);
 		CS.LoadStars();
 		CS.PrintStars();
+
+		_hud = new HUD(new Vec2(200, 200));
+		AddChild(_hud);
 
 	}
 
