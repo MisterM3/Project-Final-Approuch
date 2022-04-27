@@ -92,6 +92,7 @@ public class MyGame : Game
 	public int GetLevelCount
 	{
 		get { return totalLevels; }
+		//test
 	}
 
 	/****************************************************************************************/

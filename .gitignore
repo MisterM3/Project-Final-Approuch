@@ -12,3 +12,4 @@
 *.csproj
 *.sln
 *.userprefs
+*.cache
