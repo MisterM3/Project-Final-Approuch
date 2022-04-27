@@ -46,6 +46,7 @@
     <Compile Include="EndCircle.cs" />
     <Compile Include="Enemy2Way.cs" />
     <Compile Include="Fan.cs" />
+    <Compile Include="Package.cs" />
     <Compile Include="z.Physics\Ball.cs" />
     <Compile Include="z.Physics\Box.cs" />
     <Compile Include="z.Physics\CollisionInfo.cs" />
