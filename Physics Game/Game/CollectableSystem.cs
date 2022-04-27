@@ -9,7 +9,8 @@ using GXPEngine;
 public class CollectableSystem : Pivot
 {
 
-
+  
+    int currentStarsLevel;
 
     int[] stars;
 
@@ -24,6 +25,20 @@ public class CollectableSystem : Pivot
     }
 
 
+
+    public void AddStarsLevel() {
+        currentStarsLevel++;
+    }
+
+    public void RestartStarsLevel() {
+        currentStarsLevel = 0;
+    }
+
+    public void EndStarsLevel() {
+        
+        //Levels start at 2 my arrays start at 0 so scene - 2
+        CheckStars(((MyGame)game).GetCurrentScene - 2, currentStarsLevel);
+    }
 
 
     //Change if levels start with 1 otherwise keep the same
