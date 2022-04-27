@@ -31,8 +31,6 @@ public class Collectable : Sprite {
                 {
                     CollectableSystem CS = myGame.GetCollectableSystem;
                     CS.AddStarsLevel();
-               
-            
                     this.LateDestroy();
                 }
             }

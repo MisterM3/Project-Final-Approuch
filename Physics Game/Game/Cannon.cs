@@ -8,7 +8,7 @@ public class Cannon : Sprite
 {
 
 
-    int shots = 2;
+    public int shots = 2;
     //public fields
     float _speed = 1;
     public Vec2 position
@@ -72,7 +72,9 @@ public class Cannon : Sprite
             parent.AddChild(ball);
             ball.rotation = rotation;
 
+           HUD _hud = ((MyGame)game).GetHUD;
             shots--;
+            _hud.UpdateShots();
         }
 
     }

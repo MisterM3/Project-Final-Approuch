@@ -15,10 +15,11 @@ public class MyGame : Game
 	public Cannon cannon;
 
 	CollectableSystem CS;
+	HUD _hud;
 
 	public List<Ball> _movers;
 	List<LineSegment> _lines;
-
+	Collectable[] _colect = new Collectable[3];
 	
 
 	EndCircle _endCircle;
@@ -84,6 +85,9 @@ public class MyGame : Game
 		CS.LoadStars();
 		CS.PrintStars();
 
+		_hud = new HUD(new Vec2(200, 200));
+		AddChild(_hud);
+
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
@@ -106,6 +110,9 @@ public class MyGame : Game
 	public CollectableSystem GetCollectableSystem { 
 		get { return CS; }
 	}
+	public HUD GetHUD { 
+		get { return _hud; }
+	}
 
 	/****************************************************************************************/
 
@@ -120,7 +127,13 @@ public class MyGame : Game
         {
 			line.Destroy();
         }
+		for (int i = 0; i < _colect.Length; i++) {
+
+			if (_colect[i] != null) _colect[i].Destroy();
+		}
 		if (_endCircle != null) _endCircle.LateDestroy();
+		
+
 		_lines.Clear();
 
 		switch (sceneNumber)
@@ -170,6 +183,13 @@ public class MyGame : Game
 				_movers.Add(new Ball(35, new Vec2(550, 200), moving: false));
 				_movers.Add(new Ball(30, new Vec2(560, 420), moving: false));
 
+				//Collectables
+			
+				_colect[0] = new Collectable(30, new Vec2(460, 123));
+				_colect[1] = new Collectable(30, new Vec2(422, 452));
+				_colect[2] = new Collectable(30, new Vec2(660, 293));
+
+
 				break;
 
 			case 3: // Level2 
@@ -178,8 +198,8 @@ public class MyGame : Game
 				Fan fan = new Fan(new Vec2(400, 300), 100, 100);
 				AddChild(fan);
 
-				Collectable col = new Collectable(30, new Vec2(400, 300));
-				AddChild(col);
+				Collectable col4 = new Collectable(30, new Vec2(400, 300));
+				AddChild(col4);
 
 				_endCircle = new EndCircle(new Vec2(400, 300));
 				AddChild(_endCircle);
@@ -203,6 +223,10 @@ public class MyGame : Game
         {
 			AddChild(_line);
         }
+		foreach (Collectable _col in _colect) 
+		{
+			AddChild(_col);
+		}
 
     }
 
@@ -224,11 +248,13 @@ public class MyGame : Game
 			Ball.bounciness = 1.5f - Ball.bounciness;
 		}
 
+        if (Input.GetMouseButtonDown(1)) Console.WriteLine(new Vec2(Input.mouseX, Input.mouseY));
         //Load/reset scenes:
         if (Input.GetKeyDown(Key.R))
         {
 			LoadScene(currentScene);
 			CS.RestartStarsLevel();
+			cannon.shots = 2;
         }
 
         if (Input.GetKeyDown(Key.F1))

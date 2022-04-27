@@ -28,10 +28,14 @@ public class CollectableSystem : Pivot
 
     public void AddStarsLevel() {
         currentStarsLevel++;
+        HUD hud = ((MyGame)game).GetHUD;
+        hud.UpdateCol(currentStarsLevel);
     }
 
     public void RestartStarsLevel() {
         currentStarsLevel = 0;
+        HUD hud = ((MyGame)game).GetHUD;
+        hud.UpdateCol(currentStarsLevel);
     }
 
     public void EndStarsLevel() {
