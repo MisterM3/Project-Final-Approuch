@@ -94,6 +94,11 @@ public class MyGame : Game
 		get { return totalLevels; }
 	}
 
+	public int GetCurrentScene 
+	{ 
+	get { return currentScene; }
+	}
+
 	/****************************************************************************************/
 
 	void LoadScene(int sceneNumber)
