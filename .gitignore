@@ -9,7 +9,6 @@
 *.exe
 *.pdb
 *.config
-*.csproj
 *.sln
 *.userprefs
 *.cache
