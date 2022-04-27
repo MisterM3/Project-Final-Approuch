@@ -19,6 +19,7 @@ public class MyGame : Game
 
 	public List<Ball> _movers;
 	List<LineSegment> _lines;
+//	List<Enemy2Way> _enemy2Ways = new List<Enemy2Way>();
 	Collectable[] _colect = new Collectable[3];
 	
 
@@ -131,6 +132,10 @@ public class MyGame : Game
 
 			if (_colect[i] != null) _colect[i].Destroy();
 		}
+		//foreach (Enemy2Way en in _enemy2Ways) 
+		//{
+		//	en.Destroy();
+		//}
 		if (_endCircle != null) _endCircle.LateDestroy();
 		
 
@@ -190,6 +195,9 @@ public class MyGame : Game
 				_colect[2] = new Collectable(30, new Vec2(660, 293));
 
 
+				//Enemy
+				 _movers.Add( new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)) );
+
 				break;
 
 			case 3: // Level2 
@@ -227,8 +235,12 @@ public class MyGame : Game
 		{
 			AddChild(_col);
 		}
+		//foreach (Enemy2Way en in _enemy2Ways)
+		//{
+		//	AddChild(en);
+		//}
 
-    }
+	}
 
 	void PrintInfo()
 	{
