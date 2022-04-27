@@ -17,6 +17,9 @@ public class MyGame : Game
 	public List<Ball> _movers;
 	List<LineSegment> _lines;
 
+	
+
+	EndCircle _endCircle;
 
 	public int GetNumberOfLines()
 	{
@@ -107,6 +110,7 @@ public class MyGame : Game
         {
 			line.Destroy();
         }
+		if (_endCircle != null) _endCircle.LateDestroy();
 		_lines.Clear();
 
 		switch (sceneNumber)
@@ -156,18 +160,19 @@ public class MyGame : Game
 				_movers.Add(new Ball(35, new Vec2(550, 200), moving: false));
 				_movers.Add(new Ball(30, new Vec2(560, 420), moving: false));
 
-
-				
 				break;
 
 			case 3: // Level2 
 				currentScene = 3;
-				_lines.Add(new LineSegment(200, 400, 500, 400, 0xff00ff00, 3));
+
+				_endCircle = new EndCircle(new Vec2(400, 300));
+				AddChild(_endCircle);
+
 			break;
 
 			case 4: //End screen
-
-			break;
+				currentScene = 4;
+				break;
         }
 		foreach (Ball _ball in _movers)
         {
@@ -214,6 +219,11 @@ public class MyGame : Game
         {
 			LoadScene(3);
         }
+	}
+
+	public void NextLevel() { 
+	
+	LoadScene(currentScene + 1);
 	}
 
 
