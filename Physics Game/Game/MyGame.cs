@@ -19,7 +19,7 @@ public class MyGame : Game
 
 	public List<Ball> _movers;
 	List<LineSegment> _lines;
-
+	Collectable[] _colect = new Collectable[3];
 	
 
 	EndCircle _endCircle;
@@ -127,7 +127,13 @@ public class MyGame : Game
         {
 			line.Destroy();
         }
+		for (int i = 0; i < _colect.Length; i++) {
+
+			if (_colect[i] != null) _colect[i].Destroy();
+		}
 		if (_endCircle != null) _endCircle.LateDestroy();
+		
+
 		_lines.Clear();
 
 		switch (sceneNumber)
@@ -178,13 +184,10 @@ public class MyGame : Game
 				_movers.Add(new Ball(30, new Vec2(560, 420), moving: false));
 
 				//Collectables
-				Collectable col = new Collectable(30, new Vec2(460, 123));
-				AddChild(col);
-				Collectable col1 = new Collectable(30, new Vec2(422, 452));
-				AddChild(col1);
-				Collectable col2 = new Collectable(30, new Vec2(660, 293));
-				AddChild(col2);
-
+			
+				_colect[0] = new Collectable(30, new Vec2(460, 123));
+				_colect[1] = new Collectable(30, new Vec2(422, 452));
+				_colect[2] = new Collectable(30, new Vec2(660, 293));
 
 
 				break;
@@ -220,6 +223,10 @@ public class MyGame : Game
         {
 			AddChild(_line);
         }
+		foreach (Collectable _col in _colect) 
+		{
+			AddChild(_col);
+		}
 
     }
 
