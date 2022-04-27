@@ -162,7 +162,10 @@ public class MyGame : Game
 
 			case 3: // Level2 
 				currentScene = 3;
-				_lines.Add(new LineSegment(200, 400, 500, 400, 0xff00ff00, 3));
+
+				EndCircle end = new EndCircle(new Vec2(400, 300));
+				AddChild(end);
+
 			break;
 
 			case 4: //End screen
@@ -214,6 +217,11 @@ public class MyGame : Game
         {
 			LoadScene(3);
         }
+	}
+
+	public void NextLevel() { 
+	
+	LoadScene(currentScene + 1);
 	}
 
 
