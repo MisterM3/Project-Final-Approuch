@@ -1,6 +1,13 @@
+/.vs/*
+
+
 **/obj
 *.vs
 
+
+*.cs
+*.exe
+*.pdb
 *.config
 *.csproj
 *.sln
