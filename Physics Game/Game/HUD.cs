@@ -25,12 +25,8 @@ public class HUD : Pivot {
         shots.Text("Shots left: " + ((MyGame)game).cannon.shots, 50, 50);
         AddChild(shots);
 
-        collectables = new EasyDraw(200, 50);
-        
+        collectables = new EasyDraw(200, 50);       
         collectables.y = 50;
-        collectables.Ellipse(25, 25, 25, 25);
-        collectables.Ellipse(75, 25, 25, 25);
-        collectables.Ellipse(125, 25, 25, 25);
         AddChild(collectables);
     }
 
