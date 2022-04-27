@@ -16,7 +16,7 @@ public class Enemy2Way : Ball {
 
     float totalLenght;
     bool toEnd = true;
-    public Enemy2Way(int radius, Vec2 pPos, Vec2 startLinePos, Vec2 endLinePos, float speed = 1f) : base(radius, pPos) {
+    public Enemy2Way(int radius, Vec2 startLinePos, Vec2 endLinePos, float speed = 1f) : base(radius, endLinePos, moving: false) {
 
 
         startLine = startLinePos;

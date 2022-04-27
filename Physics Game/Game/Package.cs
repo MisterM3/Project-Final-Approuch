@@ -20,7 +20,7 @@ public class Package : Ball
     {
         base.Update();
 
-        if (timer <= 0)
+        if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
 
@@ -29,6 +29,7 @@ public class Package : Ball
             {
                 if (myGame.GetMover(i) == this)
                 {
+                    Console.WriteLine("deada");
                     myGame.RemoveBalls(this);
                     this.LateDestroy();
                 }
