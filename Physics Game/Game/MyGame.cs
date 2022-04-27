@@ -175,6 +175,9 @@ public class MyGame : Game
 			case 3: // Level2 
 				currentScene = 3;
 
+				Fan fan = new Fan(new Vec2(400, 300), 100, 100);
+				AddChild(fan);
+
 				Collectable col = new Collectable(30, new Vec2(400, 300));
 				AddChild(col);
 
