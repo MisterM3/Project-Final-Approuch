@@ -14,6 +14,8 @@ public class MyGame : Game
 
 	public Cannon cannon;
 
+	CollectableSystem CS;
+
 	public List<Ball> _movers;
 	List<LineSegment> _lines;
 
@@ -74,12 +76,11 @@ public class MyGame : Game
 		PrintInfo();
 
 
-		CollectableSystem CS = new CollectableSystem();
+		CS = new CollectableSystem();
 		AddChild(CS);
 		CS.LoadStars();
 		CS.PrintStars();
-	//	CS.CheckStars(1, 3);
-	//	CS.CheckStars(2, 5);
+
 	}
 
 	void AddLine(Vec2 start, Vec2 end)
@@ -97,6 +98,10 @@ public class MyGame : Game
 	public int GetCurrentScene 
 	{ 
 	get { return currentScene; }
+	}
+
+	public CollectableSystem GetCollectableSystem { 
+		get { return CS; }
 	}
 
 	/****************************************************************************************/
@@ -210,17 +215,20 @@ public class MyGame : Game
         if (Input.GetKeyDown(Key.R))
         {
 			LoadScene(currentScene);
+			CS.RestartStarsLevel();
         }
 
         if (Input.GetKeyDown(Key.F1))
         {
 			LoadScene(2);
-        }
+			CS.RestartStarsLevel();
+		}
 
         if (Input.GetKeyDown(Key.F2))
         {
 			LoadScene(3);
-        }
+			CS.RestartStarsLevel();
+		}
 	}
 
 

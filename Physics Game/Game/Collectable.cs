@@ -17,4 +17,26 @@ public class Collectable : Sprite {
         y = pPos.y;
     }
 
+    void Update() {
+        MyGame myGame = ((MyGame)game);
+
+        for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
+        {
+            Ball mover = myGame.GetMover(i);
+            if (mover.moving) {
+
+                Vec2 relPos = new Vec2(x, y) - mover.position;
+
+                if (relPos.Length() < (width / 2) + mover.radius)
+                {
+                    CollectableSystem CS = myGame.GetCollectableSystem;
+                    CS.AddStarsLevel();
+               
+            
+                    this.LateDestroy();
+                }
+            }
+        }
+    }
+
 }

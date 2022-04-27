@@ -36,7 +36,8 @@ public class CollectableSystem : Pivot
 
     public void EndStarsLevel() {
         
-        CheckStars(((MyGame)game).GetCurrentScene, currentStarsLevel);
+        //Levels start at 2 my arrays start at 0 so scene - 2
+        CheckStars(((MyGame)game).GetCurrentScene - 2, currentStarsLevel);
     }
 
 
