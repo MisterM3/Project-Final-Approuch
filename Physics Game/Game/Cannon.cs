@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using GXPEngine;
 public class Cannon : Sprite
 {
+
+
+    int shots = 2;
     //public fields
     float _speed = 1;
     public Vec2 position
@@ -62,12 +65,14 @@ public class Cannon : Sprite
 
     void Shoot()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && shots > 0)
         {
             Package ball = new Package(bulletPos, velocity);
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);
             ball.rotation = rotation;
+
+            shots--;
         }
 
     }
