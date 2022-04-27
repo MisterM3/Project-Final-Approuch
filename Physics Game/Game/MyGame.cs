@@ -167,7 +167,9 @@ public class MyGame : Game
 
 			case 3: // Level2 
 				currentScene = 3;
-				_lines.Add(new LineSegment(200, 400, 500, 400, 0xff00ff00, 3));
+
+				Collectable col = new Collectable(30, new Vec2(400, 300));
+				AddChild(col);
 			break;
 
 			case 4: //End screen
