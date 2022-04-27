@@ -184,6 +184,10 @@ public class MyGame : Game
 				_endCircle = new EndCircle(new Vec2(400, 300));
 				AddChild(_endCircle);
 
+				Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
+				AddChild(cloud);
+
+
 			break;
 
 			case 4: //End screen
@@ -251,6 +255,13 @@ public class MyGame : Game
 		_movers.Add(ball);
 	}
 
+	public void addLine(LineSegment line) { 
+		_lines.Add(line);
+	}
+
+	public void RemoveLine(LineSegment line) {
+		_lines.Remove(line);
+	}
 
 
 	public void RemoveBalls(Ball remove)

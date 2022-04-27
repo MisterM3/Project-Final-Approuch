@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Cannon.cs" />
     <Compile Include="Collectable.cs" />
+    <Compile Include="Clouds.cs" />
     <Compile Include="CollectableSystem.cs" />
     <Compile Include="EndCircle.cs" />
     <Compile Include="Enemy2Way.cs" />
