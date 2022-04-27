@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class Fan : Sprite {
+public class Fan : Sprite
+{
 
     Vec2 force;
-    public Fan(Vec2 Pos, int pWidth, int pHeight, float pRot = -90.0f, float pPower = 1f) : base("colors.png") { 
-    
+    public Fan(Vec2 Pos, int pWidth, int pHeight, float pRot = -90.0f, float pPower = 1f) : base("colors.png")
+    {
+
         SetOrigin(width / 2, height / 2);
         width = pWidth;
         height = pHeight;
@@ -18,31 +20,33 @@ public class Fan : Sprite {
         x = Pos.x;
         y = Pos.y;
         force = Vec2.GetUnitVectorDeg(pRot) * pPower;
-       
-    
+
+
     }
 
 
-    public void Update() {
+    public void Update()
+    {
 
 
-       // rotation++;
+        // rotation++;
         MyGame myGame = ((MyGame)game);
 
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
         {
             Ball mover = myGame.GetMover(i);
 
-            if (mover.moving) {
+            if (mover.moving)
+            {
 
                 //Checks if package inside area of effect
-                if (mover.x <= x + width / 2 && mover.x >= x - width /2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
+                if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
                 {
-  
+
                     mover.accel = force;
                 }
-                else mover.accel = new Vec2(0,0);
-            
+                else mover.accel = new Vec2(0, 0);
+
             }
 
         }
