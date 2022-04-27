@@ -1,7 +1,15 @@
+/.vs/*
+
+
 **/obj
 *.vs
 
+
+
+*.exe
+*.pdb
 *.config
 *.csproj
 *.sln
 *.userprefs
+*.cache
