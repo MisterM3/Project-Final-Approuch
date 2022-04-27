@@ -162,7 +162,9 @@ public class MyGame : Game
 
 			case 3: // Level2 
 				currentScene = 3;
-				_lines.Add(new LineSegment(200, 400, 500, 400, 0xff00ff00, 3));
+
+				Fan fan = new Fan(new Vec2(400, 300), 100, 100);
+				AddChild(fan);
 			break;
 
 			case 4: //End screen
