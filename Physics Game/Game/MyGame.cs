@@ -110,6 +110,9 @@ public class MyGame : Game
 	public CollectableSystem GetCollectableSystem { 
 		get { return CS; }
 	}
+	public HUD GetHUD { 
+		get { return _hud; }
+	}
 
 	/****************************************************************************************/
 
