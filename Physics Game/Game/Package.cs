@@ -10,6 +10,11 @@ public class Package : Ball
 
     //seconds
     public float timer = 5.0f;
+
+    public bool sped = false;
+    public bool slow = false;
+    public bool normal = true;
+    public float spedTimer = 1.0f;
     public Package(Vec2 pPos, Vec2 pVel) : base(10, pPos, pVel)
     {
 
@@ -19,7 +24,7 @@ public class Package : Ball
     void Update()
     {
         base.Update();
-
+        Console.WriteLine(velocity.Length());
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
@@ -43,6 +48,11 @@ public class Package : Ball
         {
             alpha = 0.2f * timer;
             timer -= Time.deltaTime / 1000.0f;
+                
+            
+            
+
         }
     }
+
 }

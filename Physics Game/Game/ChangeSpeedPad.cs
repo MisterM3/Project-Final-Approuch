@@ -23,6 +23,9 @@ public class ChangeSpeedPad : Sprite {
     }
 
 
+    bool inside = true;
+
+
     public void Update()
     {
 
@@ -34,14 +37,30 @@ public class ChangeSpeedPad : Sprite {
         {
             Ball mover = myGame.GetMover(i);
 
-            if (mover.moving)
+          
+            if (mover is Package)
             {
+                Package pack = (Package)mover;
 
-                //Checks if package inside area of effect
-                if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
+                if (!pack.sped && speedChange > 1)
                 {
+                    //Checks if package inside area of effect
+                    if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
+                    {
 
-                    mover.velocity *= speedChange;
+                        if (pack.normal) pack.sped = true;
+                        else pack.normal = true;
+                        mover.velocity *= speedChange;
+                    }
+                }
+                if (!pack.slow && speedChange < 1) {
+                    if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
+                    {
+
+                        if (pack.normal) pack.slow = true;
+                        else pack.normal = true;
+                        mover.velocity *= speedChange;
+                    }
                 }
                 
 

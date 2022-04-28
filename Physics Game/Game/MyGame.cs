@@ -198,6 +198,9 @@ public class MyGame : Game
 				//Enemy
 				 _movers.Add( new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)) );
 
+				ChangeSpeedPad csp = new ChangeSpeedPad(new Vec2(240, 130), 60, 40, pSpeed: 0.5f);
+				AddChild(csp);
+
 				break;
 
 			case 3: // Level2 
