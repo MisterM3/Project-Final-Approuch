@@ -23,7 +23,7 @@ public class LevelTwo : Scene
         MyGame myGame = (MyGame)game;
 
         cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
-        objectOwner.AddChild(myGame.cannon);
+        AddChild(cannon);
 
         Fan fan = new Fan(new Vec2(400, 300), 100, 100);
         AddChild(fan);
@@ -34,8 +34,8 @@ public class LevelTwo : Scene
         myGame._endCircle = new EndCircle(new Vec2(400, 300));
         AddChild(myGame._endCircle);
 
-        Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
-        AddChild(cloud);
+     //   Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
+      //  AddChild(cloud);
 
         AddChild(objectOwner);
     }

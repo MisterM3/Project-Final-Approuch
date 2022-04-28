@@ -11,7 +11,7 @@ public class MyGame : Game
 
 	Canvas _lineContainer = null;
 
-	public Cannon cannon;
+	//public Cannon cannon;
 
 	CollectableSystem CS;
 	HUD _hud;
@@ -72,8 +72,8 @@ public class MyGame : Game
 		_lines = new List<LineSegment>();
 
         //Cannon
-        cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
-		AddChild(cannon);
+     //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
+	//	AddChild(cannon);
 
 
 		//LoadScene(_startSceneNumber);
@@ -150,7 +150,7 @@ public class MyGame : Game
         {
 			SceneManager.instance.LoadScene(currentScene);
 			CS.RestartStarsLevel();
-			cannon.shots = 2;
+			//cannon.shots = 2;
         }
 
         if (Input.GetKeyDown(Key.F1))

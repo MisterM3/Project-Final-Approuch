@@ -24,7 +24,7 @@ public class LevelOne : Scene
         MyGame myGame = (MyGame)game;
         //Cannon
         cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
-        objectOwner.AddChild(cannon);
+        AddChild(cannon);
 
         myGame._lines.Add(new LineSegment(new Vec2(50, 50), new Vec2(750, 50)));
         myGame._lines.Add(new LineSegment(new Vec2(750, 50), new Vec2(750, 550)));
@@ -72,16 +72,16 @@ public class LevelOne : Scene
 
         foreach (Ball _ball in myGame._movers)
         {
-            objectOwner.AddChild(_ball);
+            AddChild(_ball);
         }
 
         foreach (LineSegment _line in myGame._lines)
         {
-            objectOwner.AddChild(_line);
+            AddChild(_line);
         }
         foreach (Collectable _col in myGame._colect)
         {
-            objectOwner.AddChild(_col);
+            AddChild(_col);
         }
         AddChild(objectOwner);
     }

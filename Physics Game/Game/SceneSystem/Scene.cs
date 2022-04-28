@@ -16,12 +16,20 @@ public class Scene : GameObject
 
     public virtual void UnLoadScene()
     {
+
+
         foreach (GameObject gameObject in GetChildren())
         {
+
+            
             if (gameObject != SceneManager.instance)
             {
                 Console.WriteLine("Clearing scene: destroying object -" + gameObject);
                 gameObject.LateDestroy();
+                MyGame myGame = ((MyGame)game);
+
+                myGame._movers.Clear();
+                myGame._lines.Clear();
             }              
         }
         isActive = false;

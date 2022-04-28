@@ -68,6 +68,7 @@ public class SceneManager : GameObject
         {
             Console.WriteLine("Unloading scene: " + activeScene);
             activeScene.UnLoadScene();
+            Console.WriteLine(activeScene);
         }
         activeScene = scenes[sceneIndex];
 
