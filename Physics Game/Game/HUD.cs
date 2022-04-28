@@ -22,7 +22,7 @@ public class HUD : Pivot {
         shots = new EasyDraw(200, 50);
         shots.x = -25;
         shots.Fill(0);
-        shots.Text("Shots left: " + ((MyGame)game).cannon.shots, 50, 50);
+     //   shots.Text("Shots left: " + ((MyGame)game).cannon.shots, 50, 50);
         AddChild(shots);
 
         collectables = new EasyDraw(200, 50);       
@@ -33,7 +33,7 @@ public class HUD : Pivot {
 
     public void UpdateShots() {
         shots.ClearTransparent();
-        shots.Text("Shots left: " + ((MyGame)game).cannon.shots, 50, 50);
+      //  shots.Text("Shots left: " + ((MyGame)game).cannon.shots, 50, 50);
     }
 
     public void UpdateCol(int col) {

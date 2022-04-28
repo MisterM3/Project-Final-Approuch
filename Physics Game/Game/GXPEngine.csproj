@@ -51,7 +51,11 @@
     <Compile Include="Fan.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="MovablePlatform.cs" />
+    <Compile Include="LevelOne.cs" />
+    <Compile Include="LevelTwo.cs" />
     <Compile Include="Package.cs" />
+    <Compile Include="SceneSystem\Scene.cs" />
+    <Compile Include="SceneSystem\SceneManager.cs" />
     <Compile Include="z.Physics\Ball.cs" />
     <Compile Include="z.Physics\Box.cs" />
     <Compile Include="z.Physics\CollisionInfo.cs" />
