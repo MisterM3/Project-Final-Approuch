@@ -25,7 +25,7 @@ public class LevelTwo : Scene
         cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
         AddChild(cannon);
 
-        Fan fan = new Fan(new Vec2(400, 300), 100, 100);
+        Fan fan = new Fan(new Vec2(400, 300), 100, 100, pPower: 0.5f) ;
         AddChild(fan);
 
         Collectable col4 = new Collectable(30, new Vec2(400, 300));
@@ -34,9 +34,28 @@ public class LevelTwo : Scene
         myGame._endCircle = new EndCircle(new Vec2(400, 300));
         AddChild(myGame._endCircle);
 
-     //   Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
-      //  AddChild(cloud);
+        LineSegment ln = new LineSegment(new Vec2(333, 381), new Vec2(290, 441));
+        myGame._lines.Add(ln);
 
+        Button but = new Button(new Vec2(200, 100), ln);
+        AddChild(but);
+
+        //Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
+        //AddChild(cloud);
+
+        foreach (Ball _ball in myGame._movers)
+        {
+            AddChild(_ball);
+        }
+
+        foreach (LineSegment _line in myGame._lines)
+        {
+            AddChild(_line);
+        }
+        foreach (Collectable _col in myGame._colect)
+        {
+            AddChild(_col);
+        }
         AddChild(objectOwner);
     }
 

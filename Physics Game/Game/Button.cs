@@ -12,8 +12,12 @@ public class Button : Sprite {
     bool pressed;
     public Button(Vec2 pPos, LineSegment pWall) : base("colors.png") { 
     
+        SetOrigin(width/2, height/2);
         x = pPos.x;
         y = pPos.y;
+
+        width = 40;
+        height = 20;
 
         Wall = pWall;
     }
@@ -39,6 +43,7 @@ public class Button : Sprite {
                     
                         LineSegment line = myGame.GetLine(j);
                         if (line == Wall) line.Destroy();
+                        Console.WriteLine("dwadwad");
                     }
                     
                 }

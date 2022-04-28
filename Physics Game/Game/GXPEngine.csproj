@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcidRain.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="Cannon.cs" />
     <Compile Include="ChangeSpeedPad.cs" />
     <Compile Include="Collectable.cs" />
