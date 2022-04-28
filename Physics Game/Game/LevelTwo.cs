@@ -34,8 +34,23 @@ public class LevelTwo : Scene
         myGame._endCircle = new EndCircle(new Vec2(400, 300));
         AddChild(myGame._endCircle);
 
-     //   Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
-      //  AddChild(cloud);
+        Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
+        AddChild(cloud);
+
+
+        foreach (Ball _ball in myGame._movers)
+        {
+            AddChild(_ball);
+        }
+
+        foreach (LineSegment _line in myGame._lines)
+        {
+            AddChild(_line);
+        }
+        foreach (Collectable _col in myGame._colect)
+        {
+            AddChild(_col);
+        }
 
         AddChild(objectOwner);
     }

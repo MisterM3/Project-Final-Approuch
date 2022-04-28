@@ -182,6 +182,7 @@ public class MyGame : Game
 
 	public void RemoveLine(LineSegment line) {
 		_lines.Remove(line);
+		line.LateDestroy();
 	}
 
 
@@ -189,6 +190,7 @@ public class MyGame : Game
 	{
 
 		_movers.Remove(remove);
+		remove.LateDestroy();
 	}
 
 
