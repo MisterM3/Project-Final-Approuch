@@ -36,11 +36,12 @@ public class LevelTwo : Scene
         LineSegment ln = new LineSegment(new Vec2(333, 381), new Vec2(290, 441));
         myGame._lines.Add(ln);
 
+
         Button but = new Button(new Vec2(200, 100), ln);
         AddChild(but);
-
-        //Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
-        //AddChild(cloud);
+    
+            Clouds cloud = new Clouds(new Vec2(100, 200), new Vec2(200, 200), new Vec2(100, 100), new Vec2(200, 100));
+        AddChild(cloud);
 
         foreach (Ball _ball in myGame._movers)
         {
@@ -57,7 +58,11 @@ public class LevelTwo : Scene
         //{
         //    AddChild(_col);
         //}
+
+       
         AddChild(objectOwner);
+        
+        
     }
 
     public override void UnLoadScene()
