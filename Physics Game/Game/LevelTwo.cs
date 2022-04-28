@@ -28,8 +28,7 @@ public class LevelTwo : Scene
         Fan fan = new Fan(new Vec2(400, 300), 100, 100, pPower: 0.5f) ;
         AddChild(fan);
 
-        Collectable col4 = new Collectable(30, new Vec2(400, 300));
-        AddChild(col4);
+
 
         myGame._endCircle = new EndCircle(new Vec2(400, 300));
         AddChild(myGame._endCircle);
@@ -52,10 +51,12 @@ public class LevelTwo : Scene
         {
             AddChild(_line);
         }
-        foreach (Collectable _col in myGame._colect)
-        {
-            AddChild(_col);
-        }
+
+        ///No 3 collectables in level results in a crash
+        //foreach (Collectable _col in myGame._colect)
+        //{
+        //    AddChild(_col);
+        //}
         AddChild(objectOwner);
     }
 
