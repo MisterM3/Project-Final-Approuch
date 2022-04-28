@@ -6,7 +6,7 @@ public class Ball : EasyDraw
 	// These four public static fields are changed from MyGame, based on key input (see Console):
 	public static bool drawDebugLine = false;
 	public static bool wordy = false;
-	public static float bounciness = 0.98f;
+	public static float bounciness = 1.00f;
 
 
 

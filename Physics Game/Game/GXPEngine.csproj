@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cannon.cs" />
+    <Compile Include="ChangeSpeedPad.cs" />
     <Compile Include="Collectable.cs" />
     <Compile Include="Clouds.cs" />
     <Compile Include="CollectableSystem.cs" />
