@@ -53,8 +53,8 @@ public class Enemy2Way : Ball {
         x = position.x;
         y = position.y;
         
+       
         
-    
     }
 
     
