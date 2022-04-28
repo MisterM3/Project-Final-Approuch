@@ -198,6 +198,8 @@ public class MyGame : Game
 				//Enemy
 				 _movers.Add( new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)) );
 
+				AcidRain ac = new AcidRain(new Vec2(240, 120), 70, 50);
+				AddChild(ac);
 				break;
 
 			case 3: // Level2 

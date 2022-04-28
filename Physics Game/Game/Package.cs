@@ -8,6 +8,11 @@ using GXPEngine;
 public class Package : Ball
 {
 
+
+
+
+
+    public bool acid = false;
     //seconds
     public float timer = 5.0f;
     public Package(Vec2 pPos, Vec2 pVel) : base(10, pPos, pVel)
@@ -42,7 +47,8 @@ public class Package : Ball
         else
         {
             alpha = 0.2f * timer;
-            timer -= Time.deltaTime / 1000.0f;
+            if (acid) timer -= Time.deltaTime / 500.0f;
+            else timer -= Time.deltaTime / 1000.0f;
         }
     }
 }
