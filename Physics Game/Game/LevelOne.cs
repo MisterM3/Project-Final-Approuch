@@ -10,15 +10,16 @@ public class LevelOne : Scene
    
     public Cannon cannon;
     private Pivot objectOwner;
+    private SFXHandler sfxHandler;
 
-
-    public LevelOne() : base()
+    public LevelOne(Dictionary<string, Sound> soundLibrary) : base()
     {
-        
+        sfxHandler = new SFXHandler(soundLibrary, .2f);
     }
 
     protected override void Start()
     {
+        sfxHandler.PlaySound("LevelOneBG");
         isActive = true;
         objectOwner = new Pivot();
         MyGame myGame = (MyGame)game;

@@ -25,7 +25,13 @@ public class MyGame : Game
 
 	public EndCircle _endCircle;
 
-    public int GetNumberOfLines()
+	public Dictionary<string, Sound> soundLibrary = new Dictionary<string, Sound>()
+	{
+		{"Shoot",new Sound("testShoot.wav",false)},
+		{"LevelOneBG", new Sound("LevelOneBG.mp3")}
+	};
+
+	public int GetNumberOfLines()
     {
         return _lines.Count;
     }
@@ -92,7 +98,7 @@ public class MyGame : Game
 
 	public void SetUpScenes()
     {
-		LevelOne levelOne = new LevelOne();
+		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);
 		LevelTwo levelTwo = new LevelTwo();
 		SceneManager.instance.AddScene(levelTwo);
