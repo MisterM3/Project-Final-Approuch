@@ -198,6 +198,9 @@ public class MyGame : Game
 				//Enemy
 				 _movers.Add( new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)) );
 
+				MoveableLine move = new MoveableLine(new Vec2(100, 100), new Vec2(200, 200), new Vec2(-50, 150));
+				_lines.Add(move);
+
 				break;
 
 			case 3: // Level2 
