@@ -24,7 +24,7 @@ public class LevelOne : Scene
         objectOwner = new Pivot();
         MyGame myGame = (MyGame)game;
         //Cannon
-        cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
+        cannon = new Cannon(game.height/2 - 460, game.width / 2 - 650, 10);
         AddChild(cannon);
 
         myGame._lines.Add(new LineSegment(new Vec2(50, 50), new Vec2(750, 50)));
