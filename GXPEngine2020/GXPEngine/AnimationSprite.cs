@@ -31,7 +31,8 @@ namespace GXPEngine
 		/// The name of the file to be loaded. Files are cached internally.
 		/// Texture sizes should be a power of two: 1, 2, 4, 8, 16, 32, 64 etc.
 		/// The width and height don't need to be the same.
-		/// If you want to load transparent sprites, use .PNG with transparency.
+		/// If you 
+		/// nt to load transparent sprites, use .PNG with transparency.
 		/// </param>
 		/// <param name='cols'>
 		/// Number of columns in the animation.

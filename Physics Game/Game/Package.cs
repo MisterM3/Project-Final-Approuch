@@ -29,7 +29,6 @@ public class Package : Ball
     void Update()
     {
         base.Update();
-        Console.WriteLine(velocity.Length());
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
@@ -39,7 +38,6 @@ public class Package : Ball
             {
                 if (myGame.GetMover(i) == this)
                 {
-                    Console.WriteLine("deada");
                     myGame.RemoveBalls(this);
                     this.LateDestroy();
                 }

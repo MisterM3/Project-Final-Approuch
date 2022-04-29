@@ -10,6 +10,7 @@ public class Clouds : Pivot {
     LineSegment[] lines = new LineSegment[4];
     Ball[] caps = new Ball[4];
 
+    bool poof = false;
     MyGame myGame;
 
     //pRot is in Deg
@@ -45,10 +46,12 @@ public class Clouds : Pivot {
                 Ball mover = myGame.GetMover(j);
 
                 if (mover.moving && mover.latestCollision == lines[i]) {
-                    DeleteCloud();
+                    poof = true;
                 }
             }
         }
+
+        if (poof) DeleteCloud(); 
     }
 
 

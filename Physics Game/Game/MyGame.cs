@@ -18,7 +18,7 @@ public class MyGame : Game
 
 	public List<Ball> _movers;
 	public List<LineSegment> _lines;
-//	List<Enemy2Way> _enemy2Ways = new List<Enemy2Way>();
+	//	List<Enemy2Way> _enemy2Ways = new List<Enemy2Way>();
 	public Collectable[] _colect = new Collectable[3];
 
 	LevelOne levelOne;
@@ -32,25 +32,25 @@ public class MyGame : Game
 	};
 
 	public int GetNumberOfLines()
-    {
-        return _lines.Count;
-    }
+	{
+		return _lines.Count;
+	}
 
-    public LineSegment GetLine(int index)
-    {
-        if (index >= 0 && index < _lines.Count)
-        {
-            return _lines[index];
-        }
-        return null;
-    }
+	public LineSegment GetLine(int index)
+	{
+		if (index >= 0 && index < _lines.Count)
+		{
+			return _lines[index];
+		}
+		return null;
+	}
 
-    public int GetNumberOfMovers()
-    {
-        return _movers.Count;
-    }
+	public int GetNumberOfMovers()
+	{
+		return _movers.Count;
+	}
 
-    public Ball GetMover(int index)
+	public Ball GetMover(int index)
 	{
 		if (index >= 0 && index < _movers.Count)
 		{
@@ -64,8 +64,17 @@ public class MyGame : Game
 		_lineContainer.graphics.DrawLine(Pens.White, start.x, start.y, end.x, end.y);
 	}
 
+	public int Width {
+		//get { return width; }
+			get { return width / 125 * 100; }
+	}
 
-	public MyGame() : base(800, 600, false, false)
+	public int Height
+	{
+		//get { return height; }
+		get { return height / 125 * 100; }
+	}
+	public MyGame() : base(1920, 1080, false, false)
 	{
 	//	UnitTesting ut = new UnitTesting();
 
@@ -150,6 +159,7 @@ public class MyGame : Game
 		}
 
         if (Input.GetMouseButtonDown(1)) Console.WriteLine(new Vec2(Input.mouseX, Input.mouseY));
+        if (Input.GetKeyDown(Key.SPACE)) Console.WriteLine("###################################################################");
 
         //Load/reset scenes:
         if (Input.GetKeyDown(Key.R))
