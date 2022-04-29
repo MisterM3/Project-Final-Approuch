@@ -46,16 +46,16 @@ public class LevelTwo : Scene
         //Button but = new Button(new Vec2(200, 100), ln);
         //AddChild(but);
     
-            Clouds cloud = new Clouds(new Vec2(1190, 255), new Vec2(1265, 180), new Vec2(930, 0), new Vec2(1080, 0));
+            Clouds cloud = new Clouds(new Vec2(1186, 243), new Vec2(1260, 170), new Vec2(925, 0), new Vec2(1080, 0));
         AddChild(cloud);
 
-        Clouds cloud1 = new Clouds(new Vec2(690, 560), new Vec2(775, 480), new Vec2(425, 300), new Vec2(505, 220));
+        Clouds cloud1 = new Clouds(new Vec2(690, 530), new Vec2(773, 455), new Vec2(422, 283), new Vec2(504, 205));
         AddChild(cloud1);
 
-        Clouds cloud2 = new Clouds(new Vec2(362, 790), new Vec2(531, 792), new Vec2(325, 754), new Vec2(325, 591));
+        Clouds cloud2 = new Clouds(new Vec2(1241, 491), new Vec2(1533, 490), new Vec2(1242, 443), new Vec2(1534, 444));
         AddChild(cloud2);
 
-        Clouds cloud3 = new Clouds(new Vec2(1245, 517), new Vec2(1920, 517), new Vec2(1245, 467), new Vec2(1920, 467));
+        Clouds cloud3 = new Clouds(new Vec2(416, 801), new Vec2(578, 801), new Vec2(324, 715), new Vec2(326, 564));
         AddChild(cloud3);
 
 
@@ -64,10 +64,10 @@ public class LevelTwo : Scene
         myGame._colect[2] = new Collectable(30, new Vec2(1341, 661));
 
         //Outside
-        myGame._lines.Add ( new LineSegment(new Vec2(0, 1080), new Vec2(0,0)) );
-        myGame._lines.Add( new LineSegment(new Vec2(1920, 1080), new Vec2(0, 1080)) );
-        myGame._lines.Add(new LineSegment(new Vec2(1920, 0), new Vec2(1920, 1080)) );
-        myGame._lines.Add(new LineSegment( new Vec2(0, 0), new Vec2(1920, 0)) );
+        myGame._lines.Add ( new LineSegment(new Vec2(0, 801), new Vec2(0,0)) );
+        myGame._lines.Add( new LineSegment(new Vec2(1536, 801), new Vec2(0, 801)) );
+        myGame._lines.Add(new LineSegment(new Vec2(1536, 0), new Vec2(1536, 801)) );
+        myGame._lines.Add(new LineSegment( new Vec2(0, 0), new Vec2(1536, 0)) );
 
         //lines[0] = new LineSegment(pTopLeft, pBottomLeft);
         //lines[1] = new LineSegment(pBottomLeft, pBottomRight);
