@@ -69,6 +69,10 @@ public class LevelTwo : Scene
         myGame._lines.Add(new LineSegment(new Vec2(1536, 0), new Vec2(1536, 801)) );
         myGame._lines.Add(new LineSegment( new Vec2(0, 0), new Vec2(1536, 0)) );
 
+        //Box bottom left (Make new Class later to clean up
+        Clouds cloud4 = new Clouds(new Vec2(0, 801), new Vec2(325, 801), new Vec2(0, 549), new Vec2(324,549), pWall: true);
+        AddChild(cloud4);
+
         //lines[0] = new LineSegment(pTopLeft, pBottomLeft);
         //lines[1] = new LineSegment(pBottomLeft, pBottomRight);
         //lines[2] = new LineSegment(pBottomRight, pTopRight);
