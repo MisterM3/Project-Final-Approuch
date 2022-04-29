@@ -43,11 +43,11 @@ public class Button : Sprite {
                     
                         LineSegment line = myGame.GetLine(j);
                         if (line == Wall) line.Destroy();
-                        Console.WriteLine("dwadwad");
+
                     }
                     
                 }
-                else mover.accel = new Vec2(0, 0);
+
 
             }
 

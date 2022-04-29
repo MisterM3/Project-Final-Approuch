@@ -36,16 +36,15 @@ public class Fan : Sprite
         {
             Ball mover = myGame.GetMover(i);
 
-            if (mover.moving)
+            if (mover is Package)
             {
 
                 //Checks if package inside area of effect
                 if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
                 {
-
                     mover.accel = force;
-                }
-                else mover.accel = new Vec2(0, 0);
+                  
+                } else mover.accel = new Vec2(0, 0);
 
             }
 

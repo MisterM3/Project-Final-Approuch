@@ -10,13 +10,18 @@ public class Clouds : Pivot {
     LineSegment[] lines = new LineSegment[4];
     Ball[] caps = new Ball[4];
 
+    bool poof = false;
     MyGame myGame;
 
+    bool wall = false;
+
     //pRot is in Deg
-    public Clouds(Vec2 pBottomLeft, Vec2 pBottomRight, Vec2 pTopLeft, Vec2 pTopRight, float pRot = 0) : base()
+
+    //Make A wall class to clean up
+    public Clouds(Vec2 pBottomLeft, Vec2 pBottomRight, Vec2 pTopLeft, Vec2 pTopRight, float pRot = 0, bool pWall = false) : base()
     {
 
-
+        wall = pWall;
         lines[0] = new LineSegment(pTopLeft, pBottomLeft);
         lines[1] = new LineSegment(pBottomLeft, pBottomRight);
         lines[2] = new LineSegment(pBottomRight, pTopRight);
@@ -37,7 +42,7 @@ public class Clouds : Pivot {
 
     public void Update() {
 
-
+        if (wall) return;
         for (int i = 0; i < lines.Length; i++) {
 
             for (int j = 0; j < myGame.GetNumberOfMovers(); j++) {
@@ -45,10 +50,12 @@ public class Clouds : Pivot {
                 Ball mover = myGame.GetMover(j);
 
                 if (mover.moving && mover.latestCollision == lines[i]) {
-                    DeleteCloud();
+                    poof = true;
                 }
             }
         }
+
+        if (poof) DeleteCloud(); 
     }
 
 
