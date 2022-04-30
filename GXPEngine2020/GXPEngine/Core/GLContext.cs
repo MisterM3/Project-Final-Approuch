@@ -1,4 +1,5 @@
 //#define USE_FMOD_AUDIO
+#define STRETCH_ON_RESIZE
 
 using System;
 using GXPEngine.OpenGL;
@@ -21,6 +22,8 @@ namespace GXPEngine.Core {
 		private static bool[] buttons = new bool[MAXBUTTONS+1];
 		private static bool[] mousehits = new bool[MAXBUTTONS+1];
 		private static bool[] mouseup = new bool[MAXBUTTONS+1]; //mouseup kindly donated by LeonB
+		private static int keyPressedCount = 0;
+		private static bool anyKeyDown = false;
 
 		public static int mouseX = 0;
 		public static int mouseY = 0;
@@ -95,8 +98,8 @@ namespace GXPEngine.Core {
 			GL.glfwSetKeyCallback(
 				(int _key, int _mode) => {
 				bool press = (_mode == 1);
-				if (press) keydown[_key] = true;
-				else keyup[_key] = true;
+				if (press) { keydown[_key] = true; anyKeyDown = true; keyPressedCount++; } 
+				else { keyup[_key] = true; keyPressedCount--; }
 				keys[_key] = press;
 			});
 			
@@ -121,13 +124,19 @@ namespace GXPEngine.Core {
 				// Load the basic projection settings:
 				GL.MatrixMode(GL.PROJECTION);
 				GL.LoadIdentity();
+
+#if STRETCH_ON_RESIZE
+				_realToLogicWidthRatio = (double)newWidth / WindowSize.instance.width;
+				_realToLogicHeightRatio = (double)newHeight / WindowSize.instance.height;
+#endif
 				// Here's where the conversion from logical width/height to real width/height happens: 
 				GL.Ortho(0.0f, newWidth / _realToLogicWidthRatio, newHeight / _realToLogicHeightRatio, 0.0f, 0.0f, 1000.0f);
-
+#if !STRETCH_ON_RESIZE
 				lock (WindowSize.instance) {
 					WindowSize.instance.width = (int)(newWidth/_realToLogicWidthRatio);
 					WindowSize.instance.height = (int)(newHeight/_realToLogicHeightRatio);
 				}
+#endif
 
 				if (Game.main!=null) {
 					Game.main.RenderRange=new Rectangle(0,0,WindowSize.instance.width,WindowSize.instance.height);
@@ -155,6 +164,11 @@ namespace GXPEngine.Core {
 			} else {
 				GL.glfwDisable(GL.GLFW_MOUSE_CURSOR);
 			}
+		}
+
+		public void SetVSync(bool enableVSync) {
+			_vsyncEnabled = enableVSync;
+			GL.glfwSwapInterval(_vsyncEnabled);
 		}
 		
 		//------------------------------------------------------------------------------------------------------------------------
@@ -290,6 +304,14 @@ namespace GXPEngine.Core {
 			return keyup[key];
 		}
 		
+		public static bool AnyKey() {
+			return keyPressedCount > 0;
+		}
+
+		public static bool AnyKeyDown() {
+			return anyKeyDown;
+		}
+
 		//------------------------------------------------------------------------------------------------------------------------
 		//														GetMouseButton()
 		//------------------------------------------------------------------------------------------------------------------------
@@ -319,6 +341,7 @@ namespace GXPEngine.Core {
 			Array.Clear (keyup, 0, MAXKEYS);
 			Array.Clear (mousehits, 0, MAXBUTTONS);
 			Array.Clear (mouseup, 0, MAXBUTTONS);
+			anyKeyDown = false;
 		}
 		
 		//------------------------------------------------------------------------------------------------------------------------

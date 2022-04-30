@@ -39,6 +39,14 @@ namespace GXPEngine
 			initializeFromTexture(new Texture2D(bitmap));
 		}
 
+		public Sprite(Texture2D texture, bool addCollider = true) : base(addCollider) {
+			if (Game.main == null) {
+				throw new Exception("Sprites cannot be created before creating a Game instance.");
+			}
+			name = "Sprite from " + texture.filename;
+			initializeFromTexture(texture);
+		}
+
 		//------------------------------------------------------------------------------------------------------------------------
 		//														OnDestroy()
 		//------------------------------------------------------------------------------------------------------------------------
@@ -92,6 +100,14 @@ namespace GXPEngine
 			float top = _mirrorY?1.0f:0.0f;
 			float bottom = _mirrorY?0.0f:1.0f;
 			_uvs = new float[8] { left, top, right, top, right, bottom, left, bottom };
+		}
+
+		public float[] GetUVs(bool safe=true) {
+			if (safe) {
+				return (float[])_uvs.Clone();
+			} else {
+				return _uvs;
+			}
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
