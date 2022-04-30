@@ -7,7 +7,7 @@ namespace GXPEngine {
 	/// This is not a gameobject. Instead, subscribe the RenderWindow method to the main game's 
 	/// OnAfterRender event.
 	/// </summary>
-	class Window {
+	public class Window {
 		/// <summary>
 		/// The x coordinate of the window's left side
 		/// </summary>
@@ -30,6 +30,22 @@ namespace GXPEngine {
 			set {
 				_windowY = value;
 				_dirty = true;
+			}
+		}
+		/// <summary>
+		/// The x coordinate of the window center
+		/// </summary>
+		public float centerX {
+			get {
+				return _windowX + _width / 2f;
+			}
+		}
+		/// <summary>
+		/// The y coordinate of the window center
+		/// </summary>
+		public float centerY {
+			get {
+				return _windowY + _height / 2f;
 			}
 		}
 		/// <summary>
@@ -108,12 +124,12 @@ namespace GXPEngine {
 
 			if (current is Game) {// otherwise, the camera is not in the scene hierarchy, so render nothing - not even a black background
 				Game main=Game.main;
+				var oldRange = main.RenderRange;
 				SetRenderRange();
-				main.SetViewport (_windowX, _windowY, _width, _height);
+				main.SetViewport (_windowX, _windowY, _width, _height, false);
 				GL.Clear(GL.COLOR_BUFFER_BIT);
 				current.Render (glContext);
-				main.SetViewport (0, 0, Game.main.width, Game.main.height);
-				main.RenderRange = new GXPEngine.Core.Rectangle (0, 0, main.width, main.height);
+				main.SetViewport ((int)oldRange.left, (int)oldRange.top, (int)oldRange.width, (int)oldRange.height);
 			}
 			
 			for (int i=0; i<pushes; i++) {

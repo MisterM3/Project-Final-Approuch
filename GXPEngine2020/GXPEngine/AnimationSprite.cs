@@ -17,9 +17,9 @@ namespace GXPEngine
 		protected int _currentFrame;
 
 		protected int _startFrame = 0;
-		protected byte _animationDelay = 10;
+		protected byte _animationDelay = 1;
 
-		private byte _animationFrameCounter = 0;
+		private float _animationFrameCounter = 0;
 		
 		//------------------------------------------------------------------------------------------------------------------------
 		//														AnimSprite()
@@ -31,8 +31,7 @@ namespace GXPEngine
 		/// The name of the file to be loaded. Files are cached internally.
 		/// Texture sizes should be a power of two: 1, 2, 4, 8, 16, 32, 64 etc.
 		/// The width and height don't need to be the same.
-		/// If you 
-		/// nt to load transparent sprites, use .PNG with transparency.
+		/// If you want to load transparent sprites, use .PNG with transparency.
 		/// </param>
 		/// <param name='cols'>
 		/// Number of columns in the animation.
@@ -251,13 +250,25 @@ namespace GXPEngine
 		/// jumps to the next animation frame in the cycle.
 		/// Call this method every update, and use it in combination with SetCycle to 
 		/// create a timed sprite animation.
+		/// Smaller values for deltaFrameTime slow down the animation. 
 		/// </summary>
-		public void Animate() {
-			_animationFrameCounter++;
+		public void Animate(float deltaFrameTime=1) {
+			_animationFrameCounter+=deltaFrameTime;
 			if (_animationFrameCounter>=_animationDelay) {
 				NextFrame();
-				_animationFrameCounter=0;
+				_animationFrameCounter-=_animationDelay;
 			}
+		}
+
+		//------------------------------------------------------------------------------------------------------------------------
+		//														AnimateFixed()
+		//------------------------------------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Plays the animation cycle given by SetCycle at constant speed, independent of current FPS.
+		/// The number of animation frames per second is [game.targetFps / _animationDelay].
+		/// </summary>
+		public void AnimateFixed() {
+			Animate(game.targetFps * Time.deltaTime / 1000f);
 		}
 		
 		//------------------------------------------------------------------------------------------------------------------------

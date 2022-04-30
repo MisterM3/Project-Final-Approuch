@@ -26,8 +26,8 @@ public class LevelTwo : Scene
         Sprite bg = new Sprite("1.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);
-        bg.width = 1536;
-        bg.height = 801;
+        bg.width = 1920;
+        bg.height = 1080;
         AddChild(bg);
 
         cannon = new Cannon(0, 450, 10);
