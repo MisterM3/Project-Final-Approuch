@@ -14,6 +14,12 @@ public class LevelSelect : Scene {
 
     Sprite _backGround;
     Sprite _bottom;
+    Sprite _hover;
+    Sprite starEmpty = new Sprite("star_empty.png");
+    Sprite starEmpty2 = new Sprite("star_empty.png");
+    Sprite starFull = new Sprite("Star_Full.png");
+
+    Vec2 stabalise = new Vec2(580, 515);
     public LevelSelect(Worlds pWorld) {
 
        _world = pWorld;
@@ -44,7 +50,9 @@ public class LevelSelect : Scene {
         switch (_world)
         {
             case Worlds.Nephelle:
-                _backGround = new Sprite("World1BG.png");
+                _backGround = new Sprite("test1.png");
+                _hover = new Sprite("backgroundHover.png");
+                _bottom = new Sprite("level1.png");
                 break;
             case Worlds.Bethel:
                 Console.WriteLine("World Bethel is not implemented yet!");
@@ -57,11 +65,25 @@ public class LevelSelect : Scene {
 
     void MakeWorld() {
 
-        AddChild(_backGround);
+       AddChild(_backGround);
+        BottonLevel Level1 = new BottonLevel(new Vec2(577, 526), Worlds.Nephelle, 1);
+        AddChild(Level1);
 
+
+        //_hover.SetOrigin(_hover.width/2, _hover.height/2);
+        //_hover.SetXY(573, 528);
+        //AddChild(_hover);
+
+        //_bottom.SetOrigin(_bottom.width/2, _bottom.height/2);
+        //_bottom.SetXY(577, 526);
+        //AddChild(_bottom);
+
+        //starEmpty.SetOrigin(_st)
     
     
     }
+
+
 
 
 
