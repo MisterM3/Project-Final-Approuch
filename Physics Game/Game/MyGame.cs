@@ -31,6 +31,8 @@ public class MyGame : Game
 		{"LevelOneBG", new Sound("LevelOneBG.mp3")}
 	};
 
+	
+
 	public int GetNumberOfLines()
 	{
 		return _lines.Count;
@@ -74,6 +76,8 @@ public class MyGame : Game
 		//get { return height; }
 		get { return height / 125 * 100; }
 	}
+
+
 	public MyGame() : base(1920, 1080, false, false)
 	{
 	//	UnitTesting ut = new UnitTesting();
@@ -83,6 +87,9 @@ public class MyGame : Game
 
 		targetFps = 60;
 
+		LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
+		AddChild(ls);
+	
 		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
@@ -137,6 +144,11 @@ public class MyGame : Game
 	public HUD GetHUD { 
 		get { return _hud; }
 	}
+
+
+
+
+
 
 	/****************************************************************************************/
 

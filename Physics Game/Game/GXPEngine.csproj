@@ -54,6 +54,7 @@
     <Compile Include="MovablePlatform.cs" />
     <Compile Include="LevelOne.cs" />
     <Compile Include="LevelTwo.cs" />
+    <Compile Include="NephelleSelect.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="SceneSystem\Scene.cs" />
     <Compile Include="SceneSystem\SceneManager.cs" />
