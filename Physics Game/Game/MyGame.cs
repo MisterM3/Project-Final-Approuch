@@ -87,9 +87,6 @@ public class MyGame : Game
 
 		targetFps = 60;
 
-		LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
-		AddChild(ls);
-	
 		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
@@ -97,23 +94,29 @@ public class MyGame : Game
      //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
 	//	AddChild(cannon);
 
+		CS = new CollectableSystem();
+		AddChild(CS);
+		CS.LoadStars();
+		CS.PrintStars();
 
 		//LoadScene(_startSceneNumber);
 		SetUpScenes();
 		PrintInfo();
 
 
-		CS = new CollectableSystem();
-		AddChild(CS);
-		CS.LoadStars();
-		CS.PrintStars();
 
-		_hud = new HUD(new Vec2(200, 200));
-		AddChild(_hud);		
+		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
+		//AddChild(ls);
+	
+	//	_hud = new HUD(new Vec2(200, 200));
+	//	AddChild(_hud);		
 	}
 
 	public void SetUpScenes()
     {
+
+		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
+		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);
 		LevelTwo levelTwo = new LevelTwo();

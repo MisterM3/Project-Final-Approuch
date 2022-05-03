@@ -50,7 +50,7 @@ public class LevelSelect : Scene {
         switch (_world)
         {
             case Worlds.Nephelle:
-                _backGround = new Sprite("test1.png");
+                _backGround = new Sprite("World1BG.png");
                 _hover = new Sprite("backgroundHover.png");
                 _bottom = new Sprite("level1.png");
                 break;
@@ -62,27 +62,20 @@ public class LevelSelect : Scene {
                 break;
         }
     }
-
+    BottonLevel Level2;
     void MakeWorld() {
 
        AddChild(_backGround);
-        BottonLevel Level1 = new BottonLevel(new Vec2(577, 526), Worlds.Nephelle, 1);
-        AddChild(Level1);
+
+        for (int i = 0; i < 3; i++)
+        {
+            BottonLevel level = new BottonLevel(new Vec2(577 + 379 * i, 526), Worlds.Nephelle, i);
+            AddChild(level);
+        }
+   
 
 
-        //_hover.SetOrigin(_hover.width/2, _hover.height/2);
-        //_hover.SetXY(573, 528);
-        //AddChild(_hover);
-
-        //_bottom.SetOrigin(_bottom.width/2, _bottom.height/2);
-        //_bottom.SetXY(577, 526);
-        //AddChild(_bottom);
-
-        //starEmpty.SetOrigin(_st)
-    
-    
     }
-
 
 
 

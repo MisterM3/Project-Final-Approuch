@@ -8,7 +8,7 @@ using GXPEngine;
 
 public class BottonLevel : Pivot
 {
-    
+
     Sprite _bottom;
     Sprite _hover;
     Sprite starEmpty = new Sprite("star_empty.png");
@@ -17,13 +17,19 @@ public class BottonLevel : Pivot
 
     LevelSelect.Worlds _world;
 
+    int _level;
+
+    int stars;
+
+    int radius = 130;
     public BottonLevel(Vec2 pPos, LevelSelect.Worlds pWorld, int pLevel) : base() {
 
-        
+        _level = pLevel;
         x = pPos.x;
         y = pPos.y;
         _world = pWorld;
         ImportSprites();
+        ImportStars();
         ImportNumber();
         MakeButton();
     }
@@ -48,7 +54,7 @@ public class BottonLevel : Pivot
 
     public void MakeButton() {
 
-    
+
 
 
         _hover.SetOrigin(_hover.width / 2, _hover.height / 2);
@@ -61,28 +67,75 @@ public class BottonLevel : Pivot
         AddChild(_bottom);
 
         number.SetOrigin(number.width / 2, number.height / 2);
-        number.SetXY(-1,-8);
+        number.SetXY(-1, -8);
         AddChild(number);
+
+
+        int totalStars = 3;
+        for (int i = 0; i < stars; i++) {
+
+            totalStars--;
+            Sprite starFull = new Sprite("Star_Full.png");
+            starFull.SetOrigin(starEmpty.width / 2, starEmpty.height / 2);
+            starFull.SetXY(-67 + 67 * i, 137);
+            AddChild(starFull);
+        }
+        for (int i = 0; i < totalStars; i++)
+        {
+            Sprite starEmpty = new Sprite("star_empty.png");
+            starEmpty.SetOrigin(starEmpty.width /2, starEmpty.height / 2);
+            starEmpty.SetXY(67 - 67 * i, 137);
+            AddChild(starEmpty);
+        }
+
+
     }
 
-    public void ImportStars() { 
-    
+    public void ImportStars()
+    {
+
+        //-1 to make it start at level 0 as the collectable system works with it
+        int level = _level + (int) _world * 3;
+
+        CollectableSystem CS = ((MyGame)game).GetCollectableSystem;
+        stars = CS.GetStars(level);
     }
 
-    public void ImportNumber() { 
     
+
+    public void ImportNumber() {
+
+        switch (_level)
+        {
+
+            case 0:
+                number = new Sprite("number1.png");
+                break;
+            case 1:
+                number = new Sprite("number2.png");
+                break;
+            case 2:
+                number = new Sprite("number3.png");
+                break;
+            default:
+                Console.WriteLine("number is not available");
+                break;
+
+
+
+        }
     
     }
 
     void Update()
     {
-        if (Input.GetKey(Key.G)) number.y++;
-        if (Input.GetKey(Key.T)) number.y--;
-        if (Input.GetKey(Key.F)) number.x--;
-        if (Input.GetKey(Key.H)) number.x++;
+        Hover();
+    }
 
-        if (Input.GetKey(Key.V)) Console.WriteLine(new Vec2(number.x, number.y));
 
-        if (Input.GetKey(Key.W)) _hover.alpha = 1;
+    public void Hover() {
+
+        if (Input.mouseX < x + radius && Input.mouseX > x - radius && Input.mouseY < y + radius && Input.mouseY > y - radius) _hover.alpha = 1;
+        else _hover.alpha = 0;
     }
 } 
