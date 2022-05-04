@@ -14,6 +14,7 @@ public class MyGame : Game
 	//public Cannon cannon;
 
 	CollectableSystem CS;
+	public ParticleSystem PS;
 	HUD _hud;
 
 	public List<Ball> _movers;
@@ -86,10 +87,11 @@ public class MyGame : Game
 		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
-        //Cannon
-     //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
-	//	AddChild(cannon);
-
+		//Cannon
+		//  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
+		//	AddChild(cannon);
+		PS = new ParticleSystem();
+		AddChild(PS);
 
 		//LoadScene(_startSceneNumber);
 		SetUpScenes();

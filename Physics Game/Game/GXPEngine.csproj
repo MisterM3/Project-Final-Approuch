@@ -55,6 +55,8 @@
     <Compile Include="LevelOne.cs" />
     <Compile Include="LevelTwo.cs" />
     <Compile Include="Package.cs" />
+    <Compile Include="Particle.cs" />
+    <Compile Include="ParticleSystem.cs" />
     <Compile Include="SceneSystem\Scene.cs" />
     <Compile Include="SceneSystem\SceneManager.cs" />
     <Compile Include="SFXHandler.cs" />
