@@ -101,7 +101,7 @@ public class MyGame : Game
 		CS.LoadStars();
 		CS.PrintStars();
 
-		_hud = new HUD(new Vec2(200, 200));
+		_hud = new HUD(new Vec2(-200, -200));
 		AddChild(_hud);		
 	}
 
