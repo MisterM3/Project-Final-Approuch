@@ -18,6 +18,7 @@ public class BottonLevel : Pivot
     LevelSelect.Worlds _world;
 
     int _level;
+    int levelInTotal;
 
     int stars;
 
@@ -95,10 +96,10 @@ public class BottonLevel : Pivot
     {
 
         //-1 to make it start at level 0 as the collectable system works with it
-        int level = _level + (int) _world * 3;
+        levelInTotal = _level + (int) _world * 3;
 
         CollectableSystem CS = ((MyGame)game).GetCollectableSystem;
-        stars = CS.GetStars(level);
+        stars = CS.GetStars(levelInTotal);
     }
 
     
@@ -135,7 +136,12 @@ public class BottonLevel : Pivot
 
     public void Hover() {
 
-        if (Input.mouseX < x + radius && Input.mouseX > x - radius && Input.mouseY < y + radius && Input.mouseY > y - radius) _hover.alpha = 1;
+        if (Input.mouseX < x + radius && Input.mouseX > x - radius && Input.mouseY < y + radius && Input.mouseY > y - radius)
+        {
+            _hover.alpha = 1;
+
+            if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(levelInTotal + 1);
+        }
         else _hover.alpha = 0;
     }
 } 

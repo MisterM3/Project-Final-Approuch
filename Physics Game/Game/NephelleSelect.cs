@@ -62,7 +62,7 @@ public class LevelSelect : Scene {
                 break;
         }
     }
-    BottonLevel Level2;
+    
     void MakeWorld() {
 
        AddChild(_backGround);
