@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GXPEngine;
 
 public class Collectable : Sprite {
-
+    //
     public Collectable(int pRadius, Vec2 pPos) : base("circle.png") { 
     
         SetOrigin(width/2, height/2);
