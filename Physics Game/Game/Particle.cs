@@ -11,7 +11,7 @@ public class Particle : Ball
     public bool regen = false;
     public Particle(int pRadius, Vec2 pPosition, Vec2 pVelocity = new Vec2(), float RunTime = 1.0f) : base(pRadius, pPosition, pVelocity) 
     {
-        runTimer = RunTime + Utils.Random(-0.5f, 0.5f);
+        runTimer = RunTime + Utils.Random(-RunTime/4, RunTime/4);
 
     }
 

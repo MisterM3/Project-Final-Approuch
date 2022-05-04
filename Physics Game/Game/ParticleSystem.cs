@@ -13,8 +13,8 @@ public class ParticleSystem : Pivot {
 
     public ParticleSystem()
     {
-        x = 400;
-        y = 300;
+        x = 0;
+        y = 0;
     }
 
     public void Update() {
@@ -31,7 +31,7 @@ public class ParticleSystem : Pivot {
             Boom();
         }
         else if (Input.GetKeyDown(Key.D)) {
-            Cone(180.0f, 45.0f);
+            Cone(new Vec2(400, 400), 180.0f, 60.0f, velocity: 0.5f);
         }
     }
     public void Boom() {
@@ -54,15 +54,15 @@ public class ParticleSystem : Pivot {
         }
     }
 
-    public void Cone(float middleDeg, float turnDeg) {
+    public void Cone(Vec2 pPos, float middleDeg, float turnDeg, int size = 1, float pRunTime = 1f, float velocity = 5.0f) {
         for (int i = 0; i < particles; i++)
         {
-            Particle ball = new Particle(10, new Vec2(400, 300));
+            Particle ball = new Particle(size, pPos, RunTime: pRunTime);
 
             float angle = middleDeg + Utils.Random(-turnDeg, turnDeg);
             ball.velocity = new Vec2(0, 1);
             ball.velocity.SetAngleDeg(angle);
-            ball.velocity *= Utils.Random(0, 5.0f);
+            ball.velocity *= Utils.Random(0, velocity);
 
             //ball.velocity = new Vec2(Utils.Random(-3.0f, 3.0f), Utils.Random(-3.0f, 3.0f));
             parent.AddChild(ball);
