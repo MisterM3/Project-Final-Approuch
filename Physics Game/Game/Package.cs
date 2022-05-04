@@ -32,7 +32,7 @@ public class Package : Ball
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
-
+            ((MyGame)game).PS.Boom(position, 1, 0.1f, 2.0f);
             MyGame myGame = ((MyGame)game);
             for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
             {
