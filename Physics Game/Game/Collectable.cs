@@ -29,6 +29,7 @@ public class Collectable : Sprite {
 
                 if (relPos.Length() < (width / 2) + mover.radius)
                 {
+                    ((MyGame)game).PS.Boom(new Vec2(x, y), 2, 0.2f, 2.0f);
                     CollectableSystem CS = myGame.GetCollectableSystem;
                     CS.AddStarsLevel();
                     this.LateDestroy();

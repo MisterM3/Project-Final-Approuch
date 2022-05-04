@@ -47,12 +47,22 @@ public class Package : Ball
 
 
         }
-        else
-        {
-            alpha = 0.2f * timer;
-            if (acid) timer -= Time.deltaTime / 500.0f;
-            else timer -= Time.deltaTime / 1000.0f;
+        else if (latestCollision != null) {
+
+            latestCollision = null;
+           
+            
+            Vec2 returnPos = Vec2.GetUnitVectorDeg(velocity.GetAngleDeg() - 180.0f);
+            Vec2 Pos = position + returnPos * 10;
+
+
+            ((MyGame)game).PS.Cone(Pos, latestNormal.GetAngleDeg(), 60.0f, pRunTime: 0.5f, velocity: 2f);
+            latestNormal = new Vec2(0, 0);
         }
+
+        alpha = 0.2f * timer;
+        if (acid) timer -= Time.deltaTime / 500.0f;
+        else timer -= Time.deltaTime / 1000.0f;
     }
 
 }
