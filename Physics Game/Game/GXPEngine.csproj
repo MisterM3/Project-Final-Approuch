@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Levels.cs" />
     <Compile Include="Z.Game\z.Mechanics\AcidRain.cs" />
     <Compile Include="Z.Game\z.Mechanics\Button.cs" />
     <Compile Include="Z.Game\z.MainMechanics\Cannon.cs" />

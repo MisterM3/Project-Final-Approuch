@@ -5,24 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 using System.Drawing;
-public class LevelOne : Scene
+public class LevelOne : Levels
 {
-   
-    public Cannon cannon;
-    private Pivot objectOwner;
-    private SFXHandler sfxHandler;
-
-    public LevelOne(Dictionary<string, Sound> soundLibrary) : base()
+    public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
-        sfxHandler = new SFXHandler(soundLibrary, .2f);
     }
 
-    protected override void Start()
+    protected override void MakeLevel()
     {
-        sfxHandler.PlaySound("LevelOneBG");
-        isActive = true;
-        objectOwner = new Pivot();
-        MyGame myGame = (MyGame)game;
+  
         //Cannon
         cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
         AddChild(cannon);
@@ -32,7 +23,7 @@ public class LevelOne : Scene
         myGame._lines.Add(new LineSegment(new Vec2(750, 550), new Vec2(50, 550)));
         myGame._lines.Add(new LineSegment(new Vec2(50, 550), new Vec2(50, 50)));
 
-        //_movers.Add(new Ball(10, new Vec2(100, 250), new Vec2(0, 10)));
+        
 
 
 
@@ -71,35 +62,7 @@ public class LevelOne : Scene
         //Enemy
         myGame._movers.Add(new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)));
 
-        foreach (Ball _ball in myGame._movers)
-        {
-            AddChild(_ball);
-        }
-
-        foreach (LineSegment _line in myGame._lines)
-        {
-            AddChild(_line);
-        }
-        foreach (Collectable _col in myGame._colect)
-        {
-            AddChild(_col);
-        }
-        AddChild(objectOwner);
     }
 
-    protected override void Update()
-    {
-        if (!base.isActive) return;
-
-        if (Input.GetKeyDown(Key.F3))
-        {
-            SceneManager.instance.TryLoadNextScene();
-        }
-    }
-
-    public override void UnLoadScene()
-    {
-        base.UnLoadScene();
-    }
 }
 

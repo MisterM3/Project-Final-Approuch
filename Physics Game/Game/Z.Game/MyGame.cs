@@ -109,7 +109,7 @@ public class MyGame : Game
     {
 		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);
-		LevelTwo levelTwo = new LevelTwo();
+		LevelTwo levelTwo = new LevelTwo(soundLibrary);
 		SceneManager.instance.AddScene(levelTwo);
 		SceneManager.instance.LoadScene(0);
     }
