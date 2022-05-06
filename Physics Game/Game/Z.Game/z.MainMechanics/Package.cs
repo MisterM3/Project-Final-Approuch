@@ -26,7 +26,6 @@ public class Package : Ball
     public Package(Vec2 pPos, Vec2 pVel) : base(10, pPos, pVel)
     {
         baseVelocity = pVel;
-
     }
 
     void Update()
@@ -54,9 +53,9 @@ public class Package : Ball
         }
         else
         {
-            alpha = 0.2f * timer;
             if (acid) timer -= Time.deltaTime / 500.0f;
             else timer -= Time.deltaTime / 1000.0f;
+            alpha = 0.2f * timer;
         }
     }
 
