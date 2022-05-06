@@ -66,6 +66,9 @@ public class LevelTwo : Levels
         //Box bottom left (Make new Class later to clean up
         Clouds cloud4 = new Clouds(new Vec2(0, 801), new Vec2(325, 801), new Vec2(0, 549), new Vec2(324, 549), pWall: true);
         AddChild(cloud4);
+
+        ChangeSpeedPad cs = new ChangeSpeedPad(new Vec2(400, 300), 100, 100, 0, 2);
+        AddChild(cs);
     }
 
 }

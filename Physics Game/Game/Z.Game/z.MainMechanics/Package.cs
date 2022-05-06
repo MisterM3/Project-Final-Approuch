@@ -10,25 +10,30 @@ public class Package : Ball
 
 
 
+    public enum PackageSpeed { Slow, Normal, Fast }
 
+    public PackageSpeed speed;
 
     public bool acid = false;
     //seconds
     public float timer = 5.0f;
 
-    public bool sped = false;
-    public bool slow = false;
-    public bool normal = true;
     public float spedTimer = 1.0f;
+
+
+    //Base velocity when the speed is normal
+    Vec2 baseVelocity;
     public Package(Vec2 pPos, Vec2 pVel) : base(10, pPos, pVel)
     {
-
+        baseVelocity = pVel;
 
     }
 
     void Update()
     {
         base.Update();
+
+        
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
@@ -53,6 +58,27 @@ public class Package : Ball
             if (acid) timer -= Time.deltaTime / 500.0f;
             else timer -= Time.deltaTime / 1000.0f;
         }
+    }
+
+
+    //Changes the speed after a speedpad has been hit
+    public void CheckSpeed() {
+
+        switch (speed)
+        { 
+            case PackageSpeed.Slow:
+                velocity = baseVelocity / 2.0f;
+                break;
+            case PackageSpeed.Normal:
+                velocity = baseVelocity;
+                break;
+            case PackageSpeed.Fast:
+                velocity = baseVelocity * 2.0f;
+                break;
+            default:
+                Console.WriteLine("Speed not in available range!");
+                break;  
+        }            
     }
 
 }

@@ -5,40 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class AcidRain : Sprite {
+public class AcidRain : BoxMechanic {
 
 
-    public AcidRain(Vec2 Pos, int pWidth, int pHeight) : base("colors.png") {
+    public AcidRain(Vec2 Pos, int pWidth, int pHeight) : base(Pos, pWidth,  pHeight) {
 
-        SetOrigin(width / 2, height / 2);
-        width = pWidth;
-        height = pHeight;
-
-        x = Pos.x;
-        y = Pos.y;
+    }
+    protected override void InBox(Package pPack)
+    {
+       pPack.acid = true;
     }
 
-    void Update() {
-
-        MyGame myGame = ((MyGame)game);
-
-        for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
-        {
-            Ball mover = myGame.GetMover(i);
-
-            if (mover is Package)
-            {
-                Package p = (Package)mover;
-                //Checks if package inside area of effect
-                if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
-                {
-                    if (!p.acid) p.acid = true;
-
-                }
-                else if (p.acid) p.acid = false;
-
-            }
-
-        }
+    protected override void OutBox(Package pPack)
+    {
+      pPack.acid = false;
     }
 }
