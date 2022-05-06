@@ -7,7 +7,7 @@ using GXPEngine;
 
 public class BoxMechanic : Sprite
 {
-
+    protected MyGame myGame;
     protected Sprite overLaySprite;
     public BoxMechanic(Vec2 Pos, int pWidth, int pHeight) : base("colors.png")
     {
@@ -22,7 +22,7 @@ public class BoxMechanic : Sprite
 
     protected void Update()
     {
-        MyGame myGame = ((MyGame)game);
+        myGame = ((MyGame)game);
 
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
         {

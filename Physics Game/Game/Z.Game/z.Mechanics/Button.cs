@@ -5,52 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class Button : Sprite {
+public class Button : BoxMechanic {
 
 
     LineSegment Wall;
-    bool pressed;
-    public Button(Vec2 pPos, LineSegment pWall) : base("colors.png") { 
-    
-        SetOrigin(width/2, height/2);
-        x = pPos.x;
-        y = pPos.y;
-
-        width = 40;
-        height = 20;
-
+    bool pressed = false;
+    public Button(Vec2 pPos, LineSegment pWall) : base(pPos, 40, 20) { 
         Wall = pWall;
     }
 
-
-    public void Update() {
-
-        // rotation++;
-        MyGame myGame = ((MyGame)game);
-
-        for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
+    protected override void InBox(Package pPack)
+    {
+        if (!pressed)
         {
-            Ball mover = myGame.GetMover(i);
-
-            if (mover.moving)
+            pressed = true;
+            for (int j = 0; j < myGame.GetNumberOfLines(); j++)
             {
 
-                //Checks if package inside area of effect
-                if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
-                {
-                    pressed = true;
-                    for (int j = 0; j < myGame.GetNumberOfLines(); j++) { 
-                    
-                        LineSegment line = myGame.GetLine(j);
-                        if (line == Wall) line.Destroy();
-
-                    }
-                    
-                }
-
+                LineSegment line = myGame.GetLine(j);
+                if (line == Wall) line.Destroy();
 
             }
-
         }
     }
+
 }
