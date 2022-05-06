@@ -5,49 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class Fan : Sprite
+public class Fan : BoxMechanic
 {
 
     Vec2 force;
-    public Fan(Vec2 Pos, int pWidth, int pHeight, float pRot = -90.0f, float pPower = 1f) : base("colors.png")
+    public Fan(Vec2 Pos, int pWidth, int pHeight, float pRot = -90.0f, float pPower = 1f) : base(Pos, pWidth, pHeight)
     {
-
-        SetOrigin(width / 2, height / 2);
-        width = pWidth;
-        height = pHeight;
-        //rotation = pRot;
-
-        x = Pos.x;
-        y = Pos.y;
         force = Vec2.GetUnitVectorDeg(pRot) * pPower;
-
-
     }
 
+    protected override void InBox(Package pPack) 
+    { 
+        pPack.accel = force;
+        pPack.CheckSpeed();
+    }
 
-    public void Update()
+    protected override void OutBox(Package pPack)
     {
-
-
-        // rotation++;
-        MyGame myGame = ((MyGame)game);
-
-        for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
-        {
-            Ball mover = myGame.GetMover(i);
-
-            if (mover is Package)
-            {
-
-                //Checks if package inside area of effect
-                if (mover.x <= x + width / 2 && mover.x >= x - width / 2 && mover.y <= y + height / 2 && mover.y >= y - height / 2)
-                {
-                    mover.accel = force;
-                  
-                } else mover.accel = new Vec2(0, 0);
-
-            }
-
-        }
+        pPack.accel = new Vec2(0, 0);
     }
+
 }
