@@ -43,7 +43,6 @@ public class Enemy2Way : Ball
         //change so it's lenght between > total lenght
         if (disToEnd.Length() >= totalLenght || disToStart.Length() >= totalLenght)
         {
-            Console.WriteLine("wa");
             velocity *= -1;
         }
 
