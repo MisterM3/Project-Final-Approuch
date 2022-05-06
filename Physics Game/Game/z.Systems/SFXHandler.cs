@@ -1,6 +1,5 @@
-﻿using System;
+﻿using GXPEngine;
 using System.Collections.Generic;
-using GXPEngine;
 public class SFXHandler
 {
     private Dictionary<string, Sound> soundLibrary = new Dictionary<string, Sound>();

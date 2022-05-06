@@ -40,32 +40,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcidRain.cs" />
-    <Compile Include="Button.cs" />
+    <Compile Include="z.Mechanics\AcidRain.cs" />
+    <Compile Include="z.Mechanics\Button.cs" />
     <Compile Include="Cannon.cs" />
-    <Compile Include="ChangeSpeedPad.cs" />
+    <Compile Include="z.Mechanics\ChangeSpeedPad.cs" />
     <Compile Include="Collectable.cs" />
-    <Compile Include="Clouds.cs" />
+    <Compile Include="z.Mechanics\Clouds.cs" />
     <Compile Include="CollectableSystem.cs" />
     <Compile Include="EndCircle.cs" />
     <Compile Include="Enemy2Way.cs" />
-    <Compile Include="Fan.cs" />
+    <Compile Include="z.Mechanics\Fan.cs" />
     <Compile Include="HUD.cs" />
-    <Compile Include="MovablePlatform.cs" />
-    <Compile Include="LevelOne.cs" />
-    <Compile Include="LevelTwo.cs" />
+    <Compile Include="z.Mechanics\MovablePlatform.cs" />
+    <Compile Include="z.Levels\World1\LevelOne.cs" />
+    <Compile Include="z.Levels\World1\LevelTwo.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="SceneSystem\Scene.cs" />
     <Compile Include="SceneSystem\SceneManager.cs" />
     <Compile Include="SFXHandler.cs" />
-    <Compile Include="z.Physics\Ball.cs" />
-    <Compile Include="z.Physics\Box.cs" />
-    <Compile Include="z.Physics\CollisionInfo.cs" />
+    <Compile Include="y.Physics\Ball.cs" />
+    <Compile Include="y.Physics\Box.cs" />
+    <Compile Include="y.Physics\CollisionInfo.cs" />
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
     <Compile Include="MyGame.cs" />
-    <Compile Include="z.Physics\UnitTesting.cs" />
-    <Compile Include="z.Physics\Vec2.cs" />
+    <Compile Include="y.Physics\UnitTesting.cs" />
+    <Compile Include="y.Physics\Vec2.cs" />
     <Compile Include="..\..\GXPEngine2020\GXPEngine\AddOns\Gizmos.cs">
       <Link>GXPEngine\AddOns\Gizmos.cs</Link>
     </Compile>

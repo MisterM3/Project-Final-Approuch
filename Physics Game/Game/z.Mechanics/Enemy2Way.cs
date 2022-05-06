@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GXPEngine;
 
-public class Enemy2Way : Ball {
+public class Enemy2Way : Ball
+{
 
 
     Vec2 startLine;
@@ -16,7 +12,8 @@ public class Enemy2Way : Ball {
 
     float totalLenght;
     bool toEnd = true;
-    public Enemy2Way(int radius, Vec2 startLinePos, Vec2 endLinePos, float speed = 1f) : base(radius, endLinePos, moving: false) {
+    public Enemy2Way(int radius, Vec2 startLinePos, Vec2 endLinePos, float speed = 1f) : base(radius, endLinePos, moving: false)
+    {
 
 
         startLine = startLinePos;
@@ -32,11 +29,13 @@ public class Enemy2Way : Ball {
 
     }
 
-    public void Update() {
+    public void Update()
+    {
         Move();
     }
 
-    public void Move() {
+    public void Move()
+    {
 
         Vec2 disToEnd = position - endLine;
         Vec2 disToStart = position - startLine;
@@ -52,10 +51,10 @@ public class Enemy2Way : Ball {
 
         x = position.x;
         y = position.y;
-        
-       
-        
+
+
+
     }
 
-    
+
 }
