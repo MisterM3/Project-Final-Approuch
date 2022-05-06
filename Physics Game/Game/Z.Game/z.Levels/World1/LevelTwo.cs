@@ -53,9 +53,9 @@ public class LevelTwo : Levels
         AddChild(cloud3);
 
 
-        myGame._colect[0] = new Collectable(30, new Vec2(1258, 324));
-        myGame._colect[1] = new Collectable(30, new Vec2(722, 99));
-        myGame._colect[2] = new Collectable(30, new Vec2(1341, 661));
+        myGame._colect[0] = new Collectable(new Vec2(1258, 324), 30);
+        myGame._colect[1] = new Collectable(new Vec2(722, 99), 30);
+        myGame._colect[2] = new Collectable(new Vec2(1341, 661), 30);
 
         //Outside
         myGame._lines.Add(new LineSegment(new Vec2(0, 801), new Vec2(0, 0)));

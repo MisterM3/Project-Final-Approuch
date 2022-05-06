@@ -5,35 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class EndCircle : Sprite {
+public class EndCircle : CircleMechanic {
 
+    //endcircle should be this radius
     int radius = 40;
 
-    public EndCircle(Vec2 pPos) : base("circle.png")
+    public EndCircle(Vec2 pPos, int pRad) : base(pPos, pRad)
     {
-        SetOrigin(width / 2, height / 2);
-        width = radius * 2;
-        height = radius * 2;
-
-        x = pPos.x;
-        y = pPos.y;
-        Console.WriteLine(x);
     }
 
-    public void Update() {
-
-        MyGame myGame = ((MyGame)game);
-
-        for (int i = 0; i < myGame.GetNumberOfMovers(); i++) { 
-        
-            Ball mover = myGame.GetMover(i);
-            if (mover.moving)
-            {
-                Vec2 relPos = new Vec2(x, y) - mover.position;
-
-                if (relPos.Length() <= radius + mover.radius) myGame.NextLevel();
-            
-            }
-        }
+    protected override void InCircle()
+    {
+        myGame.NextLevel();
     }
+
 }

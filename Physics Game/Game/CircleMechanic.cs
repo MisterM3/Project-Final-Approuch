@@ -7,6 +7,7 @@ using GXPEngine;
 
 public class CircleMechanic : Sprite
 {
+    protected MyGame myGame;
     public CircleMechanic(Vec2 pPos, int pRadius) : base("circle.png")
     {
         SetOrigin(width / 2, height / 2);
@@ -15,11 +16,13 @@ public class CircleMechanic : Sprite
 
         x = pPos.x;
         y = pPos.y;
+
+        
     }
 
     protected void Update()
     {
-        MyGame myGame = ((MyGame)game);
+        myGame = ((MyGame)game);
 
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
         {

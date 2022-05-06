@@ -54,9 +54,9 @@ public class LevelOne : Levels
 
         //Collectables
 
-        myGame._colect[0] = new Collectable(30, new Vec2(460, 123));
-        myGame._colect[1] = new Collectable(30, new Vec2(422, 452));
-        myGame._colect[2] = new Collectable(30, new Vec2(660, 293));
+        myGame._colect[0] = new Collectable(new Vec2(460, 123), 30);
+        myGame._colect[1] = new Collectable(new Vec2(422, 452), 30);
+        myGame._colect[2] = new Collectable(new Vec2(660, 293), 30);
 
 
         //Enemy
