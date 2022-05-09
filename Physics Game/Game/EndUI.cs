@@ -18,7 +18,11 @@ public class EndUI : Pivot
     Sprite star4;
     Sprite star5;
     Sprite star6;
-    public EndUI() {
+
+    int stars;
+    public EndUI(int Stars) {
+
+        stars = Stars;
 
         grayBG = new EasyDraw(1920, 1080);
         grayBG.x = -1920 / 2.0f;
@@ -143,7 +147,7 @@ public class EndUI : Pivot
     void Stars()
     {
 
-        if (star4.scale < 1.99f)
+        if (star4.scale < 1.99f && stars >= 1)
         {
             star4.scale = star4.scale * 0.95f + 2f * 0.05f;
             star4.SetScaleXY(star4.scale, star4.scale);
@@ -151,13 +155,13 @@ public class EndUI : Pivot
 
 
         }
-        else if (!done1)
+        else if (!done1 && stars >=1)
         {
             done1 = true;
             Console.WriteLine("dwaw");
             ((MyGame)game).PS.Boom(new Vec2(x + star4.x, star4.y + y), size: 3);
         }
-        else if (star5.scale < 2.49f)
+        else if (star5.scale < 2.49 && stars >= 2)
         {
 
             star5.scale = star5.scale * 0.95f + 2.5f * 0.05f;
@@ -165,18 +169,18 @@ public class EndUI : Pivot
             Console.WriteLine("2");
 
         }
-        else if (!done2)
+        else if (!done2 && stars >= 2)
         {
             done2 = true;
             ((MyGame)game).PS.Boom(new Vec2(x + star5.x, star5.y + y), size: 3);
         }
-        else if (star6.scale < 1.99f)
+        else if (star6.scale < 1.99f && stars >= 3)
         {
             star6.scale = star6.scale * 0.95f + 2f * 0.05f;
             star6.SetScaleXY(star6.scale, star6.scale);
             Console.WriteLine("3");
         }
-        else if (!done3) {
+        else if (!done3 && stars >= 3) {
             done3 = true;
             ((MyGame)game).PS.Boom(new Vec2(x + star6.x, star6.y + y), size: 3);
 

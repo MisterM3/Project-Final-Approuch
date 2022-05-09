@@ -10,7 +10,7 @@ public class CollectableSystem : Pivot
 {
 
   
-    int currentStarsLevel;
+    public int currentStarsLevel;
 
     int[] stars;
 

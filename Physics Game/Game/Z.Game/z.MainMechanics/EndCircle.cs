@@ -10,13 +10,27 @@ public class EndCircle : CircleMechanic {
     //endcircle should be this radius
     int radius = 40;
 
+    EndUI endUI;
     public EndCircle(Vec2 pPos, int pRad) : base(pPos, pRad)
     {
     }
 
-    protected override void InCircle()
+    protected override void InCircle(Ball pMove, Vec2 pRel)
     {
-        myGame.NextLevel();
+
+        Vec2 moreVel = pRel.Normalized();
+
+        pMove.accel = moreVel * 0.01f * (pRel.Length());
+        pMove.velocity *= 0.9f;
+        if (endUI == null)
+        {
+            CollectableSystem CS = myGame.GetCollectableSystem;
+            
+
+            endUI = new EndUI(CS.currentStarsLevel);
+            parent.AddChild(endUI);
+
+        }
     }
 
 }

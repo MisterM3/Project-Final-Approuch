@@ -9,7 +9,7 @@ public class Particle : Ball
 {
     float runTimer;
     public bool regen = false;
-    public Particle(int pRadius, Vec2 pPosition, Vec2 pVelocity = new Vec2(), float RunTime = 1.0f) : base(pRadius, pPosition, pVelocity) 
+    public Particle(int pRadius, Vec2 pPosition, Vec2 pVelocity = new Vec2(), float RunTime = 1.0f) : base(pRadius, pPosition, pVelocity, tr: true) 
     {
         runTimer = RunTime + Utils.Random(-RunTime/4, RunTime/4);
 

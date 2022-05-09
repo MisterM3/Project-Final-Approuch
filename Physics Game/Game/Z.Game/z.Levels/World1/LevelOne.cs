@@ -15,7 +15,7 @@ public class LevelOne : Levels
     {
   
         //Cannon
-        cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
+        cannon = new Cannon(game.height / 2 - 275, game.height / 2 + 50 - 150, 10);
         AddChild(cannon);
 
         myGame._lines.Add(new LineSegment(new Vec2(50, 50), new Vec2(750, 50)));
@@ -61,6 +61,10 @@ public class LevelOne : Levels
 
         //Enemy
         myGame._movers.Add(new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)));
+
+
+        EndCircle endCir = new EndCircle(new Vec2(300, 400), 50);
+        AddChild(endCir);
 
     }
 

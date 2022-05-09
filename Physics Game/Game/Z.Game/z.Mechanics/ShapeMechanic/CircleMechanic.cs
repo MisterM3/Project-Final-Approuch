@@ -33,6 +33,7 @@ public class CircleMechanic : Sprite
 
                 if (relPos.Length() < (width / 2) + mover.radius)
                 {
+                    InCircle(mover, relPos);
                     InCircle();
                 }
                 else OutCircle();
@@ -41,6 +42,7 @@ public class CircleMechanic : Sprite
     }
 
 
+    protected virtual void InCircle(Ball pMove, Vec2 pRel) { }
     protected virtual void InCircle() { }
 
     protected virtual void OutCircle() { }

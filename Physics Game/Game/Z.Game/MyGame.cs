@@ -112,8 +112,7 @@ public class MyGame : Game
 		SetUpScenes();
 		PrintInfo();
 
-		EndUI endUI = new EndUI();
-		AddChild(endUI);
+
 			
 
 		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);

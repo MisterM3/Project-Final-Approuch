@@ -8,6 +8,7 @@ using GXPEngine;
 public class Levels : Scene
 {
     public Cannon cannon;
+    public EndUI endUI;
     private Pivot objectOwner;
     private SFXHandler sfxHandler;
     protected MyGame myGame;
