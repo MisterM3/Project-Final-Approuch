@@ -60,6 +60,7 @@
     <Compile Include="SceneSystem\Scene.cs" />
     <Compile Include="SceneSystem\SceneManager.cs" />
     <Compile Include="SFXHandler.cs" />
+    <Compile Include="WorldSelectButton.cs" />
     <Compile Include="z.Physics\Ball.cs" />
     <Compile Include="z.Physics\Box.cs" />
     <Compile Include="z.Physics\CollisionInfo.cs" />
