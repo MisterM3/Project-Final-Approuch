@@ -126,7 +126,7 @@ public class MyGame : Game
 		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);
-		LevelTwo levelTwo = new LevelTwo();
+		LevelTwo levelTwo = new LevelTwo(soundLibrary);
 		SceneManager.instance.AddScene(levelTwo);
 		SceneManager.instance.LoadScene(0);
     }
