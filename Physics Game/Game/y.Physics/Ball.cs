@@ -20,7 +20,7 @@ public class Ball : EasyDraw
 
 	//Makes so I can check which collision happened and with which element.
 	public GameObject latestCollision = null;
-
+	public Vec2 latestNormal = new Vec2(0,0);
 
 	// Mass = density * volume.
 	// In 2D, we assume volume = area (=all objects are assumed to have the same "depth")
@@ -234,6 +234,7 @@ public class Ball : EasyDraw
 	void ResolveCollision(CollisionInfo col) {
 
 		latestCollision = col.other;
+		latestNormal = col.normal;
 		
 		if (col.other is Ball) {
 
