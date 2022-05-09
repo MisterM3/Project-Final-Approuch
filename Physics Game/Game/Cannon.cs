@@ -74,7 +74,7 @@ public class Cannon : Sprite
             ball.rotation = rotation;
 
         //   HUD _hud = ((MyGame)game).GetHUD;
-        //    shots--;
+            shots--;
         //    _hud.UpdateShots();
         }
 

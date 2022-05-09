@@ -90,6 +90,9 @@ public class MyGame : Game
 		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
+
+		//_hud = new HUD(new Vec2(-100, -100);
+		//AddChild(_hud);
         //Cannon
      //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
 	//	AddChild(cannon);
