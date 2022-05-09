@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BottonLevel.cs" />
+    <Compile Include="NephelleSelect.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\CircleMechanic.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\BoxMechanic.cs" />
     <Compile Include="Z.Game\z.Levels\Levels.cs" />
