@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BottonLevel.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="EndUI.cs" />
     <Compile Include="NephelleSelect.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\CircleMechanic.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\BoxMechanic.cs" />

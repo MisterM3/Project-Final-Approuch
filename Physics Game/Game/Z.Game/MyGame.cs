@@ -68,19 +68,19 @@ public class MyGame : Game
 
 	public int Width {
 		//get { return width; }
-			get { return width / 125 * 100; }
+			get { return width; }
 	}
 
 	public int Height
 	{
 		//get { return height; }
-		get { return height / 125 * 100; }
+		get { return height; }
 	}
 
 
 	public MyGame() : base(1920, 1080, false, false)
 	{
-	//	UnitTesting ut = new UnitTesting();
+		//	UnitTesting ut = new UnitTesting();
 
 		_lineContainer = new Canvas(width, height);
 		AddChild(_lineContainer);
@@ -110,6 +110,8 @@ public class MyGame : Game
 		SetUpScenes();
 		PrintInfo();
 
+		EndUI endUI = new EndUI();
+		AddChild(endUI);
 			
 
 		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
