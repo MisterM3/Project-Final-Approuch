@@ -28,7 +28,7 @@ public class ParticleSystem : Pivot {
         }
         else if (Input.GetKeyDown(Key.F))
         {
-           // Boom();
+            Boom(new Vec2(400, 300));
         }
         else if (Input.GetKeyDown(Key.D)) {
             Cone(new Vec2(400, 400), 180.0f, 60.0f, velocity: 1.0f);

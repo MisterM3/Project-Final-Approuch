@@ -14,6 +14,7 @@ public class MyGame : Game
 	//public Cannon cannon;
 
 	CollectableSystem CS;
+	public ParticleSystem PS;
 	HUD _hud;
 
 	public List<Ball> _movers;
@@ -102,8 +103,9 @@ public class MyGame : Game
 		CS.LoadStars();
 		CS.PrintStars();
 
-		CS = new CollectableSystem();
-		AddChild(CS);
+
+		PS = new ParticleSystem();
+		AddChild(PS);
 
 
 		//LoadScene(_startSceneNumber);

@@ -137,29 +137,54 @@ public class EndUI : Pivot
 
     }
 
+    bool done1 = false;
+    bool done2 = false;
+    bool done3 = false;
     void Stars()
     {
+
         if (star4.scale < 1.99f)
         {
             star4.scale = star4.scale * 0.95f + 2f * 0.05f;
             star4.SetScaleXY(star4.scale, star4.scale);
             Console.WriteLine("1");
 
+
+        }
+        else if (!done1)
+        {
+            done1 = true;
+            Console.WriteLine("dwaw");
+            ((MyGame)game).PS.Boom(new Vec2(x + star4.x, star4.y + y), size: 3);
         }
         else if (star5.scale < 2.49f)
         {
+
             star5.scale = star5.scale * 0.95f + 2.5f * 0.05f;
             star5.SetScaleXY(star5.scale, star5.scale);
             Console.WriteLine("2");
 
         }
-        else if (star6.scale < 1.99f) {
+        else if (!done2)
+        {
+            done2 = true;
+            ((MyGame)game).PS.Boom(new Vec2(x + star5.x, star5.y + y), size: 3);
+        }
+        else if (star6.scale < 1.99f)
+        {
             star6.scale = star6.scale * 0.95f + 2f * 0.05f;
             star6.SetScaleXY(star6.scale, star6.scale);
             Console.WriteLine("3");
         }
+        else if (!done3) {
+            done3 = true;
+            ((MyGame)game).PS.Boom(new Vec2(x + star6.x, star6.y + y), size: 3);
+
+        }
 
     }
+
+
 
 
 
