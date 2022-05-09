@@ -22,20 +22,22 @@ public class CollectableSystem : Pivot
 
         stars = new int[levels];
 
+        LoadStars();
+
     }
 
 
 
     public void AddStarsLevel() {
         currentStarsLevel++;
-        HUD hud = ((MyGame)game).GetHUD;
-        hud.UpdateCol(currentStarsLevel);
+     //   HUD hud = ((MyGame)game).GetHUD;
+    //    hud.UpdateCol(currentStarsLevel);
     }
 
     public void RestartStarsLevel() {
         currentStarsLevel = 0;
-        HUD hud = ((MyGame)game).GetHUD;
-        hud.UpdateCol(currentStarsLevel);
+   //     HUD hud = ((MyGame)game).GetHUD;
+   //     hud.UpdateCol(currentStarsLevel);
     }
 
     public void EndStarsLevel() {
@@ -53,6 +55,10 @@ public class CollectableSystem : Pivot
         SaveStars();
     }
 
+
+    public int GetStars(int level) { 
+        return stars[level];
+    }
 
     public void PrintStars() {
         for (int i = 0; i < stars.Length; i++)
