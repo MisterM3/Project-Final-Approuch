@@ -72,6 +72,8 @@ public class LevelTwo : Levels
         LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
         myGame._lines.Add(ln);
 
+        MovablePlatform mp = new MovablePlatform(new Vec2(1437, 699), new Vec2(1661, 476), new Vec2(1412, 673), new Vec2(1636, 452), new Vec2(167, -178), true);
+        AddChild(mp);
 
         Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
         AddChild(but);
