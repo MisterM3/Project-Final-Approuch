@@ -23,7 +23,9 @@ public class EndUI : Pivot
     public EndUI(int Stars) {
 
         stars = Stars;
-
+        CollectableSystem CS = ((MyGame)game).GetCollectableSystem;
+        CS.CheckStars(((MyGame)game).GetCurrentScene, stars);
+     
         grayBG = new EasyDraw(1920, 1080);
         grayBG.x = -1920 / 2.0f;
         grayBG.y = -1080 / 2.0f;

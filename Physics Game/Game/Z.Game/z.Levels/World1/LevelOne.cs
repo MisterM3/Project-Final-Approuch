@@ -14,6 +14,8 @@ public class LevelOne : Levels
     protected override void MakeLevel()
     {
   
+        ((MyGame)game).GetCurrentLevel = 0;
+        ((MyGame)game).GetCurrentScene = 1;
         //Cannon
         cannon = new Cannon(game.height / 2 - 275, game.height / 2 + 50 - 150, 10);
         AddChild(cannon);

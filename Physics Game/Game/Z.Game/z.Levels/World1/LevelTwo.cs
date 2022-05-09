@@ -16,7 +16,7 @@ public class LevelTwo : Levels
     protected override void MakeLevel()
     {
 
-
+        ((MyGame)game).GetCurrentLevel = 1;
         Sprite bg = new Sprite("1.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);

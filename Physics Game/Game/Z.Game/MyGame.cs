@@ -7,6 +7,7 @@ public class MyGame : Game
 {
 	int _startSceneNumber = 2;
 	int currentScene = 0;
+	int currentLevel = 0;
 	int totalLevels = 5;
 
 	Canvas _lineContainer = null;
@@ -148,7 +149,13 @@ public class MyGame : Game
 
 	public int GetCurrentScene 
 	{ 
-	get { return currentScene; }
+		get { return currentScene; }
+		set { currentScene = value; }
+	}
+	public int GetCurrentLevel
+	{ 
+		get { return currentLevel; }
+		set { currentLevel = value; }
 	}
 
 	public CollectableSystem GetCollectableSystem { 
