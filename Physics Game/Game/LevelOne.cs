@@ -24,7 +24,11 @@ public class LevelOne : Scene
         objectOwner = new Pivot();
         MyGame myGame = (MyGame)game;
         //Cannon
+<<<<<<< HEAD
         cannon = new Cannon(game.height/2 - 460, game.width / 2 - 650, 10);
+=======
+        cannon = new Cannon(game.height / 2 - 275, game.height / 2 + 50 - 150, 10);
+>>>>>>> main
         AddChild(cannon);
 
         myGame._lines.Add(new LineSegment(new Vec2(50, 50), new Vec2(750, 50)));
@@ -68,6 +72,8 @@ public class LevelOne : Scene
         myGame._colect[2] = new Collectable(30, new Vec2(660, 293));
 
 
+        EndCircle EC = new EndCircle(new Vec2(300, 300));
+        AddChild(EC);
         //Enemy
         myGame._movers.Add(new Enemy2Way(10, new Vec2(627, 220), new Vec2(705, 220)));
 

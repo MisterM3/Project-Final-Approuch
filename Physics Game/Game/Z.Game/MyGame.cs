@@ -31,6 +31,8 @@ public class MyGame : Game
 		{"LevelOneBG", new Sound("LevelOneBG.mp3")}
 	};
 
+	
+
 	public int GetNumberOfLines()
 	{
 		return _lines.Count;
@@ -74,6 +76,8 @@ public class MyGame : Game
 		//get { return height; }
 		get { return height / 125 * 100; }
 	}
+
+
 	public MyGame() : base(1920, 1080, false, false)
 	{
 	//	UnitTesting ut = new UnitTesting();
@@ -86,30 +90,43 @@ public class MyGame : Game
 		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
+
+		//_hud = new HUD(new Vec2(-100, -100);
+		//AddChild(_hud);
         //Cannon
      //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
 	//	AddChild(cannon);
-
-
-		//LoadScene(_startSceneNumber);
-		SetUpScenes();
-		PrintInfo();
-
 
 		CS = new CollectableSystem();
 		AddChild(CS);
 		CS.LoadStars();
 		CS.PrintStars();
 
-		_hud = new HUD(new Vec2(200, 200));
-		AddChild(_hud);		
+		CS = new CollectableSystem();
+		AddChild(CS);
+
+
+		//LoadScene(_startSceneNumber);
+		SetUpScenes();
+		PrintInfo();
+
+			
+
+		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
+		//AddChild(ls);
+	
+	//	_hud = new HUD(new Vec2(200, 200));
+	//	AddChild(_hud);		
 	}
 
 	public void SetUpScenes()
     {
+
+		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
+		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);
-		LevelTwo levelTwo = new LevelTwo();
+		LevelTwo levelTwo = new LevelTwo(soundLibrary);
 		SceneManager.instance.AddScene(levelTwo);
 		SceneManager.instance.LoadScene(0);
     }
@@ -137,6 +154,11 @@ public class MyGame : Game
 	public HUD GetHUD { 
 		get { return _hud; }
 	}
+
+
+
+
+
 
 	/****************************************************************************************/
 

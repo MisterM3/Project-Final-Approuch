@@ -43,18 +43,25 @@ public class Clouds : Pivot {
     public void Update() {
 
         if (wall) return;
-        for (int i = 0; i < lines.Length; i++) {
+        for (int i = 0; i < myGame.GetNumberOfMovers(); i++) {
 
-            for (int j = 0; j < myGame.GetNumberOfMovers(); j++) {
-
-                Ball mover = myGame.GetMover(j);
-
-                if (mover.moving && mover.latestCollision == lines[i]) {
-                    poof = true;
+            Ball mover = myGame.GetMover(i);
+            if (mover.moving)
+            {
+                for (int j = 0; j < lines.Length; j++)
+                {
+                    if (mover.moving && mover.latestCollision == lines[j])
+                    {
+                        poof = true;
+                    }
                 }
+                for (int j = 0; j < caps.Length; j++)
+                {
+                    if (mover.latestCollision == caps[j]) poof = true;
+                }
+
             }
         }
-
         if (poof) DeleteCloud(); 
     }
 
@@ -64,8 +71,6 @@ public class Clouds : Pivot {
         for (int i = 0; i < lines.Length; i++)
         {
             myGame.RemoveLine(lines[i]);
-            lines[i] = null;
-
         }
         
         for (int i = 0; i < caps.Length; i++) myGame.RemoveBalls(caps[i]);

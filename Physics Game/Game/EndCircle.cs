@@ -31,7 +31,14 @@ public class EndCircle : Sprite {
             {
                 Vec2 relPos = new Vec2(x, y) - mover.position;
 
-                if (relPos.Length() <= radius + mover.radius) myGame.NextLevel();
+                if (relPos.Length() <= radius + mover.radius)
+                {
+                    Vec2 moreVel = relPos.Normalized();
+
+                    mover.accel = moreVel * 0.01f * (relPos.Length());
+                    mover.velocity *= 0.9f;
+                    //myGame.NextLevel();
+                }
             
             }
         }

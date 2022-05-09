@@ -73,9 +73,9 @@ public class Cannon : Sprite
             parent.AddChild(ball);
             ball.rotation = rotation;
 
-           HUD _hud = ((MyGame)game).GetHUD;
+        //   HUD _hud = ((MyGame)game).GetHUD;
             shots--;
-            _hud.UpdateShots();
+        //    _hud.UpdateShots();
         }
 
     }
