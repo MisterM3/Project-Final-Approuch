@@ -12,12 +12,13 @@ public class Fan : BoxMechanic
     public Fan(Vec2 Pos, int pWidth, int pHeight, float pRot = -90.0f, float pPower = 1f) : base(Pos, pWidth, pHeight)
     {
         force = Vec2.GetUnitVectorDeg(pRot) * pPower;
+        Console.WriteLine(force);
     }
 
     protected override void InBox(Package pPack) 
     { 
         pPack.accel = force;
-        pPack.CheckSpeed();
+      
     }
 
     protected override void OutBox(Package pPack)

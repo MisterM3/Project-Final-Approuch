@@ -17,17 +17,16 @@ public class LevelTwo : Levels
     {
 
         ((MyGame)game).GetCurrentLevel = 1;
-        Sprite bg = new Sprite("1.png");
-        Console.WriteLine(myGame.width);
-        Console.WriteLine(myGame.height);
+        Sprite bg = new Sprite("2.png");
+
         bg.width = 1920;
         bg.height = 1080;
         AddChild(bg);
 
-        cannon = new Cannon(0, 450, 10);
+        cannon = new Cannon(0, 450, 15);
         AddChild(cannon);
 
-        Fan fan = new Fan(new Vec2(1060, 613), 100, 357, pPower: 1f);
+        Fan fan = new Fan(new Vec2(1377, 938), 1000, 120, 180, pPower: 1f);
         AddChild(fan);
 
         //myGame._endCircle = new EndCircle(new Vec2(400, 300));
@@ -40,35 +39,51 @@ public class LevelTwo : Levels
         //Button but = new Button(new Vec2(200, 100), ln);
         //AddChild(but);
 
-        Clouds cloud = new Clouds(new Vec2(1186, 243), new Vec2(1260, 170), new Vec2(925, 0), new Vec2(1080, 0));
-        AddChild(cloud);
 
-        Clouds cloud1 = new Clouds(new Vec2(690, 530), new Vec2(773, 455), new Vec2(422, 283), new Vec2(504, 205));
+
+
+        //Walls
+        Clouds cloud1 = new Clouds(new Vec2(0, 1080), new Vec2(500, 1080), new Vec2(0, 753), new Vec2(500, 753), pWall: true);
         AddChild(cloud1);
-
-        Clouds cloud2 = new Clouds(new Vec2(1241, 491), new Vec2(1533, 490), new Vec2(1242, 443), new Vec2(1534, 444));
+        Clouds cloud2 = new Clouds(new Vec2(500, 808), new Vec2(760, 808), new Vec2(500, 764), new Vec2(760, 764), pWall: true);
         AddChild(cloud2);
-
-        Clouds cloud3 = new Clouds(new Vec2(416, 801), new Vec2(578, 801), new Vec2(324, 715), new Vec2(326, 564));
+       
+        Clouds cloud3 = new Clouds(new Vec2(500, 1080), new Vec2(1920, 1080), new Vec2(500, 1040), new Vec2(1920, 1040), pWall: true);
         AddChild(cloud3);
 
-
-        myGame._colect[0] = new Collectable(new Vec2(1258, 324), 30);
-        myGame._colect[1] = new Collectable(new Vec2(722, 99), 30);
-        myGame._colect[2] = new Collectable(new Vec2(1341, 661), 30);
-
-        //Outside
-        myGame._lines.Add(new LineSegment(new Vec2(0, 801), new Vec2(0, 0)));
-        myGame._lines.Add(new LineSegment(new Vec2(1536, 801), new Vec2(0, 801)));
-        myGame._lines.Add(new LineSegment(new Vec2(1536, 0), new Vec2(1536, 801)));
-        myGame._lines.Add(new LineSegment(new Vec2(0, 0), new Vec2(1536, 0)));
-
-        //Box bottom left (Make new Class later to clean up
-        Clouds cloud4 = new Clouds(new Vec2(0, 801), new Vec2(325, 801), new Vec2(0, 549), new Vec2(324, 549), pWall: true);
+        Clouds cloud4 = new Clouds(new Vec2(1870, 1080), new Vec2(1920, 1080), new Vec2(1870, 0), new Vec2(1920, 0), pWall: true);
         AddChild(cloud4);
+        Clouds cloud5 = new Clouds(new Vec2(0, 40), new Vec2(1920, 40), new Vec2(0, 0), new Vec2(1920, 0), pWall: true);
+        AddChild(cloud5);
 
-        ChangeSpeedPad cs = new ChangeSpeedPad(new Vec2(400, 300), 100, 100, 0, 2);
-        AddChild(cs);
+        Clouds cloud6 = new Clouds(new Vec2(0, 765), new Vec2(60, 770), new Vec2(0, 30), new Vec2(50, 30), pWall: true);
+        AddChild(cloud6);
+        Clouds cloud7 = new Clouds(new Vec2(50, 343), new Vec2(370, 40), new Vec2(0, 300), new Vec2(321, 0), pWall: true);
+        AddChild(cloud7);
+        Clouds cloud8 = new Clouds(new Vec2(395, 377), new Vec2(726, 377), new Vec2(395, 320), new Vec2(726, 320), pWall: true);
+        AddChild(cloud8);
+
+        //Clouds
+        Clouds cloud9 = new Clouds(new Vec2(941, 518), new Vec2(983, 518), new Vec2(941, 183), new Vec2(983, 183));
+        AddChild(cloud9);
+
+        //Button + Line
+
+        LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
+        myGame._lines.Add(ln);
+
+
+        Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
+        AddChild(but);
+
+        //Collectables
+        myGame._colect[0] = new Collectable(new Vec2(1566, 269), 30);
+        myGame._colect[1] = new Collectable(new Vec2(966, 644), 30);
+        myGame._colect[2] = new Collectable(new Vec2(562, 186), 30);
+
+
+        //EndCircle
+        EndCircle endcircle = new EndCircle(new Vec2(610, 931), 50);
     }
 
 }

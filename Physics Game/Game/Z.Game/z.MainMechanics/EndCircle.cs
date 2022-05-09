@@ -20,7 +20,7 @@ public class EndCircle : CircleMechanic {
 
         Vec2 moreVel = pRel.Normalized();
 
-        pMove.accel = moreVel * 0.01f * (pRel.Length());
+        pMove.accel = moreVel * 0.03f * (pRel.Length());
         pMove.velocity *= 0.9f;
         if (endUI == null)
         {

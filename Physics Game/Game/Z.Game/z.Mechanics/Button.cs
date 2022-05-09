@@ -10,7 +10,7 @@ public class Button : BoxMechanic {
 
     LineSegment Wall;
     bool pressed = false;
-    public Button(Vec2 pPos, LineSegment pWall) : base(pPos, 40, 20) { 
+    public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight) : base(pPos, pWidth, pHeight) { 
         Wall = pWall;
     }
 
