@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcidRain.cs" />
+    <Compile Include="BottonLevel.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Cannon.cs" />
     <Compile Include="ChangeSpeedPad.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="MovablePlatform.cs" />
     <Compile Include="LevelOne.cs" />
     <Compile Include="LevelTwo.cs" />
+    <Compile Include="NephelleSelect.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="SceneSystem\Scene.cs" />
     <Compile Include="SceneSystem\SceneManager.cs" />

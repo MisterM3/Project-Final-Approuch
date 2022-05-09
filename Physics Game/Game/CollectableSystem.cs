@@ -22,6 +22,8 @@ public class CollectableSystem : Pivot
 
         stars = new int[levels];
 
+        LoadStars();
+
     }
 
 
@@ -53,6 +55,10 @@ public class CollectableSystem : Pivot
         SaveStars();
     }
 
+
+    public int GetStars(int level) { 
+        return stars[level];
+    }
 
     public void PrintStars() {
         for (int i = 0; i < stars.Length; i++)
