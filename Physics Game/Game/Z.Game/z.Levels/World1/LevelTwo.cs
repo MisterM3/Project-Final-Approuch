@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 using GXPEngine;
 
 public class LevelTwo : Levels
-{ 
+{
+    Sprite newCloud1;
+    Sprite newCloud2;
+
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
        
@@ -15,7 +18,12 @@ public class LevelTwo : Levels
 
     protected override void MakeLevel()
     {
+         newCloud1 = new Sprite("cloudHorizontal.png");
+         newCloud2 = new Sprite("cloudHorizontal.png");
 
+        newCloud1.SetXY(game.width - 1300, game.height - 800);
+        newCloud1.rotation = 45;
+        
 
         Sprite bg = new Sprite("1.png");
         Console.WriteLine(myGame.width);
@@ -23,6 +31,8 @@ public class LevelTwo : Levels
         bg.width = 1920;
         bg.height = 1080;
         AddChild(bg);
+
+        AddChild(newCloud1);
 
         cannon = new Cannon(0, 450, 10);
         AddChild(cannon);

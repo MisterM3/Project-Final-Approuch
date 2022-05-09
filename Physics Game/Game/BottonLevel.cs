@@ -17,6 +17,12 @@ public class BottonLevel : Pivot
 
     LevelSelect.Worlds _world;
 
+    public static SoundChannel buttonScreenChannel = new SoundChannel(1);
+    //Sound buttonScreenMusic = new Sound("", true, false);
+
+    Sound buttonPress = new Sound("buttonTestSound.wav", false, false);
+    Sound hoverButton = new Sound("", false, false);
+
     int _level;
     int levelInTotal;
 
@@ -121,9 +127,6 @@ public class BottonLevel : Pivot
             default:
                 Console.WriteLine("number is not available");
                 break;
-
-
-
         }
     
     }
@@ -138,9 +141,15 @@ public class BottonLevel : Pivot
 
         if (Input.mouseX < x + radius && Input.mouseX > x - radius && Input.mouseY < y + radius && Input.mouseY > y - radius)
         {
+            //hoverButton.Play();
             _hover.alpha = 1;
 
-            if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(levelInTotal + 1);
+            if (Input.GetMouseButtonDown(0))
+            {
+                buttonPress.Play(false);
+                SceneManager.instance.LoadScene(levelInTotal + 1);
+            }
+           
         }
         else _hover.alpha = 0;
     }
