@@ -99,11 +99,15 @@ public class MyGame : Game
 		CS.LoadStars();
 		CS.PrintStars();
 
+		CS = new CollectableSystem();
+		AddChild(CS);
+
+
 		//LoadScene(_startSceneNumber);
 		SetUpScenes();
 		PrintInfo();
 
-
+			
 
 		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
 		//AddChild(ls);
