@@ -28,7 +28,13 @@ public class Package : Ball
 
     void Update()
     {
+            Console.WriteLine( velocity.Length());
+        if (velocity.Length() > 20) {
+            velocity.Normalize();
+            velocity *= 20f;
+                }
         base.Update();
+        accel = new Vec2(0, 0);
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
