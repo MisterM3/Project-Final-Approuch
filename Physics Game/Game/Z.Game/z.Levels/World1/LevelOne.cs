@@ -7,13 +7,16 @@ using GXPEngine;
 using System.Drawing;
 public class LevelOne : Levels
 {
+    public static SoundChannel levelOneBg = new SoundChannel(1);
+    Sound levelOne = new Sound("LevelOneBG.mp3", true, false);
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
 
     protected override void MakeLevel()
     {
-  
+        levelOneBg = levelOne.Play();
+
         //Cannon
         cannon = new Cannon(game.height / 2 - 275, game.width / 2 + 50 - 150, 10);
         AddChild(cannon);

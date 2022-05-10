@@ -19,7 +19,6 @@ public class Levels : Scene
 
     protected override void Start()
     {
-        sfxHandler.PlaySound("LevelOneBG");
         isActive = true;
         objectOwner = new Pivot();
         myGame = (MyGame)game;
@@ -49,6 +48,7 @@ public class Levels : Scene
 
         if (Input.GetKeyDown(Key.F3))
         {
+            LevelOne.levelOneBg.Stop();
             SceneManager.instance.TryLoadNextScene();
         }
     }

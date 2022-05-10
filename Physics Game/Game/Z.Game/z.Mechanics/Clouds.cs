@@ -9,7 +9,6 @@ public class Clouds : Pivot {
 
     LineSegment[] lines = new LineSegment[4];
     Ball[] caps = new Ball[4];
-
     bool poof = false;
     MyGame myGame;
 
@@ -20,6 +19,7 @@ public class Clouds : Pivot {
     //Make A wall class to clean up
     public Clouds(Vec2 pBottomLeft, Vec2 pBottomRight, Vec2 pTopLeft, Vec2 pTopRight, float pRot = 0, bool pWall = false) : base()
     {
+      
 
         wall = pWall;
         lines[0] = new LineSegment(pTopLeft, pBottomLeft);

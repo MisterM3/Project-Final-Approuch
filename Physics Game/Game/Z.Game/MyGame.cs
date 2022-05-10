@@ -199,6 +199,7 @@ public class MyGame : Game
 
         if (Input.GetKeyDown(Key.F2))
         {
+			LevelOne.levelOneBg.Stop();
 			SceneManager.instance.LoadScene(1);		
 			CS.RestartStarsLevel();
 		}
