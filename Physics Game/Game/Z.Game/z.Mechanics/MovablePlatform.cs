@@ -5,61 +5,69 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-
-public class MoveableLine : LineSegment
+public class MovablePlatform : Pivot
 {
 
-    
-    Vec2 leftBound;
-    Vec2 rightBound;
-    Vec2 moveAround;
-    Vec2 center;
-    Vec2 velocity;
-    Vec2 position;
+    LineSegment[] lines = new LineSegment[4];
+    Ball[] caps = new Ball[4];
 
-    Ball ballCaps;
-    Ball ballCaps2;
-
+    bool poof = false;
     MyGame myGame;
-    public MoveableLine(Vec2 StartLine, Vec2 EndLine, Vec2 moveFromCenter) : base(StartLine, EndLine) {
+
+    bool wall = false;
+
+    //pRot is in Deg
+    Vec2 toVec;
+    Vec2 disTo;
+
+    float totalDis;
+
+    Vec2 dis;
+    //Make A wall class to clean up
+    public MovablePlatform(Vec2 pBottomLeft, Vec2 pBottomRight, Vec2 pTopLeft, Vec2 pTopRight, Vec2 disFromMid, bool pWall = false) : base()
+    {
+
+        wall = pWall;
+        lines[0] = new LineSegment(pTopLeft, pBottomLeft);
+        lines[1] = new LineSegment(pBottomLeft, pBottomRight);
+        lines[2] = new LineSegment(pBottomRight, pTopRight);
+        lines[3] = new LineSegment(pTopRight, pTopLeft);
+
+        caps[0] = new Ball(0, pTopLeft, moving: false);
+        caps[1] = new Ball(0, pBottomLeft, moving: false);
+        caps[2] = new Ball(0, pBottomRight, moving: false);
+        caps[3] = new Ball(0, pTopRight, moving: false);
 
 
-        start = StartLine;
-        end = EndLine;
-        moveAround = moveFromCenter;
-        center = (EndLine - StartLine)/2.0f;
+        disTo = disFromMid;
+        toVec = disFromMid.Normalized();
 
-
-        ballCaps = new Ball(0, StartLine, moving: false);
-        ballCaps2 = new Ball(0, EndLine, moving: false);
-
+        totalDis = (disTo * 2).Length();
         myGame = ((MyGame)game);
-        myGame.addMover(ballCaps);
-        myGame.addMover(ballCaps2);
-
-        leftBound = center - moveAround;
-        rightBound = center + moveAround;
-        velocity = leftBound.Normalized();
-
-        
-
+        for (int i = 0; i < lines.Length; i++) myGame.addLine(lines[i]);
+        for (int i = 0; i < caps.Length; i++) myGame.addMover(caps[i]);
     }
 
-    public void Update() {
-        center += velocity;
-        end += velocity;
-        start += velocity;
+    public void Update()
+    {
 
-        ballCaps.position += velocity;
-        ballCaps2.position += velocity;
+        dis += toVec;
+
+        Vec2 toStart = dis - disTo;
+        Vec2 toEnd = dis + disTo;
+        if (toStart.Length() >= totalDis || toEnd.Length() >= totalDis) toVec *= -1;
+        for (int i = 0; i < lines.Length; i++) {
+
+       //     lines[i].x += toVec.x;
+       //     lines[i].y += toVec.y;
+            lines[i].start += toVec;
+            lines[i].end += toVec;
+        }
+        for (int i = 0; i < caps.Length; i++)
+        {
+            caps[i].position += toVec;
         
-
-
-      
-        float distance = (leftBound - rightBound).Length();
-        if ((center - leftBound).Length() >= distance || ((center - rightBound).Length() >= distance)) velocity *= -1;
-
-
+        }
     }
 
 

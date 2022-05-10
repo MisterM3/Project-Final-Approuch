@@ -7,7 +7,6 @@ public class MyGame : Game
 {
 	int _startSceneNumber = 2;
 	int currentScene = 0;
-	int currentLevel = 0;
 	int totalLevels = 5;
 
 	Canvas _lineContainer = null;
@@ -15,7 +14,6 @@ public class MyGame : Game
 	//public Cannon cannon;
 
 	CollectableSystem CS;
-	public ParticleSystem PS;
 	HUD _hud;
 
 	public List<Ball> _movers;
@@ -32,8 +30,6 @@ public class MyGame : Game
 		{"Shoot",new Sound("testShoot.wav",false)},
 		{"LevelOneBG", new Sound("LevelOneBG.mp3")}
 	};
-
-	
 
 	public int GetNumberOfLines()
 	{
@@ -70,19 +66,17 @@ public class MyGame : Game
 
 	public int Width {
 		//get { return width; }
-			get { return width; }
+			get { return width / 125 * 100; }
 	}
 
 	public int Height
 	{
 		//get { return height; }
-		get { return height; }
+		get { return height / 125 * 100; }
 	}
-
-
 	public MyGame() : base(1920, 1080, false, false)
 	{
-		//	UnitTesting ut = new UnitTesting();
+	//	UnitTesting ut = new UnitTesting();
 
 		_lineContainer = new Canvas(width, height);
 		AddChild(_lineContainer);
@@ -92,21 +86,9 @@ public class MyGame : Game
 		 _movers = new List<Ball>();
 		_lines = new List<LineSegment>();
 
-
-		//_hud = new HUD(new Vec2(-100, -100);
-		//AddChild(_hud);
         //Cannon
      //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
 	//	AddChild(cannon);
-
-		CS = new CollectableSystem();
-		AddChild(CS);
-		CS.LoadStars();
-		CS.PrintStars();
-
-
-		PS = new ParticleSystem();
-		AddChild(PS);
 
 
 		//LoadScene(_startSceneNumber);
@@ -114,23 +96,20 @@ public class MyGame : Game
 		PrintInfo();
 
 
-			
+		CS = new CollectableSystem();
+		AddChild(CS);
+		CS.LoadStars();
+		CS.PrintStars();
 
-		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
-		//AddChild(ls);
-	
-	//	_hud = new HUD(new Vec2(200, 200));
-	//	AddChild(_hud);		
+		_hud = new HUD(new Vec2(200, 200));
+		AddChild(_hud);		
 	}
 
 	public void SetUpScenes()
     {
-
-		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
-		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);
-		LevelTwo levelTwo = new LevelTwo(soundLibrary);
+		LevelTwo levelTwo = new LevelTwo();
 		SceneManager.instance.AddScene(levelTwo);
 		SceneManager.instance.LoadScene(0);
     }
@@ -149,13 +128,7 @@ public class MyGame : Game
 
 	public int GetCurrentScene 
 	{ 
-		get { return currentScene; }
-		set { currentScene = value; }
-	}
-	public int GetCurrentLevel
-	{ 
-		get { return currentLevel; }
-		set { currentLevel = value; }
+	get { return currentScene; }
 	}
 
 	public CollectableSystem GetCollectableSystem { 
@@ -164,11 +137,6 @@ public class MyGame : Game
 	public HUD GetHUD { 
 		get { return _hud; }
 	}
-
-
-
-
-
 
 	/****************************************************************************************/
 
@@ -209,7 +177,6 @@ public class MyGame : Game
 
         if (Input.GetKeyDown(Key.F2))
         {
-			LevelOne.levelOneBg.Stop();
 			SceneManager.instance.LoadScene(1);		
 			CS.RestartStarsLevel();
 		}

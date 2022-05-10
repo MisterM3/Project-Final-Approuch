@@ -9,7 +9,7 @@ public class Ball : EasyDraw
 	public static float bounciness = 1.00f;
 
 
-
+	bool trigger = false;
 	public Vec2 accel;
 	public Vec2 velocity;
 	public Vec2 position;
@@ -20,7 +20,7 @@ public class Ball : EasyDraw
 
 	//Makes so I can check which collision happened and with which element.
 	public GameObject latestCollision = null;
-
+	public Vec2 latestNormal = new Vec2(0,0);
 
 	// Mass = density * volume.
 	// In 2D, we assume volume = area (=all objects are assumed to have the same "depth")
@@ -34,12 +34,13 @@ public class Ball : EasyDraw
 
 	protected float _density = 1;
 
-	public Ball (int pRadius, Vec2 pPosition, Vec2 pVelocity=new Vec2(), bool moving=true) : base (pRadius*2 + 1, pRadius*2 + 1)
+	public Ball (int pRadius, Vec2 pPosition, Vec2 pVelocity=new Vec2(), bool moving=true, bool tr = false) : base (pRadius*2 + 1, pRadius*2 + 1)
 	{
 		radius = pRadius;
 		position = pPosition;
 		velocity = pVelocity;
 		this.moving = moving;
+		trigger = tr;
 
 		position = pPosition;
 		UpdateScreenPosition ();
@@ -135,8 +136,10 @@ public class Ball : EasyDraw
 		velocity += accel;
 		_oldPosition = position;
 		position += velocity;
-		
-		CheckCollision();
+
+		x = position.x;
+		y = position.y;
+		if (!trigger) CheckCollision();
 
 	}
 
@@ -234,6 +237,7 @@ public class Ball : EasyDraw
 	void ResolveCollision(CollisionInfo col) {
 
 		latestCollision = col.other;
+		latestNormal = col.normal;
 		
 		if (col.other is Ball) {
 

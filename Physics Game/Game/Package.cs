@@ -38,7 +38,7 @@ public class Package : Ball
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
 
-
+            ((MyGame)game).PS.Boom(position, 1, 0.1f, 2.0f);
             MyGame myGame = ((MyGame)game);
             for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
             {
@@ -53,12 +53,22 @@ public class Package : Ball
 
 
         }
-        else
-        {
-            alpha = 0.2f * timer;
-            if (acid) timer -= Time.deltaTime / 500.0f;
-            else timer -= Time.deltaTime / 1000.0f;
+        else if (latestCollision != null) {
+
+            latestCollision = null;
+           
+            
+            Vec2 returnPos = Vec2.GetUnitVectorDeg(velocity.GetAngleDeg() - 180.0f);
+            Vec2 Pos = position + returnPos * 10;
+
+
+            ((MyGame)game).PS.Cone(Pos, latestNormal.GetAngleDeg(), 60.0f, pRunTime: 0.5f, velocity: 2f);
+            latestNormal = new Vec2(0, 0);
         }
+
+        alpha = 0.2f * timer;
+        if (acid) timer -= Time.deltaTime / 500.0f;
+        else timer -= Time.deltaTime / 1000.0f;
     }
 
 }
