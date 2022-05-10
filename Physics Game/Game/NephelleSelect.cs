@@ -23,6 +23,12 @@ public class LevelSelect : Scene {
     public LevelSelect(Worlds pWorld) {
 
        _world = pWorld;
+    }
+
+    protected override void Start()
+    {
+        isActive = true;
+
         CheckWorld();
 
         ImportSprites();
