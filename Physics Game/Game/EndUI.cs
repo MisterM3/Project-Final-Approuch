@@ -49,119 +49,47 @@ public class EndUI : Pivot
         AddChild(endBox);
 
 
-        Box = new EasyDraw(600, 600);
-        Box.SetOrigin(300, 200);
-        Box.Fill(System.Drawing.Color.Cyan);
-        Box.Rect(300, 300, 600, 600);
-        Box.y = -50;
-        endBox.AddChild(Box);
 
-         star1 = new Sprite("star_empty.png");
-        star1.SetOrigin(star1.width / 2, star1.height / 2);
-        star1.SetScaleXY(2.5f, 2.5f);
-        star1.y = -125;
-        endBox.AddChild(star1);
+        Sprite background = new Sprite("end_screen.png");
+        background.SetOrigin(background.width/2, background.height/2);
+        endBox.AddChild(background);
 
-         star2 = new Sprite("star_empty.png");
-        star2.SetOrigin(star2.width / 2, star2.height / 2);
-        star2.SetScaleXY(2, 2);
-        star2.SetXY(-125, -25);
-        endBox.AddChild(star2);
-
-         star3 = new Sprite("star_empty.png");
-        star3.SetOrigin(star3.width / 2, star3.height / 2);
-        star3.SetScaleXY(2, 2);
-        star3.SetXY(125, -25);
-        endBox.AddChild(star3);
-
-        EasyDraw text = new EasyDraw(600, 100);
-        text.SetOrigin(300, 50);
-        text.Fill(0);
-        text.TextSize(30);
-        text.TextAlign(CenterMode.Center, CenterMode.Center);
-        text.Text("You Did It, Twat!", 300, 50);
-        text.y = 100;
-        endBox.AddChild(text);
-
-        EasyDraw nextLevelText = new EasyDraw(300, 100);
-        nextLevelText.SetOrigin(-10, 100);
-        nextLevelText.Fill(0);
-        nextLevelText.TextSize(20);
-        nextLevelText.TextAlign(CenterMode.Center, CenterMode.Center);
-        nextLevelText.Text("Next Level");
-        nextLevelText.y = 300;
-
-        EasyDraw restartText = new EasyDraw(300, 100);
-        restartText.SetOrigin(200, 100);
-        restartText.Fill(0);
-        restartText.TextSize(20);
-        restartText.TextAlign(CenterMode.Center, CenterMode.Center);
-        restartText.Text("RESTART");
-        restartText.y = 300;
-
-        EasyDraw levelSelectText = new EasyDraw(300, 100);
-        levelSelectText.SetOrigin(350, 100);
-        levelSelectText.Fill(0);
-        levelSelectText.TextSize(20);
-        levelSelectText.TextAlign(CenterMode.Center, CenterMode.Center);
-        levelSelectText.Text("Level \n Select");
-        levelSelectText.y = 300;
-
-        
-        
+       
 
         endBox.SetScaleXY(0, 0);
 
-        EasyDraw button1 = new EasyDraw(100, 100);
-        button1.SetOrigin(50, 50);
-        button1.Fill(0);
-        button1.Rect(50, 50, 100, 100);
-        button1.SetXY(-200, 250);
-        endBox.AddChild(button1);
-       
 
-        EasyDraw button2 = new EasyDraw(180, 100);
-        button2.SetOrigin(90, 50);
-        button2.Fill(0);
-        button2.Rect(100, 50, 180, 100);
-        button2.SetXY(-40, 250);
-        endBox.AddChild(button2);
-
-        EasyDraw button3 = new EasyDraw(180, 100);
-        button3.SetOrigin(90, 50);
-        button3.Fill(0);
-        button3.Rect(100, 50, 180, 100);
-        button3.SetXY(160, 250);
-        endBox.AddChild(button3);
-
-        
-
-        star4 = new Sprite("Star_Full.png");
+         star4 = new Sprite("collect.png");
         star4.SetOrigin(star4.width / 2, star4.height / 2);
         star4.SetScaleXY(2, 2);
-        star4.SetXY(-125, -25);
+        star4.SetXY(-208, -126);
         endBox.AddChild(star4);
 
-         star5 = new Sprite("Star_Full.png");
+         star5 = new Sprite("collect.png");
         star5.SetOrigin(star5.width / 2, star5.height / 2);
-        star5.SetScaleXY(2.5f, 2.5f);
-        star5.y = -125;
+        star5.SetScaleXY(2f, 2f);
+        star5.SetXY(-4, -196);
+        star5.rotation = 45;
+        
         endBox.AddChild(star5);
 
-         star6 = new Sprite("Star_Full.png");
+         star6 = new Sprite("collect.png");
         star6.SetOrigin(star6.width / 2, star6.height / 2);
         star6.SetScaleXY(2, 2);
-        star6.SetXY(125, -25);
+        star6.SetXY(208, -126);
         endBox.AddChild(star6);
 
         star4.scale = 0;
         star5.scale = 0;
         star6.scale = 0;
+        star4.rotation = -45;
+        star5.rotation = -45;
+        star6.rotation = -45;
 
 
-        Menu = new ButtonMenu(new Vec2(-200, 250), 100, 100, 0);
-        Restart = new ButtonMenu(new Vec2(-40, 250), 180, 100, (((MyGame)game).GetCurrentScene));
-        Next = new ButtonMenu(new Vec2(160, 250), 180, 100, ((MyGame)game).GetCurrentScene + 1);
+        Menu = new ButtonMenu(new Vec2(-235, 205), 205, 180, 0);
+        Restart = new ButtonMenu(new Vec2(-5, 205), 205, 180, (((MyGame)game).GetCurrentScene));
+        Next = new ButtonMenu(new Vec2(230, 205), 205, 180, ((MyGame)game).GetCurrentScene + 1);
         endBox.AddChild(Menu);
         endBox.AddChild(Restart);
         endBox.AddChild(Next);
@@ -174,6 +102,15 @@ public class EndUI : Pivot
     float scale = 0;
    
     public void Update() {
+
+        /*
+        if (Input.GetKey(Key.W)) star5.y--;
+        if (Input.GetKey(Key.S)) star5.y++;
+        if (Input.GetKey(Key.D)) star5.x++;
+        if (Input.GetKey(Key.A)) star5.x--;
+        if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(star5.x, star5.y));
+        */
+
 
         if (scale >= 0.999f) {
             scale = 1f;
@@ -206,7 +143,8 @@ public class EndUI : Pivot
 
         if (star4.scale < 1.99f && stars >= 1)
         {
-            star4.scale = star4.scale * 0.95f + 2f * 0.05f;
+            star4.scale = star4.scale * 0.85f + 2f * 0.15f;
+            star4.rotation = star4.rotation * 0.85f + 0;
             star4.SetScaleXY(star4.scale, star4.scale);
             Console.WriteLine("1");
 
@@ -218,10 +156,11 @@ public class EndUI : Pivot
             Console.WriteLine("dwaw");
             ((MyGame)game).PS.Boom(new Vec2(x + star4.x, star4.y + y), size: 3);
         }
-        else if (star5.scale < 2.49 && stars >= 2)
+        else if (star5.scale < 1.99f && stars >= 2)
         {
 
-            star5.scale = star5.scale * 0.95f + 2.5f * 0.05f;
+            star5.scale = star5.scale * 0.85f + 2f * 0.15f;
+            star5.rotation = star5.rotation * 0.85f + 0;
             star5.SetScaleXY(star5.scale, star5.scale);
             Console.WriteLine("2");
 
@@ -233,7 +172,8 @@ public class EndUI : Pivot
         }
         else if (star6.scale < 1.99f && stars >= 3)
         {
-            star6.scale = star6.scale * 0.95f + 2f * 0.05f;
+            star6.scale = star6.scale * 0.85f + 2f * 0.15f;
+            star6.rotation = star6.rotation * 0.85f + 0;
             star6.SetScaleXY(star6.scale, star6.scale);
             Console.WriteLine("3");
         }

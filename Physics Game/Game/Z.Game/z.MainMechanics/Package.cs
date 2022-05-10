@@ -8,7 +8,7 @@ using GXPEngine;
 public class Package : Ball
 {
 
-
+    
 
     public enum PackageSpeed { Slow, Normal, Fast }
 
@@ -23,7 +23,7 @@ public class Package : Ball
 
     //Base velocity when the speed is normal
     Vec2 baseVelocity;
-    public Package(Vec2 pPos, Vec2 pVel) : base(20, pPos, pVel)
+    public Package(Vec2 pPos, Vec2 pVel) : base(30, pPos, pVel)
     {
         baseVelocity = pVel;
     }

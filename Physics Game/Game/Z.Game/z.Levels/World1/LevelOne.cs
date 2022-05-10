@@ -8,14 +8,16 @@ using System.Drawing;
 public class LevelOne : Levels
 {
     public static SoundChannel levelOneBg = new SoundChannel(1);
-    Sound levelOne = new Sound("cloudsBG.mp3", true, false);
+  //  Sound levelOne = new Sound("cloudsBG.mp3", true, false);
+
+    Cannon cannon;
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
 
     protected override void MakeLevel()
     {
-        //levelOneBg = levelOne.Play();
+       // levelOneBg = levelOne.Play();
 
         ((MyGame)game).GetCurrentLevel = 0;
         ((MyGame)game).GetCurrentScene = 1;
@@ -24,10 +26,24 @@ public class LevelOne : Levels
         Console.WriteLine(myGame.height);
         bg.width = 1920;
         bg.height = 1080;
+
+        Sprite BackGround = new Sprite("BGN.jpg");
+        BackGround.width = 1920;
+        BackGround.height = 1080;
+        AddChild(BackGround);
         AddChild(bg);
 
         cannon = new Cannon(100, 550, 15);
         AddChild(cannon);
+
+        Sprite sprite = new Sprite("cannon_tire.png");
+        AddChild(sprite);
+        sprite.SetOrigin(sprite.width/2, sprite.height/2);
+        sprite.x = 350;
+        sprite.y = 440;
+
+        sprite.width = sprite.width / 4;
+        sprite.height = sprite.height / 4;
 
 
         //myGame._endCircle = new EndCircle(new Vec2(400, 300));
