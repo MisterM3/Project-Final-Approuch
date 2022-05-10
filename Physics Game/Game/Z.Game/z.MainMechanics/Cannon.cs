@@ -35,7 +35,7 @@ public class Cannon : Sprite
         SetOrigin(width / 3, height / 2);
         width = width / 4;
         height = height / 4;
-        _position.x = pX + 300;
+        _position.x = pX;
         _position.y = pY;
         _speed = pSpeed;
 
@@ -71,8 +71,8 @@ public class Cannon : Sprite
             rotation = right;
         }
 
-        velocity = Vec2.GetUnitVectorDeg(rotation) * _speed;
-        bulletPos = Vec2.GetUnitVectorDeg(rotation) * 100   + _position;
+        velocity = Vec2.GetUnitVectorDeg(rotation - 14) * _speed;
+        bulletPos = Vec2.GetUnitVectorDeg(rotation - 14) * 100 + _position;
 
       
     }
@@ -85,7 +85,7 @@ public class Cannon : Sprite
             Package ball = new Package(bulletPos, velocity);
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);
-            ball.rotation = rotation;
+            ball.rotation = rotation ;
 
         //   HUD _hud = ((MyGame)game).GetHUD;
             shots--;
@@ -107,11 +107,35 @@ public class Cannon : Sprite
 
     }
 
+    Ball[] aimLine = new Ball[8];
+    public void GEQOLL() {
+
+        int balls = 4;
+        float alpha = 1.0f;
+        if (aimLine[0] == null) {
+            for (int i = 0; i < aimLine.Length; i++) {
+                Ball b = new Ball(20 - (2 * i), new Vec2(0, 0), new Vec2(0, 0), moving: false, tr: true);
+                b.alpha -= i * 0.1f;
+                aimLine[i] = b;
+                parent.AddChild(b);
+            }
+        }
+
+        if (aimLine[0] != null) {
+            for (int i = 0; i < aimLine.Length; i++) { 
+                aimLine[i].position = Vec2.GetUnitVectorDeg(rotation - 14) * (225 + 50 * i) + _position;
+            }
+         
+        }
+    }
+
     public void Update()
     {
 
         Controls();
+        GEQOLL();
         Shoot();
         UpdateSceenPosition();
+
     }
 }

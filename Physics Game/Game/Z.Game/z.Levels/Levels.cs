@@ -52,6 +52,7 @@ public class Levels : Scene
             LevelOne.levelOneBg.Stop();
             SceneManager.instance.TryLoadNextScene();
         }
+     
     }
 
     public override void UnLoadScene()
@@ -60,6 +61,8 @@ public class Levels : Scene
     }
 
     protected virtual void MakeLevel() { }
+
+
 }
 
 

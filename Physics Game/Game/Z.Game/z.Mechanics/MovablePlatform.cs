@@ -51,7 +51,7 @@ public class MovablePlatform : Pivot
     public void Update()
     {
 
-        dis += toVec;
+        dis += toVec * 1.5f;
 
         Vec2 toStart = dis - disTo;
         Vec2 toEnd = dis + disTo;
@@ -60,12 +60,12 @@ public class MovablePlatform : Pivot
 
        //     lines[i].x += toVec.x;
        //     lines[i].y += toVec.y;
-            lines[i].start += toVec;
-            lines[i].end += toVec;
+            lines[i].start += toVec * 1.5f;
+            lines[i].end += toVec * 1.5f;
         }
         for (int i = 0; i < caps.Length; i++)
         {
-            caps[i].position += toVec;
+            caps[i].position += toVec * 1.5f;
         
         }
     }
