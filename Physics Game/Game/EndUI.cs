@@ -21,6 +21,11 @@ public class EndUI : Pivot
 
     int stars;
 
+    ButtonMenu Menu;
+    ButtonMenu Restart;
+    ButtonMenu Next;
+
+
     //Button should latedestroy this class
     public EndUI(int Stars) {
 
@@ -122,6 +127,14 @@ public class EndUI : Pivot
         star4.scale = 0;
         star5.scale = 0;
         star6.scale = 0;
+
+
+        Menu = new ButtonMenu(new Vec2(-200, 250), 100, 100, 0);
+        Restart = new ButtonMenu(new Vec2(-40, 250), 180, 100, (((MyGame)game).GetCurrentScene));
+        Next = new ButtonMenu(new Vec2(160, 250), 180, 100, ((MyGame)game).GetCurrentScene + 1);
+        endBox.AddChild(Menu);
+        endBox.AddChild(Restart);
+        endBox.AddChild(Next);
     }
 
     float scale = 0;
@@ -132,7 +145,13 @@ public class EndUI : Pivot
             scale = 1f;
             endBox.SetScaleXY(scale, scale);
             Stars();
-
+            if (!Menu.isActive) { 
+            
+                Menu.isActive = true;
+                Restart.isActive = true;
+                Next.isActive = true;
+            
+            }
         }
         else if (scale < 1)
         {

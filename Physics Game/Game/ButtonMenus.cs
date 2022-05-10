@@ -5,11 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class button : Sprite
+public class ButtonMenu : Sprite
 {
     int scene;
-    public button(Vec2 pPos, int pWidth, int pHeight, int pScene) : base("colors.png") {
 
+
+    float px = 1920 / 2.0f;
+    float py = 1080 / 2.0f;
+    public bool isActive = false;
+    public ButtonMenu(Vec2 pPos, int pWidth, int pHeight, int pScene) : base("colors.png") {
+        SetOrigin(width/2, height/2);
         x = pPos.x;
         y = pPos.y;
         width = pWidth;
@@ -25,7 +30,8 @@ public class button : Sprite
 
     void Hover() {
 
-        if (Input.mouseX < width/2 && Input.mouseX > width/2 && Input.mouseY < height/2 && Input.mouseY > height/2)
+        if (!isActive) return;
+        if (Input.mouseX < (x + px) + width/2 && Input.mouseX > (x + px) - width/2 && Input.mouseY < (y + py) + height/2 && Input.mouseY > (y + py) - height/2)
         {
       //      _hover.alpha = 1;
 
