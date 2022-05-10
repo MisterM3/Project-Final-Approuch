@@ -35,7 +35,7 @@ public class Cannon : Sprite
         SetOrigin(width / 3, height / 2);
         width = width / 4;
         height = height / 4;
-        _position.x = pX + 300;
+        _position.x = pX;
         _position.y = pY;
         _speed = pSpeed;
 

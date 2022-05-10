@@ -47,6 +47,7 @@
     <Compile Include="Particle.cs" />
     <Compile Include="ParticleSystem.cs" />
     <Compile Include="SoundsManager.cs" />
+    <Compile Include="Z.Game\z.Levels\World1\LevelThree.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\CircleMechanic.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\BoxMechanic.cs" />
     <Compile Include="Z.Game\z.Levels\Levels.cs" />

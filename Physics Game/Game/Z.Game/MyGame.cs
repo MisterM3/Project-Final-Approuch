@@ -139,6 +139,8 @@ public class MyGame : Game
 		SceneManager.instance.AddScene(levelOne);
 		LevelTwo levelTwo = new LevelTwo(soundLibrary);
 		SceneManager.instance.AddScene(levelTwo);
+		LeveThree levelThree = new LeveThree(soundLibrary);
+		SceneManager.instance.AddScene(levelThree);
 		SceneManager.instance.LoadScene(0);
     }
 
