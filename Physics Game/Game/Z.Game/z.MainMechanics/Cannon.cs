@@ -28,20 +28,26 @@ public class Cannon : Sprite
 
     int left;
     int right;
-    public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannonSmall.png")
+
+    Sprite sprite;
+    public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannon.png")
     {
-       
-        SetOrigin(width / 2, height / 2);
-        _position.x = pX;
-        _position.y = pY;  
-        _speed = pSpeed; 
+        SetOrigin(width / 3, height / 2);
+        width = width / 4;
+        height = height / 4;
+        _position.x = pX + 300;
+        _position.y = pY;
+        _speed = pSpeed;
 
         left = leftBound;
         right = rightBound;
+
     }
 
     void Controls()
     {
+
+        
         float angleRotation = rotation * Mathf.PI / 180;
 
         if (Input.GetKey(Key.LEFT))
@@ -67,6 +73,8 @@ public class Cannon : Sprite
 
         velocity = Vec2.GetUnitVectorDeg(rotation) * _speed;
         bulletPos = Vec2.GetUnitVectorDeg(rotation) * 100   + _position;
+
+      
     }
 
     void Shoot()

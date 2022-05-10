@@ -9,6 +9,8 @@ public class LevelOne : Levels
 {
     public static SoundChannel levelOneBg = new SoundChannel(1);
     Sound levelOne = new Sound("cloudsBG.mp3", true, false);
+
+    Cannon cannon;
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -28,6 +30,15 @@ public class LevelOne : Levels
 
         cannon = new Cannon(0, 450, 15);
         AddChild(cannon);
+
+        Sprite sprite = new Sprite("cannon_tire.png");
+        AddChild(sprite);
+        sprite.SetOrigin(sprite.width/2, sprite.height/2);
+        sprite.x = 350;
+        sprite.y = 440;
+
+        sprite.width = sprite.width / 4;
+        sprite.height = sprite.height / 4;
 
 
         //myGame._endCircle = new EndCircle(new Vec2(400, 300));

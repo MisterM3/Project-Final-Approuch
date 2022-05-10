@@ -172,7 +172,7 @@ public class EndUI : Pivot
 
         if (star4.scale < 1.99f && stars >= 1)
         {
-            star4.scale = star4.scale * 0.95f + 2f * 0.05f;
+            star4.scale = star4.scale * 0.85f + 2f * 0.15f;
             star4.SetScaleXY(star4.scale, star4.scale);
             Console.WriteLine("1");
 
@@ -187,7 +187,7 @@ public class EndUI : Pivot
         else if (star5.scale < 2.49 && stars >= 2)
         {
 
-            star5.scale = star5.scale * 0.95f + 2.5f * 0.05f;
+            star5.scale = star5.scale * 0.85f + 2.5f * 0.15f;
             star5.SetScaleXY(star5.scale, star5.scale);
             Console.WriteLine("2");
 
@@ -199,7 +199,7 @@ public class EndUI : Pivot
         }
         else if (star6.scale < 1.99f && stars >= 3)
         {
-            star6.scale = star6.scale * 0.95f + 2f * 0.05f;
+            star6.scale = star6.scale * 0.85f + 2f * 0.15f;
             star6.SetScaleXY(star6.scale, star6.scale);
             Console.WriteLine("3");
         }
