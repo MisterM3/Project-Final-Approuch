@@ -28,7 +28,7 @@ public class Cannon : Sprite
 
     int left;
     int right;
-    public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannonSmall.png")
+    public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("finalCannon.png")
     {
        
         SetOrigin(width / 2, height / 2);
@@ -71,9 +71,10 @@ public class Cannon : Sprite
 
     void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && shots > 0)
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(Key.SPACE) && shots > 0)
         {
             ((MyGame)game).soundLibrary["Shoot"].Play(false, 0, .1f);
+            bulletPos.y -= 50;
             Package ball = new Package(bulletPos, velocity);
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);

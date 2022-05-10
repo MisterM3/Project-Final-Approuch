@@ -15,7 +15,7 @@ public class LevelOne : Levels
 
     protected override void MakeLevel()
     {
-        levelOneBg = levelOne.Play();
+        //levelOneBg = levelOne.Play();
 
         ((MyGame)game).GetCurrentLevel = 0;
         ((MyGame)game).GetCurrentScene = 1;
@@ -26,7 +26,7 @@ public class LevelOne : Levels
         bg.height = 1080;
         AddChild(bg);
 
-        cannon = new Cannon(0, 450, 15);
+        cannon = new Cannon(100, 550, 15);
         AddChild(cannon);
 
 

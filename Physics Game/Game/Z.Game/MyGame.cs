@@ -207,7 +207,7 @@ public class MyGame : Game
         }
         if (Input.GetKeyDown(Key.R))
         {
-			LevelOne.levelOneBg.Stop();
+			//LevelOne.levelOneBg.Stop();
 			SceneManager.instance.LoadScene(GetCurrentScene);
 			CS.RestartStarsLevel();
 			//cannon.shots = 2;
