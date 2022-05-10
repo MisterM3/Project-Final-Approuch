@@ -101,6 +101,7 @@ public class Cannon : Sprite
 
     public void Update()
     {
+
         Controls();
         Shoot();
         UpdateSceenPosition();

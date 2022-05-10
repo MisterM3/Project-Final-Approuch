@@ -24,6 +24,7 @@ public class EndCircle : CircleMechanic {
         pMove.velocity *= 0.9f;
         if (endUI == null)
         {
+           
             CollectableSystem CS = myGame.GetCollectableSystem;
             
 
