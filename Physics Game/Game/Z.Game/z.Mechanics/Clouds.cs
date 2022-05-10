@@ -42,7 +42,7 @@ public class Clouds : Pivot {
 
     public void Update() {
 
-        if (wall) return;
+        
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++) {
 
             Ball mover = myGame.GetMover(i);
@@ -52,15 +52,43 @@ public class Clouds : Pivot {
                 {
                     if (mover.moving && mover.latestCollision == lines[j])
                     {
-                        poof = true;
+
+                        if (wall)
+                        {
+                            ((MyGame)game).SM.RockSFX();
+                            mover.latestCollision = null;
+                        }
+                        else
+                        {
+                            ((MyGame)game).SM.CloudSFX();
+                            poof = true;
+                            mover.latestCollision = null;
+                        }
+
+                     
                     }
                 }
                 for (int j = 0; j < caps.Length; j++)
                 {
-                    if (mover.latestCollision == caps[j]) poof = true;
+
+
+                    if (mover.latestCollision == caps[j])
+                        if (wall)
+                        {
+                            ((MyGame)game).SM.RockSFX();
+                            mover.latestCollision = null;
+                        }
+                        else {
+                            ((MyGame)game).SM.CloudSFX();
+                            poof = true;
+                            mover.latestCollision = null;
+                        }
+                    
                 }
+                
 
             }
+
         }
         if (poof) DeleteCloud(); 
     }

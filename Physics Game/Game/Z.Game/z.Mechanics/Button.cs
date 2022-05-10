@@ -11,6 +11,8 @@ public class Button : BoxMechanic
 
     LineSegment Wall;
     bool pressed = false;
+
+    //Replace with LineButton
     public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight) : base(pPos, pWidth, pHeight)
     {
         Wall = pWall;

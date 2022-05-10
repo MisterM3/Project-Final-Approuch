@@ -56,19 +56,68 @@ public class MovablePlatform : Pivot
         Vec2 toStart = dis - disTo;
         Vec2 toEnd = dis + disTo;
         if (toStart.Length() >= totalDis || toEnd.Length() >= totalDis) toVec *= -1;
-        for (int i = 0; i < lines.Length; i++) {
+        for (int i = 0; i < lines.Length; i++)
+        {
 
-       //     lines[i].x += toVec.x;
-       //     lines[i].y += toVec.y;
+            //     lines[i].x += toVec.x;
+            //     lines[i].y += toVec.y;
             lines[i].start += toVec * 1.5f;
             lines[i].end += toVec * 1.5f;
         }
         for (int i = 0; i < caps.Length; i++)
         {
             caps[i].position += toVec * 1.5f;
-        
+
         }
+
+        for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
+        {
+            Ball mover = myGame.GetMover(i);
+            if (mover.moving)
+            {
+                for (int j = 0; j < lines.Length; j++)
+                {
+                    if (mover.moving && mover.latestCollision == lines[j])
+                    {
+
+                        if (wall)
+                        {
+                            ((MyGame)game).SM.RockSFX();
+                            mover.latestCollision = null;
+                        }
+                        else
+                        {
+                            ((MyGame)game).SM.CloudSFX();
+                            poof = true;
+                            mover.latestCollision = null;
+                        }
+
+
+                    }
+                }
+                for (int j = 0; j < caps.Length; j++)
+                {
+
+
+                    if (mover.latestCollision == caps[j])
+                        if (wall)
+                        {
+                            ((MyGame)game).SM.RockSFX();
+                            mover.latestCollision = null;
+                        }
+                        else
+                        {
+                            ((MyGame)game).SM.CloudSFX();
+                            poof = true;
+                            mover.latestCollision = null;
+                        }
+
+                }
+
+
+            }
+        }
+
+
     }
-
-
 }

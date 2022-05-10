@@ -51,4 +51,30 @@ public class SoundManager : Pivot
 
     }
 
+    public void CloudSFX()
+    {
+
+        int i = Utils.Random(1, 9);
+
+        string sound = "Sounds/CloudCol/collision " + i.ToString() + ".wav";
+
+        Console.WriteLine(sound);
+        Sound shoot = new Sound(sound);
+
+        shoot.Play();
+
+    }
+
+    public void RockSFX() {
+
+        int i = Utils.Random(1, 8);
+
+        string sound = "Sounds/RockCol/collision " + i.ToString() + ".wav";
+
+        Console.WriteLine(sound);
+        Sound shoot = new Sound(sound);
+
+        shoot.Play();
+    }
+
 }
