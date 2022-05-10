@@ -82,7 +82,7 @@ public class Cannon : Sprite
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(Key.SPACE)) && shots > 0)
         {
             ((MyGame)game).soundLibrary["Shoot"].Play(false, 0, .1f);
-            bulletPos.y -= 50;
+
             Package ball = new Package(bulletPos, velocity);
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);

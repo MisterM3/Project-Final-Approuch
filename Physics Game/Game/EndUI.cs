@@ -94,9 +94,6 @@ public class EndUI : Pivot
         endBox.AddChild(Restart);
         endBox.AddChild(Next);
 
-        endBox.AddChild(nextLevelText);
-        endBox.AddChild(restartText);
-        endBox.AddChild(levelSelectText);
     }
 
     float scale = 0;
