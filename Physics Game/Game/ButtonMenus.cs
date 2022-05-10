@@ -20,6 +20,7 @@ public class ButtonMenu : Sprite
         width = pWidth;
         height = pHeight;
         scene = pScene;
+        alpha = 0;
     }
 
     public void Update() {

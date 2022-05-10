@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 using System.Drawing;
-public class LevelOne : Levels
+public class LeveThree : Levels
 {
     public static SoundChannel levelOneBg = new SoundChannel(1);
-  //  Sound levelOne = new Sound("cloudsBG.mp3", true, false);
+    Sound levelOne = new Sound("cloudsBG.mp3", true, false);
 
     Cannon cannon;
-    public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
+    public LeveThree(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
 
     protected override void MakeLevel()
     {
-       // levelOneBg = levelOne.Play();
+        levelOneBg = levelOne.Play();
 
         ((MyGame)game).GetCurrentLevel = 0;
         ((MyGame)game).GetCurrentScene = 1;
