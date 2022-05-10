@@ -23,12 +23,18 @@ public class LevelSelect : Scene {
     public LevelSelect(Worlds pWorld) {
 
        _world = pWorld;
+        Start();
+    }
+
+    protected override void Start() {
+    
+        isActive = true;
         CheckWorld();
 
         ImportSprites();
         MakeWorld();
-    }
 
+    }
     public void CheckWorld() {
 
 
@@ -75,6 +81,11 @@ public class LevelSelect : Scene {
    
 
 
+    }
+
+    public override void UnLoadScene()
+    {
+        base.UnLoadScene();
     }
 
 

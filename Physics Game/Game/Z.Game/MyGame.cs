@@ -123,10 +123,18 @@ public class MyGame : Game
 	//	AddChild(_hud);		
 	}
 
+
+	public enum Scenes { Start, WorldSelect, LevelSelectNephelle, LevelSelectBethel, Nephelle_1, Nephelle_2, Nephelle_3, Bethel_1, Bethel_2, Bethel_3 }
 	public void SetUpScenes()
     {
 
 		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
+
+		//Testing purposes (So the scene enum works correctly
+		SceneManager.instance.AddScene(neph);
+		SceneManager.instance.AddScene(neph);
+		SceneManager.instance.AddScene(neph);
+
 		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);
 		SceneManager.instance.AddScene(levelOne);

@@ -140,7 +140,7 @@ public class BottonLevel : Pivot
         {
             _hover.alpha = 1;
 
-            if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(levelInTotal + 1);
+            if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(levelInTotal + 4);
         }
         else _hover.alpha = 0;
     }

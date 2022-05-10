@@ -20,6 +20,8 @@ public class EndUI : Pivot
     Sprite star6;
 
     int stars;
+
+    //Button should latedestroy this class
     public EndUI(int Stars) {
 
         stars = Stars;
