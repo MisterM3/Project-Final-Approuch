@@ -34,7 +34,7 @@ public class CircleMechanic : Sprite
 
                 if (relPos.Length() < (width / 2) + mover.radius)
                 {
-                    collectStar.Play(false, 0, 0.7f);
+                    collectStar.Play(false, 0, 0.5f);
                     InCircle(mover, relPos);
                     InCircle();
                 }

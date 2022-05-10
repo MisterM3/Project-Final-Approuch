@@ -83,6 +83,33 @@ public class EndUI : Pivot
         text.y = 100;
         endBox.AddChild(text);
 
+        EasyDraw nextLevelText = new EasyDraw(300, 100);
+        nextLevelText.SetOrigin(-10, 100);
+        nextLevelText.Fill(0);
+        nextLevelText.TextSize(20);
+        nextLevelText.TextAlign(CenterMode.Center, CenterMode.Center);
+        nextLevelText.Text("Next Level");
+        nextLevelText.y = 300;
+
+        EasyDraw restartText = new EasyDraw(300, 100);
+        restartText.SetOrigin(200, 100);
+        restartText.Fill(0);
+        restartText.TextSize(20);
+        restartText.TextAlign(CenterMode.Center, CenterMode.Center);
+        restartText.Text("RESTART");
+        restartText.y = 300;
+
+        EasyDraw levelSelectText = new EasyDraw(300, 100);
+        levelSelectText.SetOrigin(350, 100);
+        levelSelectText.Fill(0);
+        levelSelectText.TextSize(20);
+        levelSelectText.TextAlign(CenterMode.Center, CenterMode.Center);
+        levelSelectText.Text("Level \n Select");
+        levelSelectText.y = 300;
+
+        
+        
+
         endBox.SetScaleXY(0, 0);
 
         EasyDraw button1 = new EasyDraw(100, 100);
@@ -91,6 +118,7 @@ public class EndUI : Pivot
         button1.Rect(50, 50, 100, 100);
         button1.SetXY(-200, 250);
         endBox.AddChild(button1);
+       
 
         EasyDraw button2 = new EasyDraw(180, 100);
         button2.SetOrigin(90, 50);
@@ -106,7 +134,9 @@ public class EndUI : Pivot
         button3.SetXY(160, 250);
         endBox.AddChild(button3);
 
-         star4 = new Sprite("Star_Full.png");
+        
+
+        star4 = new Sprite("Star_Full.png");
         star4.SetOrigin(star4.width / 2, star4.height / 2);
         star4.SetScaleXY(2, 2);
         star4.SetXY(-125, -25);
@@ -135,6 +165,10 @@ public class EndUI : Pivot
         endBox.AddChild(Menu);
         endBox.AddChild(Restart);
         endBox.AddChild(Next);
+
+        endBox.AddChild(nextLevelText);
+        endBox.AddChild(restartText);
+        endBox.AddChild(levelSelectText);
     }
 
     float scale = 0;
