@@ -14,8 +14,8 @@ public class SoundManager : Pivot
     bool switched = false;
     public SoundManager() {
 
-        backgroundSound = new Sound("cloudsBG.mp3", true);
-        backgroundSound.Play();
+ //       backgroundSound = new Sound("cloudsBG.mp3", true);
+  //      backgroundSound.Play();
     }
 
 
@@ -34,6 +34,20 @@ public class SoundManager : Pivot
         else if (channel.Volume < 1) channel.Volume += 0.5f;
 
 
+
+    }
+
+
+    public void ShootSFX() {
+
+        int i = Utils.Random(1, 7);
+
+        string sound = "Sounds/Shoot/click" + i.ToString() + ".wav";
+
+        Console.WriteLine(sound);
+        Sound shoot = new Sound(sound);
+        
+        shoot.Play();
 
     }
 
