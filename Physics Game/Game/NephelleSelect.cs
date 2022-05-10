@@ -33,8 +33,8 @@ public class LevelSelect : Scene {
 
         ImportSprites();
         MakeWorld();
-    }
 
+    }
     public void CheckWorld() {
 
 
@@ -81,6 +81,11 @@ public class LevelSelect : Scene {
    
 
 
+    }
+
+    public override void UnLoadScene()
+    {
+        base.UnLoadScene();
     }
 
 

@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BottonLevel.cs" />
-    <Compile Include="Button.cs" />
+    <Compile Include="ButtonMenus.cs" />
     <Compile Include="EndUI.cs" />
     <Compile Include="NephelleSelect.cs" />
     <Compile Include="Particle.cs" />
