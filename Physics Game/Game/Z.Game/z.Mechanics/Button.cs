@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 
-public class Button : BoxMechanic {
+public class Button : BoxMechanic
+{
 
 
     LineSegment Wall;
     bool pressed = false;
-    public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight) : base(pPos, pWidth, pHeight) { 
+    public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight) : base(pPos, pWidth, pHeight)
+    {
         Wall = pWall;
     }
 
@@ -23,10 +25,15 @@ public class Button : BoxMechanic {
             {
 
                 LineSegment line = myGame.GetLine(j);
-                if (line == Wall) line.Destroy();
+                if (line == Wall)
+                {
+                    myGame.RemoveLine(Wall);
 
+
+
+                }
             }
         }
-    }
 
+    }
 }

@@ -25,13 +25,19 @@ public class Cannon : Sprite
     Vec2 _position;
     Vec2 bulletPos;
     Vec2 velocity;
-    public Cannon(float pX, float pY, float pSpeed, int pRadius = 100) : base("cannonSmall.png")
+
+    int left;
+    int right;
+    public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannonSmall.png")
     {
        
         SetOrigin(width / 2, height / 2);
         _position.x = pX;
         _position.y = pY;  
         _speed = pSpeed; 
+
+        left = leftBound;
+        right = rightBound;
     }
 
     void Controls()
@@ -48,15 +54,15 @@ public class Cannon : Sprite
             rotation++;
         }
 
-        if(rotation < -47)
+        if(rotation < left)
         {
 
-            rotation = -47;
+            rotation = left;
         }
 
-        if(rotation > 56)
+        if(rotation > right)
         {
-            rotation = 56;
+            rotation = right;
         }
 
         velocity = Vec2.GetUnitVectorDeg(rotation) * _speed;

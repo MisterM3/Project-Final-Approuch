@@ -23,7 +23,9 @@ public class LevelTwo : Levels
         bg.height = 1080;
         AddChild(bg);
 
-        cannon = new Cannon(0, 450, 15);
+        cannon = new Cannon(220, 530, 15, -90, 38);
+      
+
         AddChild(cannon);
 
         Fan fan = new Fan(new Vec2(1377, 938), 1000, 120, 180, pPower: 1f);
@@ -70,7 +72,7 @@ public class LevelTwo : Levels
         //Button + Line
 
         LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
-        myGame._lines.Add(ln);
+        myGame.addLine(ln);
 
         MovablePlatform mp = new MovablePlatform(new Vec2(1437, 699), new Vec2(1661, 476), new Vec2(1412, 673), new Vec2(1636, 452), new Vec2(167, -178), true);
         AddChild(mp);
@@ -85,7 +87,8 @@ public class LevelTwo : Levels
 
 
         //EndCircle
-        EndCircle endcircle = new EndCircle(new Vec2(610, 931), 50);
+        EndCircle endcircle = new EndCircle(new Vec2(610, 931), 100);
+        AddChild(endcircle);
     }
 
 }
