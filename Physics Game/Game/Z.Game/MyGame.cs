@@ -130,10 +130,6 @@ public class MyGame : Game
 
 		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
 
-		//Testing purposes (So the scene enum works correctly
-		SceneManager.instance.AddScene(neph);
-		SceneManager.instance.AddScene(neph);
-		SceneManager.instance.AddScene(neph);
 
 		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);

@@ -8,7 +8,7 @@ public class Cannon : Sprite
 {
 
 
-    public int shots = 2;
+    public int shots = 3;
     //public fields
     float _speed = 1;
     public Vec2 position
@@ -95,6 +95,7 @@ public class Cannon : Sprite
 
     public void Update()
     {
+
         Controls();
         Shoot();
         UpdateSceenPosition();
