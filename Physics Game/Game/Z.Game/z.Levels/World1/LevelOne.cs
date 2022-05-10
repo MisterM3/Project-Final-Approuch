@@ -8,7 +8,7 @@ using System.Drawing;
 public class LevelOne : Levels
 {
     public static SoundChannel levelOneBg = new SoundChannel(1);
-    Sound levelOne = new Sound("LevelOneBG.mp3", true, false);
+    Sound levelOne = new Sound("cloudsBG.mp3", true, false);
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -40,16 +40,16 @@ public class LevelOne : Levels
         //Button but = new Button(new Vec2(200, 100), ln);
         //AddChild(but);
 
-        Clouds cloud = new Clouds(new Vec2(518, 1080), new Vec2(725, 1080), new Vec2(400, 958), new Vec2(400, 751));
+        Clouds cloud = new Clouds(new Vec2(518, 1080), new Vec2(725, 1080), new Vec2(400, 958), new Vec2(400, 751), pWall: true);
         AddChild(cloud);
 
-        Clouds cloud1 = new Clouds(new Vec2(863, 718), new Vec2(966, 614), new Vec2(527, 382), new Vec2(631, 279));
+        Clouds cloud1 = new Clouds(new Vec2(863, 718), new Vec2(966, 614), new Vec2(527, 382), new Vec2(631, 279), pWall: true);
         AddChild(cloud1);
 
-        Clouds cloud2 = new Clouds(new Vec2(1481, 324), new Vec2(1578, 229), new Vec2(1155, 0), new Vec2(1346, 0));
+        Clouds cloud2 = new Clouds(new Vec2(1481, 324), new Vec2(1578, 229), new Vec2(1155, 0), new Vec2(1346, 0), pWall: true);
         AddChild(cloud2);
 
-        Clouds cloud3 = new Clouds(new Vec2(1551, 660), new Vec2(1920, 663), new Vec2(1552, 595), new Vec2(1920, 594));
+        Clouds cloud3 = new Clouds(new Vec2(1551, 660), new Vec2(1920, 663), new Vec2(1552, 595), new Vec2(1920, 594), pWall: true);
         AddChild(cloud3);
 
 

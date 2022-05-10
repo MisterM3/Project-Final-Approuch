@@ -16,6 +16,7 @@ public class MyGame : Game
 
 	CollectableSystem CS;
 	public ParticleSystem PS;
+	public SoundManager SM;
 	HUD _hud;
 
 	public List<Ball> _movers;
@@ -108,6 +109,8 @@ public class MyGame : Game
 		PS = new ParticleSystem();
 		AddChild(PS);
 
+		SM = new SoundManager();
+		AddChild(SM);
 
 		//LoadScene(_startSceneNumber);
 		SetUpScenes();
