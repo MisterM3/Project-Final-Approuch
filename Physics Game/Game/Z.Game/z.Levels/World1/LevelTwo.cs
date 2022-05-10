@@ -29,7 +29,7 @@ public class LevelTwo : Levels
         bg.height = 1080;
         AddChild(bg);
 
-        cannon = new Cannon(220, 530, 15, -90, 38);
+        cannon = new Cannon(220, 530, 15, -75, 38);
       
 
         AddChild(cannon);

@@ -33,7 +33,7 @@ public class LeveThree : Levels
         //AddChild(BackGround);
         AddChild(bg);
 
-        cannon = new Cannon(222, 527, 15, -90, 38);
+        cannon = new Cannon(222, 527, 15, -75, 38);
         AddChild(cannon);
 
 
