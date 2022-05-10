@@ -15,7 +15,8 @@ public class LevelOne : Levels
 
     protected override void MakeLevel()
     {
-  
+        levelOneBg = levelOne.Play();
+
         ((MyGame)game).GetCurrentLevel = 0;
         ((MyGame)game).GetCurrentScene = 1;
         Sprite bg = new Sprite("1.png");

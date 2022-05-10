@@ -194,9 +194,14 @@ public class MyGame : Game
         if (Input.GetKeyDown(Key.SPACE)) Console.WriteLine("###################################################################");
 
         //Load/reset scenes:
+        if (Input.GetKeyDown(Key.F4))
+        {
+			//SceneManager.instance.LoadScene();
+        }
         if (Input.GetKeyDown(Key.R))
         {
-			SceneManager.instance.LoadScene(currentScene);
+			LevelOne.levelOneBg.Stop();
+			SceneManager.instance.LoadScene(GetCurrentScene);
 			CS.RestartStarsLevel();
 			//cannon.shots = 2;
         }
@@ -215,7 +220,7 @@ public class MyGame : Game
 		}
 	}
 
-	public void NextLevel() { 
+	public void NextLevel() {
 		
 	}
 

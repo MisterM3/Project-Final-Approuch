@@ -8,6 +8,7 @@ using GXPEngine;
 public class CircleMechanic : Sprite
 {
     protected MyGame myGame;
+    Sound collectStar = new Sound("starsCollectTestSound.wav", false, false);
     public CircleMechanic(Vec2 pPos, int pRadius) : base("circle.png")
     {
         SetOrigin(width / 2, height / 2);
@@ -33,6 +34,7 @@ public class CircleMechanic : Sprite
 
                 if (relPos.Length() < (width / 2) + mover.radius)
                 {
+                    collectStar.Play(false, 0, 0.7f);
                     InCircle(mover, relPos);
                     InCircle();
                 }

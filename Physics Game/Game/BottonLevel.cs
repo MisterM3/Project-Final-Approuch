@@ -141,7 +141,7 @@ public class BottonLevel : Pivot
 
         if (Input.mouseX < x + radius && Input.mouseX > x - radius && Input.mouseY < y + radius && Input.mouseY > y - radius)
         {
-            //hoverButton.Play();
+            hoverButton.Play();
             _hover.alpha = 1;
 
             if (Input.GetMouseButtonDown(0))
