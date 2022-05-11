@@ -18,7 +18,16 @@ public class Button : BoxMechanic
     {
         Wall = pWall;
 
-        //this.alpha = 0;
+        
+        this.alpha = 0;
+        top = new Sprite("button_top.png");
+        top.SetOrigin(top.width / 2, top.height / 2);
+        top.width = pWidth / 2;
+        top.height = pHeight;
+        top.rotation = pRot;
+        top.SetXY(0, 12);
+        AddChild(top);
+
         bot = new Sprite("button_bot.png");
         bot.SetOrigin(bot.width/2, bot.height/2);
         bot.width = pWidth / 2;
@@ -27,13 +36,12 @@ public class Button : BoxMechanic
         bot.SetXY(0, 12);
         AddChild(bot);
 
-        top = new Sprite("button_top.png");
-        top.SetOrigin(top.width / 2, top.height / 2);
-        top.width = pWidth / 2;
-        top.height = pHeight;
-        top.rotation = pRot;
-        top.SetXY(0, 12);
-        AddChild(top);
+
+        if (top.rotation == 90) {
+            bot.SetXY(30, 0);
+            top.SetXY(30, 0);
+
+        }
 
     }
 
@@ -57,21 +65,30 @@ public class Button : BoxMechanic
             }
         }
         
-        if (pressed && top.y >= -3){
+        if (pressed && top.y >= -3 && top.rotation == 180){
             top.y--;
          
             
         
+        } else if (pressed && top.x >= 0)
+        {
+            top.x--;
         }
 
     }
 
     protected override void OutBox(Package pPack)
     {
-        if (pressed && (top.y >= -3 && top.rotation == 180))
+        if (pressed && top.y >= -3 && top.rotation == 180)
         {
             top.y--;
 
+
+
+        }
+        else if (pressed && top.x >= 0)
+        {
+            top.x--;
         }
     }
 }

@@ -77,7 +77,7 @@ public class Clouds : Pivot {
         
         for (int i = 0; i < caps.Length; i++) myGame.RemoveBalls(caps[i]);
 
-        if (sprite != null && sprite.alpha > 0.1) sprite.alpha -= 0.1f;
+        if (sprite != null && sprite.alpha > 0) sprite.alpha -= 0.1f;
 
 
     }
