@@ -14,6 +14,8 @@ public class Clouds : Pivot {
 
     bool wall = false;
 
+    public Sprite sprite;
+
     //pRot is in Deg
 
     //Make A wall class to clean up
@@ -42,7 +44,8 @@ public class Clouds : Pivot {
 
     public void Update() {
 
-        if (wall) return;
+        if (poof) DeleteCloud(); 
+        if (wall || poof) return;
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++) {
 
             Ball mover = myGame.GetMover(i);
@@ -62,7 +65,6 @@ public class Clouds : Pivot {
 
             }
         }
-        if (poof) DeleteCloud(); 
     }
 
 
@@ -74,7 +76,9 @@ public class Clouds : Pivot {
         }
         
         for (int i = 0; i < caps.Length; i++) myGame.RemoveBalls(caps[i]);
-       this.LateDestroy();
+
+        if (sprite != null && sprite.alpha > 0.1) sprite.alpha -= 0.1f;
+
 
     }
 }

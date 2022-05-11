@@ -103,6 +103,7 @@ public class LevelTwo : Levels
         cloudSprite.height = 358;
         cloudSprite.SetXY(827 - cloud9.x, 169 - cloud9.y);
         cloud9.AddChild(cloudSprite);
+        cloud9.sprite = cloudSprite;
         //Button + Line
 
         LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
