@@ -7,8 +7,10 @@ using GXPEngine;
 public class StartScreen : Scene
 {
 
-    Sprite truck;
     EasyDraw exitButton;
+    AnimationSprite startScreen;
+
+    int animatedRow = 1;
     public StartScreen()
     {
         ((MyGame)game).GetCurrentScene = 0;
@@ -17,38 +19,41 @@ public class StartScreen : Scene
         background.width = 1920;
         background.height = 1080;
 
-        Sprite alien = new Sprite("cillus.jpg");
-        alien.SetXY(200, 200);
-        alien.scale = 0.3f;
 
-        truck = new Sprite("truck.png");
-        truck.SetXY(500, 500);
-        truck.width = 500;
-        truck.height = 250;
+        startScreen = new AnimationSprite("spriteSheet.png", 4,6);
 
         exitButton = new EasyDraw(300,200,false);
-
-        exitButton.SetXY(1500, 600);
+        exitButton.SetXY(860, 600);
         exitButton.TextSize(50);
         exitButton.Text("EXIT");
-        
-       
 
-        AddChild(background);
-        AddChild(alien);
-        AddChild(truck);
+
+        AddChild(startScreen);
         AddChild(exitButton);
     }
 
+    private void updateAnimation()
+    {
+        if(animatedRow == 1)
+        {
+            startScreen.SetCycle(1, 3);
+            animatedRow = 2;
+        }
+
+        else if (animatedRow == 2)
+        {
+            startScreen.SetCycle(1, 21);
+
+        }
+    }
     
     protected override void Update()
     {
+        
         if (((MyGame)game).GetCurrentScene == 0)
         {
-            if(Input.mouseX >= truck.x + 70 && Input.mouseX <= truck.x + truck.width - 70 && Input.mouseY >= truck.y + 70 && Input.mouseY <= truck.y + truck.height - 70)
-            {
-                if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(((MyGame)game).GetCurrentScene + 1);
-            }
+            if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(((MyGame)game).GetCurrentScene + 1);
+            
 
             if(Input.mouseX >= exitButton.x && Input.mouseX <= exitButton.x  + exitButton.width - 130 && Input.mouseY >= exitButton.y + 120 && Input.mouseY <= exitButton.y + exitButton.height - 20)
             {
@@ -56,5 +61,8 @@ public class StartScreen : Scene
                 if (Input.GetMouseButtonDown(0)) game.Destroy();
             }
         }
+
+        updateAnimation();
+        startScreen.Animate(0.1f);
     }
 }
