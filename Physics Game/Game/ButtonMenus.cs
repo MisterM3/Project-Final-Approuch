@@ -20,7 +20,7 @@ public class ButtonMenu : Sprite
         width = pWidth;
         height = pHeight;
         scene = pScene;
-        alpha = 1;
+        alpha = 0;
 
         py = pY;
     }
@@ -36,9 +36,13 @@ public class ButtonMenu : Sprite
         if (!isActive) return;
         if (Input.mouseX < (x + px) + width/2 && Input.mouseX > (x + px) - width/2 && Input.mouseY < (y + py) + height/2 && Input.mouseY > (y + py) - height/2)
         {
-      //      _hover.alpha = 1;
+            //      _hover.alpha = 1;
 
-            if (Input.GetMouseButtonDown(0)) SceneManager.instance.LoadScene(scene);
+            if (Input.GetMouseButtonDown(0))
+            {
+                ((MyGame)game).GetCollectableSystem.RestartStarsLevel();
+                SceneManager.instance.LoadScene(scene);
+            }
         }
         //else _hover.alpha = 0;
     }

@@ -13,6 +13,7 @@ public class Levels : Scene
     private SFXHandler sfxHandler;
     protected MyGame myGame;
 
+    public int ballsActive = 0;
     Pause_FailUI pauseMenu;
 
     bool paused = false;
@@ -28,7 +29,7 @@ public class Levels : Scene
         objectOwner = new Pivot();
         pauseMenu = new Pause_FailUI(true);
         myGame = (MyGame)game;
-
+        ballsActive = 0;
         MakeLevel();
 
         
