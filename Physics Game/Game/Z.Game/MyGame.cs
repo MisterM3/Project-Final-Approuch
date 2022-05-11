@@ -133,6 +133,8 @@ public class MyGame : Game
 
 		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
 
+		StartScreen startScreen = new StartScreen();
+		SceneManager.instance.AddScene(startScreen);
 
 		SceneManager.instance.AddScene(neph);
 		LevelOne levelOne = new LevelOne(soundLibrary);

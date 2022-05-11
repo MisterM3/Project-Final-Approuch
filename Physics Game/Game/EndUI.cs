@@ -87,7 +87,7 @@ public class EndUI : Pivot
         star6.rotation = -45;
 
 
-        Menu = new ButtonMenu(new Vec2(-235, 205), 205, 180, 0);
+        Menu = new ButtonMenu(new Vec2(-235, 205), 205, 180, 1);
         Restart = new ButtonMenu(new Vec2(-5, 205), 205, 180, (((MyGame)game).GetCurrentScene));
         Next = new ButtonMenu(new Vec2(230, 205), 205, 180, ((MyGame)game).GetCurrentScene + 1);
         endBox.AddChild(Menu);
