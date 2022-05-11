@@ -109,6 +109,12 @@ public class EndUI : Pivot
         */
 
 
+        if (scale >= 0.9f)
+        {
+            Menu.isActive = true;
+            Restart.isActive = true;
+
+        }
         if (scale >= 0.999f) {
             scale = 1f;
             endBox.SetScaleXY(scale, scale);

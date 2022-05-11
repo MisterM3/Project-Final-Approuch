@@ -19,7 +19,7 @@ public class Pause_FailUI : Pivot
 
 
 
-    public Pause_FailUI() {
+    public Pause_FailUI(bool isPaused) {
 
         paused = false;
         grayBG = new EasyDraw(1920, 1080);
@@ -32,10 +32,17 @@ public class Pause_FailUI : Pivot
 
         x = 1920 / 2.0f;
         y = 1080 / 3.0f + 50;
-        Sprite background = new Sprite("pause_screen.png");
+
+        Sprite background;
+        if (isPaused)
+        {
+             background = new Sprite("pause_screen.png");
+        }
+        else {
+             background = new Sprite("fail_screen.png");
+        }
         background.SetOrigin(background.width / 2, background.height / 2);
         endBox.AddChild(background);
-       
 
         Menu = new ButtonMenu(new Vec2(-120, 207), 205, 180, 0, y);
         Restart = new ButtonMenu(new Vec2(112, 207), 205, 180, (((MyGame)game).GetCurrentScene), y);
@@ -60,6 +67,11 @@ public class Pause_FailUI : Pivot
 
         endBox.visible = true;
 
+        if (scale >= 0.9f) {
+            Menu.isActive = true;
+            Restart.isActive = true;
+
+        }
         if (scale >= 0.999f)
         {
             scale = 1f;
@@ -105,7 +117,7 @@ public class Pause_FailUI : Pivot
                 Restart.isActive = false;
             }
         }
-        if (grayBG.alpha >= 0.1f) grayBG.alpha -= 0.01f;
+        if (grayBG.alpha >= 0.05f) grayBG.alpha -= 0.015f;
 
     }
 

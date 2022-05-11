@@ -17,23 +17,6 @@ public class ParticleSystem : Pivot {
         y = 0;
     }
 
-    public void Update() {
-
-        if (Input.GetKeyDown(Key.E))
-        {
-            // Boom();
-            // Cone(180.0f, 45.0f);
-            Regen();
-            Console.WriteLine("boom");
-        }
-        else if (Input.GetKeyDown(Key.F))
-        {
-            Boom(new Vec2(400, 300));
-        }
-        else if (Input.GetKeyDown(Key.D)) {
-            Cone(new Vec2(400, 400), 180.0f, 60.0f, velocity: 1.0f);
-        }
-    }
     public void Boom(Vec2 pPos, int size = 1, float pRunTime = 1f, float veloctiy = 5.0f) {
 
         //for (int i = 0; i < particles; i++) {

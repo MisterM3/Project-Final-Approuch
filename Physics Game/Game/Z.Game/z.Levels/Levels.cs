@@ -26,7 +26,7 @@ public class Levels : Scene
     {
         isActive = true;
         objectOwner = new Pivot();
-        pauseMenu = new Pause_FailUI();
+        pauseMenu = new Pause_FailUI(true);
         myGame = (MyGame)game;
 
         MakeLevel();
