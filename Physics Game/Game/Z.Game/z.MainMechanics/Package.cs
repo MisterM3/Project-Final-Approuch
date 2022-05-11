@@ -23,9 +23,22 @@ public class Package : Ball
 
     //Base velocity when the speed is normal
     Vec2 baseVelocity;
+
+    AnimationSprite sprite;
     public Package(Vec2 pPos, Vec2 pVel) : base(30, pPos, pVel)
     {
         baseVelocity = pVel;
+
+        sprite = new AnimationSprite("baller.png", 4, 2, 7);
+        sprite.x -= radius - 4;
+        sprite.y -= radius - 5;
+        sprite.width = width;
+        sprite.height = height; 
+        sprite.SetOrigin(width / 2, height / 2);
+        
+        AddChild(sprite);
+
+        alpha = 0;
     }
 
     void Update()
@@ -78,12 +91,10 @@ public class Package : Ball
         {
             if (acid) timer -= Time.deltaTime / 500.0f;
             else timer -= Time.deltaTime / 1000.0f;
-            alpha = 0.2f * timer;
-        }
+            sprite.alpha = 0.2f * timer;
 
-      //  if (latestCollision is Line) { 
-            
-       // }
+            sprite.Animate(timer);
+        }
     }
 
 

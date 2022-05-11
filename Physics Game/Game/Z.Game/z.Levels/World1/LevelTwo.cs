@@ -11,6 +11,9 @@ public class LevelTwo : Levels
     Sprite newCloud1;
     Sprite newCloud2;
 
+    Sprite cloudSprite;
+    Sprite movePlatform;
+
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
        
@@ -18,20 +21,46 @@ public class LevelTwo : Levels
 
     protected override void MakeLevel()
     {
-         newCloud1 = new Sprite("cloudHorizontal.png");
-         newCloud2 = new Sprite("cloudHorizontal.png");
+        newCloud1 = new Sprite("cloudHorizontal.png");
+        newCloud2 = new Sprite("cloudHorizontal.png");
 
         ((MyGame)game).GetCurrentLevel = 1;
-        ((MyGame)game).GetCurrentScene = 3;
-        Sprite bg = new Sprite("2.png");
+        ((MyGame)game).GetCurrentScene = 2;
 
+
+        Sprite BackGround = new Sprite("BGN.jpg");
+        BackGround.width = 1920;
+        BackGround.height = 1080;
+        AddChild(BackGround);
+
+
+        LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
+        myGame.addLine(ln);
+
+        Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
+        AddChild(but);
+
+        Sprite bg = new Sprite("1-2.png");
+        Console.WriteLine(myGame.width);
+        Console.WriteLine(myGame.height);
         bg.width = 1920;
         bg.height = 1080;
+
         AddChild(bg);
 
-        cannon = new Cannon(220, 530, 15, -75, 38);
-      
 
+
+
+        Sprite wires = new Sprite("wires.png");
+
+        wires.SetOrigin(wires.width / 2, wires.height / 2);
+        wires.SetXY(260, 581);
+        wires.rotation = 39;
+        wires.width = wires.width / 4;
+        wires.height = wires.height / 4;
+        AddChild(wires);
+
+        cannon = new Cannon(wires.x - 40, wires.y - 31, 15, -75, 38);
         AddChild(cannon);
 
         Fan fan = new Fan(new Vec2(1377, 938), 1000, 120, 180, pPower: 1f);
@@ -55,7 +84,7 @@ public class LevelTwo : Levels
         AddChild(cloud1);
         Clouds cloud2 = new Clouds(new Vec2(500, 808), new Vec2(760, 808), new Vec2(500, 764), new Vec2(760, 764), pWall: true);
         AddChild(cloud2);
-       
+
         Clouds cloud3 = new Clouds(new Vec2(500, 1080), new Vec2(1920, 1080), new Vec2(500, 1040), new Vec2(1920, 1040), pWall: true);
         AddChild(cloud3);
 
@@ -64,9 +93,9 @@ public class LevelTwo : Levels
         Clouds cloud5 = new Clouds(new Vec2(0, 40), new Vec2(1920, 40), new Vec2(0, 0), new Vec2(1920, 0), pWall: true);
         AddChild(cloud5);
 
-        Clouds cloud6 = new Clouds(new Vec2(0, 765), new Vec2(60, 770), new Vec2(0, 30), new Vec2(50, 30), pWall: true);
+        Clouds cloud6 = new Clouds(new Vec2(0, 765), new Vec2(30, 770), new Vec2(0, 30), new Vec2(30, 30), pWall: true);
         AddChild(cloud6);
-        Clouds cloud7 = new Clouds(new Vec2(50, 343), new Vec2(370, 40), new Vec2(0, 300), new Vec2(321, 0), pWall: true);
+        Clouds cloud7 = new Clouds(new Vec2(26, 333), new Vec2(308, 35), new Vec2(12, 226), new Vec2(257, 8), pWall: true);
         AddChild(cloud7);
         Clouds cloud8 = new Clouds(new Vec2(395, 377), new Vec2(726, 377), new Vec2(395, 320), new Vec2(726, 320), pWall: true);
         AddChild(cloud8);
@@ -75,26 +104,58 @@ public class LevelTwo : Levels
         Clouds cloud9 = new Clouds(new Vec2(941, 518), new Vec2(983, 518), new Vec2(941, 183), new Vec2(983, 183));
         AddChild(cloud9);
 
+        cloudSprite = new Sprite("break1.png");
+      //  cloudSprite.SetOrigin(cloudSprite.width / 2, cloudSprite.height / 2);
+       
+        cloudSprite.width = 267;
+        cloudSprite.height = 358;
+        cloudSprite.SetXY(827 - cloud9.x, 169 - cloud9.y);
+        cloud9.AddChild(cloudSprite);
+        cloud9.sprite = cloudSprite;
         //Button + Line
 
-        LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
-        myGame.addLine(ln);
 
         MovablePlatform mp = new MovablePlatform(new Vec2(1437, 699), new Vec2(1661, 476), new Vec2(1412, 673), new Vec2(1636, 452), new Vec2(167, -178), true);
         AddChild(mp);
 
-        Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
-        AddChild(but);
+        movePlatform = new Sprite("cloudDia.png");
+        movePlatform.width = 267;
+        movePlatform.height = 361;
+        movePlatform.rotation = 11;
+        movePlatform.SetXY(1432 - cloud9.x, 372 - cloud9.y);
+        movePlatform.Mirror(true, false);
+        mp.AddChild(movePlatform);
+        
 
         //Collectables
-        myGame._colect[0] = new Collectable(new Vec2(1566, 269), 30);
-        myGame._colect[1] = new Collectable(new Vec2(966, 644), 30);
-        myGame._colect[2] = new Collectable(new Vec2(562, 186), 30);
+        myGame._colect[0] = new Collectable(new Vec2(1566, 269), 33);
+        myGame._colect[1] = new Collectable(new Vec2(966, 644), 33);
+        myGame._colect[2] = new Collectable(new Vec2(562, 186), 33);
 
 
         //EndCircle
         EndCircle endcircle = new EndCircle(new Vec2(610, 931), 100);
         AddChild(endcircle);
+    }
+
+    protected override void Test()
+    {
+
+
+        if (Input.GetKey(Key.W)) movePlatform.y--;
+        if (Input.GetKey(Key.S)) movePlatform.y++;
+        if (Input.GetKey(Key.D)) movePlatform.x++;
+        if (Input.GetKey(Key.A)) movePlatform.x--;
+        if (Input.GetKey(Key.Q)) movePlatform.width++;
+        if (Input.GetKey(Key.E)) movePlatform.height++;
+        if (Input.GetKey(Key.Z)) movePlatform.rotation--;
+        if (Input.GetKey(Key.X)) movePlatform.rotation++;
+        if (Input.GetKey(Key.B))
+        {
+            Console.WriteLine(new Vec2(movePlatform.x, movePlatform.y));
+            Console.WriteLine(new Vec2(movePlatform.width, movePlatform.height));
+            Console.WriteLine(movePlatform.rotation);
+        }
     }
 
 }

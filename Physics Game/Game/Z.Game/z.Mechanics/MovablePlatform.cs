@@ -53,6 +53,9 @@ public class MovablePlatform : Pivot
 
         dis += toVec * 1.5f;
 
+        x += toVec.x * 1.5f;
+        y += toVec.y * 1.5f;
+
         Vec2 toStart = dis - disTo;
         Vec2 toEnd = dis + disTo;
         if (toStart.Length() >= totalDis || toEnd.Length() >= totalDis) toVec *= -1;

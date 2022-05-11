@@ -55,7 +55,7 @@ public class Levels : Scene
     protected override void Update()
     {
         if (!base.isActive) return;
-
+        Test();
         if (Input.GetKeyDown(Key.F3))
         {
             LevelOne.levelOneBg.Stop();
@@ -85,7 +85,7 @@ public class Levels : Scene
     }
 
     protected virtual void MakeLevel() { }
-
+    protected virtual void Test() { }
 
 }
 
