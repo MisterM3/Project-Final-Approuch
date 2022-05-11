@@ -80,6 +80,10 @@ public class Package : Ball
             else timer -= Time.deltaTime / 1000.0f;
             alpha = 0.2f * timer;
         }
+
+      //  if (latestCollision is Line) { 
+            
+       // }
     }
 
 

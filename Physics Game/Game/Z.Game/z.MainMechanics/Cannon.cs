@@ -81,8 +81,7 @@ public class Cannon : Sprite
     {
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(Key.SPACE)) && shots > 0)
         {
-            ((MyGame)game).soundLibrary["Shoot"].Play(false, 0, .1f);
-
+           
             Package ball = new Package(bulletPos, velocity);
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);
@@ -95,6 +94,9 @@ public class Cannon : Sprite
 
 
             }
+        //   HUD _hud = ((MyGame)game).GetHUD;
+            ((MyGame)game).SM.ShootSFX();
+
         //   HUD _hud = ((MyGame)game).GetHUD;
             shots--;
         //    _hud.UpdateShots();

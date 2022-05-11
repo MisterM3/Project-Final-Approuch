@@ -14,8 +14,8 @@ public class SoundManager : Pivot
     bool switched = false;
     public SoundManager() {
 
-        backgroundSound = new Sound("cloudsBG.mp3", true);
-        backgroundSound.Play();
+ //       backgroundSound = new Sound("cloudsBG.mp3", true);
+  //      backgroundSound.Play();
     }
 
 
@@ -35,6 +35,46 @@ public class SoundManager : Pivot
 
 
 
+    }
+
+
+    public void ShootSFX() {
+
+        int i = Utils.Random(1, 7);
+
+        string sound = "Sounds/Shoot/click" + i.ToString() + ".wav";
+
+        Console.WriteLine(sound);
+        Sound shoot = new Sound(sound);
+        
+        shoot.Play();
+
+    }
+
+    public void CloudSFX()
+    {
+
+        int i = Utils.Random(1, 9);
+
+        string sound = "Sounds/CloudCol/collision " + i.ToString() + ".wav";
+
+        Console.WriteLine(sound);
+        Sound shoot = new Sound(sound);
+
+        shoot.Play();
+
+    }
+
+    public void RockSFX() {
+
+        int i = Utils.Random(1, 8);
+
+        string sound = "Sounds/RockCol/collision " + i.ToString() + ".wav";
+
+        Console.WriteLine(sound);
+        Sound shoot = new Sound(sound);
+
+        shoot.Play();
     }
 
 }
