@@ -10,7 +10,7 @@ public class LevelOne : Levels
     public static SoundChannel levelOneBg = new SoundChannel(1);
   //  Sound levelOne = new Sound("cloudsBG.mp3", true, false);
 
-    Cannon cannon;
+   
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }

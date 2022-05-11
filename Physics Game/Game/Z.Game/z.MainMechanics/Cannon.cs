@@ -87,7 +87,14 @@ public class Cannon : Sprite
             ((MyGame)game)._movers.Add(ball);
             parent.AddChild(ball);
             ball.rotation = rotation ;
+            if (parent is Levels)
+            {
+                Levels level = (Levels)parent;
+                level.ballsActive++;
 
+
+
+            }
         //   HUD _hud = ((MyGame)game).GetHUD;
             shots--;
         //    _hud.UpdateShots();

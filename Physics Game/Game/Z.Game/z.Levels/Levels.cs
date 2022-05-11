@@ -13,6 +13,11 @@ public class Levels : Scene
     private SFXHandler sfxHandler;
     protected MyGame myGame;
 
+    public int ballsActive = 0;
+    Pause_FailUI pauseMenu;
+
+    bool paused = false;
+
     public Levels(Dictionary<string, Sound> soundLibrary) : base() {
         sfxHandler = new SFXHandler(soundLibrary, .2f);
     }
@@ -22,10 +27,12 @@ public class Levels : Scene
     {
         isActive = true;
         objectOwner = new Pivot();
+        pauseMenu = new Pause_FailUI(true);
         myGame = (MyGame)game;
-
+        ballsActive = 0;
         MakeLevel();
 
+        
 
         foreach (Ball _ball in myGame._movers)
         {
@@ -41,6 +48,8 @@ public class Levels : Scene
             AddChild(_col);
         }
         AddChild(objectOwner);
+        
+      
     }
 
     protected override void Update()
@@ -52,11 +61,26 @@ public class Levels : Scene
             LevelOne.levelOneBg.Stop();
             SceneManager.instance.TryLoadNextScene();
         }
+        if (Input.GetKeyDown(Key.TAB)) Pause();
      
+    }
+
+    void Pause() {
+
+        paused = !paused;
+
+
+        if (paused)
+        {
+            AddChild(pauseMenu);
+            pauseMenu.paused = true;
+        }
+        else pauseMenu.paused = false;
     }
 
     public override void UnLoadScene()
     {
+        paused = false;
         base.UnLoadScene();
     }
 
