@@ -85,9 +85,9 @@ public class LeveThree : Levels
 
 
         //Collectables
-        myGame._colect[0] = new Collectable(new Vec2(1238, 169), 30);
-        myGame._colect[1] = new Collectable(new Vec2(1663, 493), 30);
-        myGame._colect[2] = new Collectable(new Vec2(146, 369), 30);
+        myGame._colect[0] = new Collectable(new Vec2(1238, 169), 33);
+        myGame._colect[1] = new Collectable(new Vec2(1663, 493), 33);
+        myGame._colect[2] = new Collectable(new Vec2(146, 369), 33);
 
 
         //EndCircle

@@ -87,9 +87,9 @@ public class LevelTwo : Levels
         AddChild(but);
 
         //Collectables
-        myGame._colect[0] = new Collectable(new Vec2(1566, 269), 30);
-        myGame._colect[1] = new Collectable(new Vec2(966, 644), 30);
-        myGame._colect[2] = new Collectable(new Vec2(562, 186), 30);
+        myGame._colect[0] = new Collectable(new Vec2(1566, 269), 33);
+        myGame._colect[1] = new Collectable(new Vec2(966, 644), 33);
+        myGame._colect[2] = new Collectable(new Vec2(562, 186), 33);
 
 
         //EndCircle

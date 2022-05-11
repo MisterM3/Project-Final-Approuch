@@ -100,12 +100,12 @@ public class LevelOne : Levels
 
 
         //Collectables
-        myGame._colect[0] = new Collectable(new Vec2(898, 125), 30);
-        myGame._colect[1] = new Collectable(new Vec2(1572, 436), 30);
-        myGame._colect[2] = new Collectable(new Vec2(1678, 887), 30);
+        myGame._colect[0] = new Collectable(new Vec2(898, 125), 33);
+        myGame._colect[1] = new Collectable(new Vec2(1572, 436), 33);
+        myGame._colect[2] = new Collectable(new Vec2(1678, 887), 33);
 
 
-        EndCircle endCircle = new EndCircle(new Vec2(1812, 231), 50);
+        EndCircle endCircle = new EndCircle(new Vec2(1812, 231), 33);
         AddChild(endCircle);
     }
 

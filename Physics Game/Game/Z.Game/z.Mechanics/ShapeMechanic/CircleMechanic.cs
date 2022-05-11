@@ -20,7 +20,7 @@ public class CircleMechanic : Sprite
         
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         myGame = ((MyGame)game);
 
