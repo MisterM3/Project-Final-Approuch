@@ -10,7 +10,7 @@ public class LeveThree : Levels
     public static SoundChannel levelOneBg = new SoundChannel(1);
   //  Sound levelOne = new Sound("cloudsBG.mp3", true, false);
 
-    Cannon cannon;
+
     Sprite movePlatform;
     Sprite cloudSprite;
     public LeveThree(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
