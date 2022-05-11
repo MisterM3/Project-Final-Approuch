@@ -12,6 +12,7 @@ public class LevelTwo : Levels
     Sprite newCloud2;
 
     Sprite cloudSprite;
+    Sprite movePlatform;
 
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
@@ -117,6 +118,14 @@ public class LevelTwo : Levels
         MovablePlatform mp = new MovablePlatform(new Vec2(1437, 699), new Vec2(1661, 476), new Vec2(1412, 673), new Vec2(1636, 452), new Vec2(167, -178), true);
         AddChild(mp);
 
+        movePlatform = new Sprite("cloudDia.png");
+        movePlatform.width = 267;
+        movePlatform.height = 361;
+        movePlatform.rotation = 11;
+        movePlatform.SetXY(1432 - cloud9.x, 372 - cloud9.y);
+        movePlatform.Mirror(true, false);
+        mp.AddChild(movePlatform);
+        
 
         //Collectables
         myGame._colect[0] = new Collectable(new Vec2(1566, 269), 33);
@@ -133,16 +142,19 @@ public class LevelTwo : Levels
     {
 
 
-        if (Input.GetKey(Key.W)) cloudSprite.y--;
-        if (Input.GetKey(Key.S)) cloudSprite.y++;
-        if (Input.GetKey(Key.D)) cloudSprite.x++;
-        if (Input.GetKey(Key.A)) cloudSprite.x--;
-        if (Input.GetKey(Key.Q)) cloudSprite.width++;
-        if (Input.GetKey(Key.E)) cloudSprite.height++;
+        if (Input.GetKey(Key.W)) movePlatform.y--;
+        if (Input.GetKey(Key.S)) movePlatform.y++;
+        if (Input.GetKey(Key.D)) movePlatform.x++;
+        if (Input.GetKey(Key.A)) movePlatform.x--;
+        if (Input.GetKey(Key.Q)) movePlatform.width++;
+        if (Input.GetKey(Key.E)) movePlatform.height++;
+        if (Input.GetKey(Key.Z)) movePlatform.rotation--;
+        if (Input.GetKey(Key.X)) movePlatform.rotation++;
         if (Input.GetKey(Key.B))
         {
-            Console.WriteLine(new Vec2(cloudSprite.x, cloudSprite.y));
-            Console.WriteLine(new Vec2(cloudSprite.width, cloudSprite.height));
+            Console.WriteLine(new Vec2(movePlatform.x, movePlatform.y));
+            Console.WriteLine(new Vec2(movePlatform.width, movePlatform.height));
+            Console.WriteLine(movePlatform.rotation);
         }
     }
 
