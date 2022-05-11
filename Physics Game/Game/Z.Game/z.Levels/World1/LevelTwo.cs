@@ -23,10 +23,19 @@ public class LevelTwo : Levels
 
         ((MyGame)game).GetCurrentLevel = 1;
         ((MyGame)game).GetCurrentScene = 2;
-        Sprite bg = new Sprite("2.png");
 
+
+        Sprite BackGround = new Sprite("BGN.jpg");
+        BackGround.width = 1920;
+        BackGround.height = 1080;
+        AddChild(BackGround);
+
+        Sprite bg = new Sprite("1-2.png");
+        Console.WriteLine(myGame.width);
+        Console.WriteLine(myGame.height);
         bg.width = 1920;
         bg.height = 1080;
+
         AddChild(bg);
 
 
@@ -74,9 +83,9 @@ public class LevelTwo : Levels
         Clouds cloud5 = new Clouds(new Vec2(0, 40), new Vec2(1920, 40), new Vec2(0, 0), new Vec2(1920, 0), pWall: true);
         AddChild(cloud5);
 
-        Clouds cloud6 = new Clouds(new Vec2(0, 765), new Vec2(60, 770), new Vec2(0, 30), new Vec2(50, 30), pWall: true);
+        Clouds cloud6 = new Clouds(new Vec2(0, 765), new Vec2(30, 770), new Vec2(0, 30), new Vec2(30, 30), pWall: true);
         AddChild(cloud6);
-        Clouds cloud7 = new Clouds(new Vec2(50, 343), new Vec2(370, 40), new Vec2(0, 300), new Vec2(321, 0), pWall: true);
+        Clouds cloud7 = new Clouds(new Vec2(26, 333), new Vec2(308, 35), new Vec2(12, 226), new Vec2(257, 8), pWall: true);
         AddChild(cloud7);
         Clouds cloud8 = new Clouds(new Vec2(395, 377), new Vec2(726, 377), new Vec2(395, 320), new Vec2(726, 320), pWall: true);
         AddChild(cloud8);
