@@ -30,6 +30,12 @@ public class Cannon : Sprite
     int right;
 
     Sprite sprite;
+
+    Sprite wires;
+    Sprite truck;
+    Sprite wheel;
+
+    bool first = true;
     public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannon.png")
     {
         SetOrigin(width / 3, height / 2);
@@ -41,6 +47,23 @@ public class Cannon : Sprite
 
         left = leftBound;
         right = rightBound;
+
+        truck = new Sprite("truck.png");
+        truck.SetScaleXY(0.7f, 0.7f);
+        truck.SetOrigin(truck.width / 2, truck.height / 2);
+
+
+        truck.SetXY(_position.x - 150, _position.y + 101);
+
+
+        wheel = new Sprite("cannon_tire.png");
+     
+        wheel.SetOrigin(wheel.width / 2, wheel.height / 2);
+        wheel.SetXY(_position.x + 51, _position.y + 8);
+
+        wheel.width = wheel.width / 4;
+        wheel.height = wheel.height / 4;
+
 
     }
 
@@ -133,6 +156,20 @@ public class Cannon : Sprite
     public void Update()
     {
 
+      /*  
+if (Input.GetKey(Key.W)) wheel.y--;
+if (Input.GetKey(Key.S)) wheel.y++;
+if (Input.GetKey(Key.D)) wheel.x++;
+if (Input.GetKey(Key.A)) wheel.x--;
+if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
+      */
+
+        if (parent != null && first)
+        {
+            first = false;
+            parent.AddChild(wheel);
+            parent.AddChild(truck);
+        }
         Controls();
         GEQOLL();
         Shoot();

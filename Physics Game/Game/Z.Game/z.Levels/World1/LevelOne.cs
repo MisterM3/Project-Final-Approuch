@@ -11,6 +11,7 @@ public class LevelOne : Levels
   //  Sound levelOne = new Sound("cloudsBG.mp3", true, false);
 
     Cannon cannon;
+    Sprite wires;
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -21,30 +22,31 @@ public class LevelOne : Levels
 
         ((MyGame)game).GetCurrentLevel = 0;
         ((MyGame)game).GetCurrentScene = 1;
+
+        Sprite BackGround = new Sprite("BGN.jpg");
+        BackGround.width = 1920;
+        BackGround.height = 1080;
+        AddChild(BackGround);
+       
+
+        wires = new Sprite("wires.png");
+
+        wires.SetOrigin(wires.width / 2, wires.height / 2);
+        wires.SetXY(132, 570);
+        wires.rotation = 27;
+        wires.width = wires.width / 4;
+        wires.height = wires.height / 4;
+        AddChild(wires);
+
+        cannon = new Cannon(wires.x - 32, wires.y - 20, 15);
+        AddChild(cannon);
         Sprite bg = new Sprite("1-1.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);
         bg.width = 1920;
         bg.height = 1080;
 
-        Sprite BackGround = new Sprite("BGN.jpg");
-        BackGround.width = 1920;
-        BackGround.height = 1080;
-        AddChild(BackGround);
         AddChild(bg);
-
-        cannon = new Cannon(100, 550, 15);
-        AddChild(cannon);
-
-        Sprite sprite = new Sprite("cannon_tire.png");
-        AddChild(sprite);
-        sprite.SetOrigin(sprite.width/2, sprite.height/2);
-        sprite.x = 350;
-        sprite.y = 440;
-
-        sprite.width = sprite.width / 4;
-        sprite.height = sprite.height / 4;
-
 
         //myGame._endCircle = new EndCircle(new Vec2(400, 300));
         //AddChild(myGame._endCircle);
@@ -108,6 +110,21 @@ public class LevelOne : Levels
         EndCircle endCircle = new EndCircle(new Vec2(1812, 231), 33);
         AddChild(endCircle);
     }
+
+    protected override void Test()
+    {
+
+        
+        if (Input.GetKey(Key.W)) wires.y--;
+        if (Input.GetKey(Key.S)) wires.y++;
+        if (Input.GetKey(Key.D)) wires.x++;
+        if (Input.GetKey(Key.A)) wires.x--;
+        if (Input.GetKey(Key.Q)) wires.rotation--;
+        if (Input.GetKey(Key.E)) wires.rotation++;
+        if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wires.x, wires.y));
+    }
+
+
 
 }
 
