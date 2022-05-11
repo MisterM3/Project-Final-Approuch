@@ -32,6 +32,13 @@ public class LevelTwo : Levels
         BackGround.height = 1080;
         AddChild(BackGround);
 
+
+        LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
+        myGame.addLine(ln);
+
+        Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
+        AddChild(but);
+
         Sprite bg = new Sprite("1-2.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);
@@ -106,14 +113,10 @@ public class LevelTwo : Levels
         cloud9.sprite = cloudSprite;
         //Button + Line
 
-        LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
-        myGame.addLine(ln);
 
         MovablePlatform mp = new MovablePlatform(new Vec2(1437, 699), new Vec2(1661, 476), new Vec2(1412, 673), new Vec2(1636, 452), new Vec2(167, -178), true);
         AddChild(mp);
 
-        Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
-        AddChild(but);
 
         //Collectables
         myGame._colect[0] = new Collectable(new Vec2(1566, 269), 33);

@@ -11,10 +11,32 @@ public class Button : BoxMechanic
 
     LineSegment Wall;
     bool pressed = false;
-    public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight) : base(pPos, pWidth, pHeight)
+
+    Sprite top;
+    Sprite bot;
+    public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight, int pRot = 180) : base(pPos, pWidth, pHeight)
     {
         Wall = pWall;
+
+        //this.alpha = 0;
+        bot = new Sprite("button_bot.png");
+        bot.SetOrigin(bot.width/2, bot.height/2);
+        bot.width = pWidth / 2;
+        bot.height = pHeight;
+        bot.rotation = pRot;
+        bot.SetXY(0, 12);
+        AddChild(bot);
+
+        top = new Sprite("button_top.png");
+        top.SetOrigin(top.width / 2, top.height / 2);
+        top.width = pWidth / 2;
+        top.height = pHeight;
+        top.rotation = pRot;
+        top.SetXY(0, 12);
+        AddChild(top);
+
     }
+
 
     protected override void InBox(Package pPack)
     {
@@ -34,6 +56,22 @@ public class Button : BoxMechanic
                 }
             }
         }
+        
+        if (pressed && top.y >= -3){
+            top.y--;
+         
+            
+        
+        }
 
+    }
+
+    protected override void OutBox(Package pPack)
+    {
+        if (pressed && (top.y >= -3 && top.rotation == 180))
+        {
+            top.y--;
+
+        }
     }
 }
