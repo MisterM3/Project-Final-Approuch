@@ -113,7 +113,7 @@ public class EndUI : Pivot
         {
             Menu.isActive = true;
             Restart.isActive = true;
-
+            Next.isActive = true;
         }
         if (scale >= 0.999f) {
             scale = 1f;
