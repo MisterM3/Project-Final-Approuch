@@ -84,6 +84,9 @@ public class SceneManager : GameObject
         activeScene.LoadScene();
         activeScene.visible = true;
         activeScene.isActive = true;
+
+
+
     }
 
     //Load scene based no a provided scene 
