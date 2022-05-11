@@ -11,6 +11,8 @@ public class LevelTwo : Levels
     Sprite newCloud1;
     Sprite newCloud2;
 
+    Sprite cloudSprite;
+
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
        
@@ -18,8 +20,8 @@ public class LevelTwo : Levels
 
     protected override void MakeLevel()
     {
-         newCloud1 = new Sprite("cloudHorizontal.png");
-         newCloud2 = new Sprite("cloudHorizontal.png");
+        newCloud1 = new Sprite("cloudHorizontal.png");
+        newCloud2 = new Sprite("cloudHorizontal.png");
 
         ((MyGame)game).GetCurrentLevel = 1;
         ((MyGame)game).GetCurrentScene = 2;
@@ -74,7 +76,7 @@ public class LevelTwo : Levels
         AddChild(cloud1);
         Clouds cloud2 = new Clouds(new Vec2(500, 808), new Vec2(760, 808), new Vec2(500, 764), new Vec2(760, 764), pWall: true);
         AddChild(cloud2);
-       
+
         Clouds cloud3 = new Clouds(new Vec2(500, 1080), new Vec2(1920, 1080), new Vec2(500, 1040), new Vec2(1920, 1040), pWall: true);
         AddChild(cloud3);
 
@@ -94,6 +96,13 @@ public class LevelTwo : Levels
         Clouds cloud9 = new Clouds(new Vec2(941, 518), new Vec2(983, 518), new Vec2(941, 183), new Vec2(983, 183));
         AddChild(cloud9);
 
+        cloudSprite = new Sprite("break1.png");
+      //  cloudSprite.SetOrigin(cloudSprite.width / 2, cloudSprite.height / 2);
+       
+        cloudSprite.width = 267;
+        cloudSprite.height = 358;
+        cloudSprite.SetXY(827 - cloud9.x, 169 - cloud9.y);
+        cloud9.AddChild(cloudSprite);
         //Button + Line
 
         LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
@@ -114,6 +123,23 @@ public class LevelTwo : Levels
         //EndCircle
         EndCircle endcircle = new EndCircle(new Vec2(610, 931), 100);
         AddChild(endcircle);
+    }
+
+    protected override void Test()
+    {
+
+
+        if (Input.GetKey(Key.W)) cloudSprite.y--;
+        if (Input.GetKey(Key.S)) cloudSprite.y++;
+        if (Input.GetKey(Key.D)) cloudSprite.x++;
+        if (Input.GetKey(Key.A)) cloudSprite.x--;
+        if (Input.GetKey(Key.Q)) cloudSprite.width++;
+        if (Input.GetKey(Key.E)) cloudSprite.height++;
+        if (Input.GetKey(Key.B))
+        {
+            Console.WriteLine(new Vec2(cloudSprite.x, cloudSprite.y));
+            Console.WriteLine(new Vec2(cloudSprite.width, cloudSprite.height));
+        }
     }
 
 }
