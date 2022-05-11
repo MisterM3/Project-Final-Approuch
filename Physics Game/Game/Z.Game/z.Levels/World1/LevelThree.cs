@@ -33,7 +33,16 @@ public class LeveThree : Levels
         //AddChild(BackGround);
         AddChild(bg);
 
-        cannon = new Cannon(222, 527, 15, -75, 38);
+        Sprite wires = new Sprite("wires.png");
+
+        wires.SetOrigin(wires.width / 2, wires.height / 2);
+        wires.SetXY(260, 581);
+        wires.rotation = 39;
+        wires.width = wires.width / 4;
+        wires.height = wires.height / 4;
+        AddChild(wires);
+
+        cannon = new Cannon(wires.x - 40, wires.y - 31, 15, -75, 38);
         AddChild(cannon);
 
 

@@ -29,9 +29,19 @@ public class LevelTwo : Levels
         bg.height = 1080;
         AddChild(bg);
 
-        cannon = new Cannon(220, 530, 15, -75, 38);
-      
 
+
+
+        Sprite wires = new Sprite("wires.png");
+
+        wires.SetOrigin(wires.width / 2, wires.height / 2);
+        wires.SetXY(260, 581);
+        wires.rotation = 39;
+        wires.width = wires.width / 4;
+        wires.height = wires.height / 4;
+        AddChild(wires);
+
+        cannon = new Cannon(wires.x - 40, wires.y - 31, 15, -75, 38);
         AddChild(cannon);
 
         Fan fan = new Fan(new Vec2(1377, 938), 1000, 120, 180, pPower: 1f);

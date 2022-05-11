@@ -32,14 +32,17 @@ public class LevelOne : Levels
         wires = new Sprite("wires.png");
 
         wires.SetOrigin(wires.width / 2, wires.height / 2);
-        wires.SetXY(132, 570);
-        wires.rotation = 27;
+        wires.SetXY(200, 581);
+        
+
+        wires.rotation = 39;
         wires.width = wires.width / 4;
         wires.height = wires.height / 4;
         AddChild(wires);
 
-        cannon = new Cannon(wires.x - 32, wires.y - 20, 15);
+        cannon = new Cannon(wires.x - 40, wires.y - 31, 15,  -75, 38);
         AddChild(cannon);
+
         Sprite bg = new Sprite("1-1.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);
@@ -121,7 +124,11 @@ public class LevelOne : Levels
         if (Input.GetKey(Key.A)) wires.x--;
         if (Input.GetKey(Key.Q)) wires.rotation--;
         if (Input.GetKey(Key.E)) wires.rotation++;
-        if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wires.x, wires.y));
+        if (Input.GetKey(Key.B))
+        {
+            Console.WriteLine(new Vec2(wires.x, wires.y));
+            Console.WriteLine(wires.rotation);
+        }
     }
 
 
