@@ -21,7 +21,7 @@ public class LevelOne : Levels
 
         ((MyGame)game).GetCurrentLevel = 0;
         ((MyGame)game).GetCurrentScene = 1;
-        Sprite bg = new Sprite("1.png");
+        Sprite bg = new Sprite("1-1.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);
         bg.width = 1920;
@@ -59,15 +59,29 @@ public class LevelOne : Levels
         Clouds cloud = new Clouds(new Vec2(518, 1080), new Vec2(725, 1080), new Vec2(400, 958), new Vec2(400, 751), pWall: true);
         AddChild(cloud);
 
-        Clouds cloud1 = new Clouds(new Vec2(863, 718), new Vec2(966, 614), new Vec2(527, 382), new Vec2(631, 279), pWall: true);
+        Clouds cloud1 = new Clouds(new Vec2(882, 693), new Vec2(952, 620), new Vec2(522, 335), new Vec2(610, 257), pWall: true);
         AddChild(cloud1);
 
-        Clouds cloud2 = new Clouds(new Vec2(1481, 324), new Vec2(1578, 229), new Vec2(1155, 0), new Vec2(1346, 0), pWall: true);
+        Clouds cloud2 = new Clouds(new Vec2(1440, 276), new Vec2(1600, 253), new Vec2(1155, 0), new Vec2(1346, 0), pWall: true);
         AddChild(cloud2);
 
         Clouds cloud3 = new Clouds(new Vec2(1551, 660), new Vec2(1920, 663), new Vec2(1552, 595), new Vec2(1920, 594), pWall: true);
         AddChild(cloud3);
 
+
+        //walls
+
+
+        Clouds cloud4 = new Clouds(new Vec2(0, 765), new Vec2(30, 770), new Vec2(0, 30), new Vec2(30, 30), pWall: true);
+        AddChild(cloud4);
+
+        Clouds cloud6 = new Clouds(new Vec2(500, 1080), new Vec2(1920, 1080), new Vec2(500, 1040), new Vec2(1920, 1040), pWall: true);
+        AddChild(cloud6);
+
+        Clouds cloud7 = new Clouds(new Vec2(1890, 1080), new Vec2(1920, 1080), new Vec2(1890, 0), new Vec2(1920, 0), pWall: true);
+        AddChild(cloud7);
+        Clouds cloud8 = new Clouds(new Vec2(0, 40), new Vec2(1920, 40), new Vec2(0, 0), new Vec2(1920, 0), pWall: true);
+        AddChild(cloud8);
 
         //Outside
         myGame._lines.Add(new LineSegment(new Vec2(0, 1080), new Vec2(0, 0)));
@@ -76,8 +90,8 @@ public class LevelOne : Levels
         myGame._lines.Add(new LineSegment(new Vec2(0, 0), new Vec2(1920, 0)));
 
         //Box bottom left (Make new Class later to clean up
-        Clouds cloud4 = new Clouds( new Vec2(0, 1080), new Vec2(400, 1080), new Vec2(0, 742), new Vec2(400, 742), pWall: true);
-        AddChild(cloud4);
+        Clouds cloud9 = new Clouds( new Vec2(0, 1080), new Vec2(400, 1080), new Vec2(0, 742), new Vec2(400, 742), pWall: true);
+        AddChild(cloud9);
 
 
         //Fan
