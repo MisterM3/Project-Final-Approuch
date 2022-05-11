@@ -41,7 +41,7 @@ public class ButtonMenu : Sprite
             if (Input.GetMouseButtonDown(0))
             {
                 ((MyGame)game).GetCollectableSystem.RestartStarsLevel();
-                SceneManager.instance.LoadScene(scene + 1);
+                ((MyGame)game).fade.SwitchScenes(scene + 1);
             }
         }
         //else _hover.alpha = 0;

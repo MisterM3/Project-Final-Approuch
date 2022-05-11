@@ -25,7 +25,7 @@ public class LevelTwo : Levels
         newCloud2 = new Sprite("cloudHorizontal.png");
 
         ((MyGame)game).GetCurrentLevel = 1;
-        ((MyGame)game).GetCurrentScene = 2;
+        ((MyGame)game).GetCurrentScene = 3;
 
 
         Sprite BackGround = new Sprite("BGN.jpg");

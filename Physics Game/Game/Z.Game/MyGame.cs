@@ -15,6 +15,7 @@ public class MyGame : Game
 	//public Cannon cannon;
 
 	CollectableSystem CS;
+	public Fade fade;
 	public ParticleSystem PS;
 	public SoundManager SM;
 	HUD _hud;
@@ -96,10 +97,11 @@ public class MyGame : Game
 
 		//_hud = new HUD(new Vec2(-100, -100);
 		//AddChild(_hud);
-        //Cannon
-     //  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
-	//	AddChild(cannon);
-
+		//Cannon
+		//  cannon = new Cannon(height / 2 - 275, width / 2 + 50 - 150, 10);
+		//	AddChild(cannon);
+		fade = new Fade();
+		
 		CS = new CollectableSystem();
 		AddChild(CS);
 		CS.LoadStars();
@@ -117,13 +119,15 @@ public class MyGame : Game
 		PrintInfo();
 
 
-			
+
 
 		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
 		//AddChild(ls);
-	
-	//	_hud = new HUD(new Vec2(200, 200));
-	//	AddChild(_hud);		
+
+		//	_hud = new HUD(new Vec2(200, 200));
+		//	AddChild(_hud);
+
+		AddChild(fade);
 	}
 
 

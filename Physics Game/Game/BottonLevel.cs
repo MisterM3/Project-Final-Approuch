@@ -147,7 +147,9 @@ public class BottonLevel : Pivot
             if (Input.GetMouseButtonDown(0))
             {
                 buttonPress.Play(false);
-                SceneManager.instance.LoadScene(levelInTotal + 2);
+          
+                ((MyGame)game).fade.SwitchScenes(levelInTotal + 2);
+ 
             }
            
         }
