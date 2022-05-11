@@ -13,14 +13,16 @@ public class ButtonMenu : Sprite
     float px = 1920 / 2.0f;
     float py = 1080 / 2.0f;
     public bool isActive = false;
-    public ButtonMenu(Vec2 pPos, int pWidth, int pHeight, int pScene) : base("colors.png") {
+    public ButtonMenu(Vec2 pPos, int pWidth, int pHeight, int pScene, float pY = 1080 / 2.0f) : base("colors.png") {
         SetOrigin(width/2, height/2);
         x = pPos.x;
         y = pPos.y;
         width = pWidth;
         height = pHeight;
         scene = pScene;
-        alpha = 0;
+        alpha = 1;
+
+        py = pY;
     }
 
     public void Update() {
