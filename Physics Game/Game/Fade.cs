@@ -32,17 +32,24 @@ public class Fade : Pivot {
         if (grayBG.alpha < 1) grayBG.alpha += 0.05f;
         else
         {
-            Console.WriteLine(grayBG.alpha);
-            fadeIn = false;
             SceneManager.instance.LoadScene(scene);
+            Console.WriteLine(scene);
+      
+            fadeIn = false;
         }
         
         
     }
 
-    public void SwitchScenes(int pScene) { 
-    fadeIn = true;
-    scene = pScene;
+    public void SwitchScenes(int pScene) {
+
+        if (!fadeIn)
+        {
+            Console.WriteLine("FadingIn");
+            scene = pScene;
+            fadeIn = true;
+        }
+        
     }
 
     public void FadeOut() {

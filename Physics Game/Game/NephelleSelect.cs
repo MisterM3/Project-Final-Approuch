@@ -28,6 +28,7 @@ public class LevelSelect : Scene {
     protected override void Start()
     {
         isActive = true;
+        ((MyGame)game).GetCurrentScene = 1;
 
         CheckWorld();
 
