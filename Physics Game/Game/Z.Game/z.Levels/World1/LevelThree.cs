@@ -20,7 +20,7 @@ public class LeveThree : Levels
     //    levelOneBg = levelOne.Play();
 
         ((MyGame)game).GetCurrentLevel = 2;
-        ((MyGame)game).GetCurrentScene = 3;
+        ((MyGame)game).GetCurrentScene = 4;
         Sprite bg = new Sprite("3.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);

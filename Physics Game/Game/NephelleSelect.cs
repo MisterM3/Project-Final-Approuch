@@ -78,9 +78,6 @@ public class LevelSelect : Scene {
             BottonLevel level = new BottonLevel(new Vec2(577 + 379 * i, 526), Worlds.Nephelle, i);
             AddChild(level);
         }
-   
-
-
     }
 
     public override void UnLoadScene()
