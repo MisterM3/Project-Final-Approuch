@@ -24,7 +24,7 @@ public class CircleMechanic : Sprite
     {
         if (myGame == null) myGame = ((MyGame)game);
 
-        if (myGame.frozen) return;
+        //if (myGame.frozen) return;
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
         {
             Ball mover = myGame.GetMover(i);

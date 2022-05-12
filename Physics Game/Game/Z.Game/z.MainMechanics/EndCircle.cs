@@ -20,6 +20,7 @@ public class EndCircle : CircleMechanic {
         endCharacter.SetOrigin(width/2, height/2);
         endCharacter.SetXY(-25, -40);
         AddChild(endCharacter);
+        alpha = 0f;
     }
 
     protected override void InCircle(Ball pMove, Vec2 pRel)

@@ -18,6 +18,11 @@ public class Levels : Scene
 
     bool paused = false;
 
+
+    bool shoot = false;
+    AnimationSprite Cillius;
+    AnimationSprite CilliusPress;
+
     public Levels(Dictionary<string, Sound> soundLibrary) : base() {
         sfxHandler = new SFXHandler(soundLibrary, .2f);
     }
@@ -31,8 +36,18 @@ public class Levels : Scene
         ballsActive = 0;
         MakeLevel();
         pauseMenu = new Pause_FailUI(true);
-        
 
+        Cillius = new AnimationSprite("animation_idle.png", 4, 2);
+        Cillius.SetXY(184, 933);
+        Cillius.SetOrigin(Cillius.width/2, Cillius.height /2);
+        Cillius.SetScaleXY(0.2f, 0.2f);
+        AddChild(Cillius);
+
+        CilliusPress = new AnimationSprite("animation_button.png", 4, 1);
+        CilliusPress.SetXY(184, 933);
+        CilliusPress.SetOrigin(CilliusPress.width / 2, CilliusPress.height / 2);
+        CilliusPress.SetScaleXY(0.2f, 0.2f);
+        AddChild(CilliusPress);
 
         foreach (Ball _ball in myGame._movers)
         {
@@ -56,6 +71,23 @@ public class Levels : Scene
     protected override void Update()
     {
         if (!base.isActive) return;
+        if (Input.GetKeyDown(Key.SPACE)) shoot = true;
+        if (shoot == true && CilliusPress.currentFrame < 3)
+        {
+
+            CilliusPress.alpha = 1;
+            CilliusPress.Animate(0.1f);
+
+        }
+        else if (shoot) { 
+            shoot = false;
+            CilliusPress.SetFrame(0);
+        }
+        else{
+            CilliusPress.alpha = 0;
+            Cillius.Animate(0.1f);
+        }
+
         Test();
         if (Input.GetKeyDown(Key.F3))
         {
