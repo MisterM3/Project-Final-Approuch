@@ -199,7 +199,7 @@ public class MyGame : Game
 	{
 
 
-	//	targetFps = Input.GetKey(Key.TAB) ? 5 : 60;
+		targetFps = Input.GetKey(Key.C) ? 1 : 60;
 
 		if (Input.GetKeyDown(Key.B))
 		{

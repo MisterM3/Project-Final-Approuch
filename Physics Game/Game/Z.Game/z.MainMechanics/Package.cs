@@ -25,6 +25,8 @@ public class Package : Ball
     Vec2 baseVelocity;
 
     AnimationSprite sprite;
+
+    Explosion breakPackage;
     public Package(Vec2 pPos, Vec2 pVel) : base(30, pPos, pVel)
     {
         baseVelocity = pVel;
@@ -35,10 +37,14 @@ public class Package : Ball
         sprite.width = width;
         sprite.height = height; 
         sprite.SetOrigin(width / 2, height / 2);
-        
+        sprite.alpha = 1;
         AddChild(sprite);
-
         alpha = 0;
+        
+
+
+   
+    
     }
 
     void Update()
@@ -74,7 +80,16 @@ public class Package : Ball
                         lev.ballsActive--;
                         Console.WriteLine(lev.ballsActive);
                         myGame.RemoveBalls(this);
+
+                        breakPackage = new Explosion(velocity);
+                        breakPackage.x -= radius + 9 - position.x;
+                        breakPackage.y -= radius + 9 - position.y;
+                        breakPackage.width = (int)(sprite.width * 1.45f);
+                        breakPackage.height = (int)(sprite.height * 1.45f);
+                        breakPackage.SetOrigin(width / 2, height / 2);
+                        lev.AddChild(breakPackage);
                         this.LateDestroy();
+                     //   ((MyGame)game).PS.Boom(position, 1, 1, 3, "bal.png");
                     }
                     
 
@@ -93,9 +108,9 @@ public class Package : Ball
         {
             if (acid) timer -= Time.deltaTime / 500.0f;
             else timer -= Time.deltaTime / 1000.0f;
-            sprite.alpha = 0.2f * timer;
-
-            sprite.Animate(timer);
+         //   sprite.alpha = 0.2f * timer;
+                sprite.Animate(timer / 50);
+            
         }
     }
 
