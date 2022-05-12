@@ -104,7 +104,7 @@ public class Cannon : Sprite
 
     void Shoot()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(Key.SPACE)) && shots > 0)
+        if ((Input.GetKeyDown(Key.SPACE)) && shots > 0)
         {
            
             Package ball = new Package(bulletPos, velocity);
