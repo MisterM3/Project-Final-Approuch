@@ -78,12 +78,13 @@ public class Cannon : Sprite
         if (Input.GetKey(Key.LEFT))
         {
             rotation--;
+          //  ((MyGame)game).SM.Rotate();
         }
-
-        if (Input.GetKey(Key.RIGHT))
+        else if (Input.GetKey(Key.RIGHT))
         {
             rotation++;
-        }
+          //  ((MyGame)game).SM.Rotate();
+        } 
 
         if(rotation < left)
         {
