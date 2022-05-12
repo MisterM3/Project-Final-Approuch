@@ -10,6 +10,7 @@ public class MyGame : Game
 	int currentLevel = 0;
 	int totalLevels = 5;
 	public bool buttonPressed = false;
+	public int nextCount = 0;
 
 	//If the game is paused or not
 	public bool frozen;
@@ -148,6 +149,9 @@ public class MyGame : Game
 		SceneManager.instance.AddScene(levelTwo);
 		LeveThree levelThree = new LeveThree(soundLibrary);
 		SceneManager.instance.AddScene(levelThree);
+		EndCreditScene endScene = new EndCreditScene();
+		SceneManager.instance.AddScene(endScene);
+
 		SceneManager.instance.LoadScene(0);
     }
 

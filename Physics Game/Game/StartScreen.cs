@@ -13,6 +13,11 @@ public class StartScreen : Scene
     int animatedRow = 1;
     public StartScreen()
     {
+        
+    }
+
+    protected override void Start()
+    {
         ((MyGame)game).GetCurrentScene = 0;
         ((MyGame)game).GetCurrentLevel = 0;
         Sprite background = new Sprite("BGN.jpg");
@@ -20,9 +25,9 @@ public class StartScreen : Scene
         background.height = 1080;
 
 
-        startScreen = new AnimationSprite("spriteSheet.png", 4,6);
+        startScreen = new AnimationSprite("spriteSheet.png", 4, 6);
 
-        exitButton = new EasyDraw(300,200,false);
+        exitButton = new EasyDraw(300, 200, false);
         exitButton.SetXY(860, 600);
         exitButton.TextSize(50);
         exitButton.Text("EXIT");
