@@ -129,6 +129,9 @@ public class LevelOne : Levels
         Tutorial tut = new Tutorial();
         tut.SetXY(-200, 0);
         AddChild(tut);
+
+
+
     }
 
     protected override void Test()

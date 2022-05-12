@@ -62,6 +62,11 @@ public class Fade : Pivot {
     }
 
     public void FadeOut() {
-        if (grayBG.alpha > 0) grayBG.alpha -= 0.05f;
+        if (grayBG.alpha > 0)
+        {
+            grayBG.alpha -= 0.05f;
+            ((MyGame)game).end = false;
+            ((MyGame)game).frozen = false;
+        }
     }
 }
