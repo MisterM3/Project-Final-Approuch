@@ -52,7 +52,7 @@ public class StartScreen : Scene
         
         if (((MyGame)game).GetCurrentScene == 0)
         {
-            if (Input.GetMouseButtonDown(0)) ((MyGame)game).fade.SwitchScenes(((MyGame)game).GetCurrentScene + 1);
+            if ((Input.GetMouseButtonDown(0)) || Input.AnyKeyDown()) ((MyGame)game).fade.SwitchScenes(((MyGame)game).GetCurrentScene + 1);
               //  SceneManager.instance.LoadScene(((MyGame)game).GetCurrentScene + 1);
             
 

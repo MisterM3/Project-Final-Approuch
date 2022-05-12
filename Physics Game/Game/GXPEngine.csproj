@@ -52,6 +52,7 @@
     <Compile Include="Pause_FailUI.cs" />
     <Compile Include="SoundsManager.cs" />
     <Compile Include="StartScreen.cs" />
+    <Compile Include="Tutorial.cs" />
     <Compile Include="Z.Game\z.Levels\World1\LevelThree.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\CircleMechanic.cs" />
     <Compile Include="Z.Game\z.Mechanics\ShapeMechanic\BoxMechanic.cs" />
