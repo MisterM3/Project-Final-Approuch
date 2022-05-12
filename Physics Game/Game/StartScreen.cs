@@ -24,7 +24,7 @@ public class StartScreen : Scene
         background.width = 1920;
         background.height = 1080;
 
-        startScreen = new AnimationSprite("spriteSheet.png", 4, 6);
+        startScreen = new AnimationSprite("newSheeet.png", 4, 6);
 
         exitButton = new EasyDraw(300, 200, false);
         exitButton.SetXY(860, 600);
