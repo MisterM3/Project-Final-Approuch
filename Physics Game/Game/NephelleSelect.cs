@@ -57,7 +57,7 @@ public class LevelSelect : Scene {
         switch (_world)
         {
             case Worlds.Nephelle:
-                _backGround = new Sprite("World1BG.png");
+                _backGround = new Sprite("nepheleLevels.png");
                 _hover = new Sprite("backgroundHover.png");
                 _bottom = new Sprite("level1.png");
                 break;

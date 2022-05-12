@@ -27,7 +27,6 @@ public class Levels : Scene
         sfxHandler = new SFXHandler(soundLibrary, .2f);
     }
 
-
     protected override void Start()
     {
         isActive = true;
