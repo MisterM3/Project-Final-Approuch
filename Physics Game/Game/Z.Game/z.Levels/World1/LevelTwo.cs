@@ -31,7 +31,7 @@ public class LevelTwo : Levels
         ((MyGame)game).GetCurrentScene = 3;
 
 
-        Sprite BackGround = new Sprite("BGN.jpg");
+        Sprite BackGround = new Sprite("nepheleBG.png");
         BackGround.width = 1920;
         BackGround.height = 1080;
         AddChild(BackGround);
