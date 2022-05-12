@@ -43,6 +43,16 @@ public class LevelTwo : Levels
         Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
         AddChild(but);
 
+        doorSprite = new AnimationSprite("GateA.png", 6, 2);
+     //   AddChild(doorSprite);
+        doorSprite.SetXY(-280, 677);
+        doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
+        doorSprite.width = 80;
+        doorSprite.height = 200;
+
+        but.lineSprite = doorSprite;
+        but.AddChild(doorSprite);
+
         Sprite bg = new Sprite("1-2.png");
 
         bg.width = 1920;
@@ -152,15 +162,7 @@ public class LevelTwo : Levels
         AddChild(endcircle);
 
 
-        doorSprite = new AnimationSprite("GateA.png", 6, 2);
-        AddChild(doorSprite);
-        doorSprite.SetXY(-280, 677);
-        doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
-        doorSprite.width = 80;
-        doorSprite.height = 200;
 
-        but.lineSprite = doorSprite;
-        but.AddChild(doorSprite);
 
     }
 

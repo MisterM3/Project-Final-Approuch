@@ -35,8 +35,11 @@ public class Cannon : Sprite
     Sprite truck;
     Sprite wheel;
 
+    AnimationSprite[] package = new AnimationSprite[3];
 
     bool first = true;
+
+    
     public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannon.png")
     {
         SetOrigin(width / 3, height / 2);
@@ -65,6 +68,17 @@ public class Cannon : Sprite
         wheel.width = wheel.width / 4;
         wheel.height = wheel.height / 4;
 
+        package[0] = new AnimationSprite("baller.png", 4,2,7);
+        package[0].SetScaleXY(0.2f, 0.2f);
+        package[0].SetXY(_position.x, _position.y + 125);
+
+        package[2] = new AnimationSprite("baller.png", 4, 2, 7);
+        package[2].SetScaleXY(0.2f, 0.2f);
+        package[2].SetXY(_position.x - 50, _position.y + 50);
+
+        package[1] = new AnimationSprite("baller.png", 4, 2, 7);
+        package[1].SetScaleXY(0.2f, 0.2f);
+        package[1].SetXY(_position.x - 100, _position.y + 125);
 
 
     }
@@ -168,23 +182,24 @@ public class Cannon : Sprite
     {
 
 
-        if (((MyGame)game).frozen) return;
-       /*
-if (Input.GetKey(Key.W)) wheel.y--;
-if (Input.GetKey(Key.S)) wheel.y++;
-if (Input.GetKey(Key.D)) wheel.x++;
-if (Input.GetKey(Key.A)) wheel.x--;
-if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
-      */
+        if (((MyGame)game).frozen && !((MyGame)game).end) return;
+        for (int i = 0; i < package.Length; i++)
+        {
+            package[i].Animate(0.1f);
+            if (shots - i <= 0 && package[i].alpha > 0) package[i].alpha -= 0.05f;
+        }
+        if (((MyGame)game).end) return;
 
         if (parent != null && first)
         {
             first = false;
             parent.AddChild(wheel);
             parent.AddChild(truck);
+            parent.AddChild(package[0]);
+            parent.AddChild(package[1]);
+            parent.AddChild(package[2]);
        //     parent.AddChild(alienCharacter);
         }
-    
 
 
         Controls();
