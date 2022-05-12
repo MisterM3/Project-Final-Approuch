@@ -24,9 +24,9 @@ public class Button : BoxMechanic
         top = new Sprite("button_top.png");
         top.SetOrigin(top.width / 2, top.height / 2);
         top.width = pWidth / 2;
-        top.height = pHeight;
+        top.height = pHeight * 2;
         top.rotation = pRot;
-        top.SetXY(0, 12);
+        top.SetXY(0, 45);
         AddChild(top);
 
         bot = new Sprite("button_bot.png");
