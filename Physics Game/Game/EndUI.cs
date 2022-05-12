@@ -100,6 +100,7 @@ public class EndUI : Pivot
    
     public void Update() {
 
+       
         /*
         if (Input.GetKey(Key.W)) star5.y--;
         if (Input.GetKey(Key.S)) star5.y++;
@@ -149,14 +150,14 @@ public class EndUI : Pivot
             star4.scale = star4.scale * 0.85f + 2f * 0.15f;
             star4.rotation = star4.rotation * 0.85f + 0;
             star4.SetScaleXY(star4.scale, star4.scale);
-            Console.WriteLine("1");
+
 
 
         }
         else if (!done1 && stars >=1)
         {
             done1 = true;
-            Console.WriteLine("dwaw");
+
             ((MyGame)game).PS.Boom(new Vec2(x + star4.x, star4.y + y), size: 3);
         }
         else if (star5.scale < 1.99f && stars >= 2)
@@ -165,7 +166,7 @@ public class EndUI : Pivot
             star5.scale = star5.scale * 0.85f + 2f * 0.15f;
             star5.rotation = star5.rotation * 0.85f + 0;
             star5.SetScaleXY(star5.scale, star5.scale);
-            Console.WriteLine("2");
+
 
         }
         else if (!done2 && stars >= 2)
@@ -178,7 +179,7 @@ public class EndUI : Pivot
             star6.scale = star6.scale * 0.85f + 2f * 0.15f;
             star6.rotation = star6.rotation * 0.85f + 0;
             star6.SetScaleXY(star6.scale, star6.scale);
-            Console.WriteLine("3");
+
         }
         else if (!done3 && stars >= 3) {
             done3 = true;

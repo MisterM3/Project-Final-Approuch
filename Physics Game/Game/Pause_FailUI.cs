@@ -44,7 +44,7 @@ public class Pause_FailUI : Pivot
         background.SetOrigin(background.width / 2, background.height / 2);
         endBox.AddChild(background);
 
-        Menu = new ButtonMenu(new Vec2(-120, 207), 205, 180, 0, y);
+        Menu = new ButtonMenu(new Vec2(-120, 207), 205, 180, 1, y);
         Restart = new ButtonMenu(new Vec2(112, 207), 205, 180, (((MyGame)game).GetCurrentScene), y);
 
         endBox.AddChild(Menu);
@@ -65,6 +65,7 @@ public class Pause_FailUI : Pivot
 
     public void Start() {
 
+        
         endBox.visible = true;
 
         if (scale >= 0.9f) {
@@ -78,7 +79,7 @@ public class Pause_FailUI : Pivot
             endBox.SetScaleXY(scale, scale);
             if (!Menu.isActive)
             {
-                Console.WriteLine("isActive");
+
                 Menu.isActive = true;
                 Restart.isActive = true;
 
@@ -89,7 +90,6 @@ public class Pause_FailUI : Pivot
 
             scale = scale * 0.95f + 1.01f * 0.05f;
             endBox.SetScaleXY(scale, scale);
-            Console.WriteLine(scale);
         }
         if (grayBG.alpha <= 0.5f) grayBG.alpha += 0.01f;
 

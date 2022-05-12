@@ -24,6 +24,8 @@ public class MovablePlatform : Pivot
 
     Vec2 dis;
     //Make A wall class to clean up
+
+    
     public MovablePlatform(Vec2 pBottomLeft, Vec2 pBottomRight, Vec2 pTopLeft, Vec2 pTopRight, Vec2 disFromMid, bool pWall = false) : base()
     {
 
@@ -50,6 +52,8 @@ public class MovablePlatform : Pivot
 
     public void Update()
     {
+
+        if (((MyGame)game).frozen) return;
 
         dis += toVec * 1.5f;
 

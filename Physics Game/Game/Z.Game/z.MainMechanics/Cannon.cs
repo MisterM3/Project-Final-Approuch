@@ -165,6 +165,8 @@ public class Cannon : Sprite
     public void Update()
     {
 
+
+        if (((MyGame)game).frozen) return;
        /*
 if (Input.GetKey(Key.W)) wheel.y--;
 if (Input.GetKey(Key.S)) wheel.y++;

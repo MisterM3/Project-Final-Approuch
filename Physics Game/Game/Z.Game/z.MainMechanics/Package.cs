@@ -43,6 +43,8 @@ public class Package : Ball
 
     void Update()
     {
+
+        if (((MyGame)game).frozen) return;
         base.Update();
 
 

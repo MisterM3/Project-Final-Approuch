@@ -27,12 +27,12 @@ public class Levels : Scene
     {
         isActive = true;
         objectOwner = new Pivot();
-        pauseMenu = new Pause_FailUI(true);
         myGame = (MyGame)game;
         ballsActive = 0;
         MakeLevel();
-
+        pauseMenu = new Pause_FailUI(true);
         
+
 
         foreach (Ball _ball in myGame._movers)
         {
@@ -68,15 +68,20 @@ public class Levels : Scene
 
     void Pause() {
 
-        paused = !paused;
+        if (!((MyGame)game).frozen || paused)paused = !paused;
 
 
         if (paused)
         {
             AddChild(pauseMenu);
             pauseMenu.paused = true;
+            ((MyGame)game).frozen = true;
         }
-        else pauseMenu.paused = false;
+        else
+        {
+            ((MyGame)game).frozen = false;
+            pauseMenu.paused = false;
+        }
     }
 
     public override void UnLoadScene()
