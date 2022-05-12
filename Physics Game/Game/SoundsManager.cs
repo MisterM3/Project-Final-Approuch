@@ -7,35 +7,103 @@ using GXPEngine;
 
 public class SoundManager : Pivot
 {
+    Sound bgSound = new Sound("Sounds/Background/MainBG.mp3");
+    public Sound backgroundSound = new Sound("Sounds/Background/CloudsBG.mp3");
+    public Sound menuSound = new Sound("Sounds/Background/MainBG.mp3");
+    SoundChannel channel1;
+    SoundChannel channel2;
 
-    public Sound backgroundSound;
-    public SoundChannel channel;
-
+    SoundChannel hover;
     bool switched = false;
+
+    public bool switching = true;
+    public Sound switchingSound;
+    public bool mainMenu = true;
+    public bool hoverBool = false;
+    Sound[] cloud = new Sound[8];
+
+    Sound click;
+    Sound pop;
+    Sound win;
+    Sound lose;
     public SoundManager() {
 
- //       backgroundSound = new Sound("cloudsBG.mp3", true);
-  //      backgroundSound.Play();
+        //       backgroundSound = new Sound("cloudsBG.mp3", true);
+        //      backgroundSound.Play();
+
+        click = new Sound("Sounds/Buttons/click.wav");
+        LoadSounds();
+        Sound hoverSound = new Sound("Sounds/Buttons/hover.wav", true);
+
+       // hoverSound.Play();
+        if (hover == null) hover = hoverSound.Play();
+        hover.Volume = 0;
+
+
+
+    }
+
+
+    void LoadSounds() {
+        for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision " + i.ToString() + ".wav");
+        pop = new Sound("Sounds/Ball/pop.wav");
+        win = new Sound("Sounds/End/win.wav");
+        lose = new Sound("Sounds/End/fail.wav");
+
+        channel1 = backgroundSound.Play();
+        channel2 = menuSound.Play();
+        channel2.Volume = 1;
+        channel1.Volume = 0;
     }
 
 
 
-    public void SwitchBGSound(string soundswitch)
-    {
-        if (channel == null) channel = backgroundSound.Play();
 
-        if (channel.Volume > 0 && !switched) channel.Volume -= 0.5f;
-        else if (!switched)
+    
+
+
+    void Update() {
+        if (hoverBool) HoverButtonStart();
+        else HoverButtonEnd();
+
+        if (switching)
         {
-            switched = true;
-            backgroundSound = new Sound(soundswitch);
+
+            if (channel1.Volume > 0)
+            {
+                channel1.Volume -= 0.05f;
+            }
+            else if (channel2.Volume < 1)
+            {
+                channel2.Volume += 0.05f;
+            }
 
         }
-        else if (channel.Volume < 1) channel.Volume += 0.5f;
+        else if (!switching)
+        {
+            if (channel2.Volume > 0)
+            {
+                channel2.Volume -= 0.05f;
+            }
+            else if (channel1.Volume < 1)
+            {
+                channel1.Volume += 0.05f;
+            }
 
-
-
+        }
     }
+
+    public void WinSFX() { 
+    win.Play();
+    }
+
+    public void LoseSFX() { 
+    lose.Play();
+    }
+    public void PopSFX() { 
+    pop.Play();
+    }
+
 
 
     public void ShootSFX() {
@@ -54,14 +122,11 @@ public class SoundManager : Pivot
     public void CloudSFX()
     {
 
-        int i = Utils.Random(1, 9);
+        int i = Utils.Random(0, 8);
 
-        string sound = "Sounds/CloudCol/collision " + i.ToString() + ".wav";
+        
 
-        Console.WriteLine(sound);
-        Sound shoot = new Sound(sound);
-
-        shoot.Play();
+        cloud[i].Play();
 
     }
 
@@ -75,6 +140,24 @@ public class SoundManager : Pivot
         Sound shoot = new Sound(sound);
 
         shoot.Play();
+        
+    }
+
+    public void ClickSFX() {
+
+        click.Play();
+    }
+
+    
+    public void HoverButtonStart() {
+
+        if (hover.Volume < 2) hover.Volume += 0.1f;
+        hoverBool = false;
+        Console.WriteLine(hover.Volume);
+    }
+    public void HoverButtonEnd() {
+        if (hover.Volume > 0) hover.Volume -= 0.1f;
+    
     }
 
 }

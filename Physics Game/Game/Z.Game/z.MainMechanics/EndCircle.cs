@@ -11,8 +11,16 @@ public class EndCircle : CircleMechanic {
     int radius = 40;
 
     EndUI endUI;
-    public EndCircle(Vec2 pPos, int pRad) : base(pPos, pRad)
+
+    Sprite endCharacter;
+    public EndCircle(Vec2 pPos, int pRad, int level) : base(pPos, pRad)
     {
+        endCharacter = new Sprite("char" + level + ".png");
+        endCharacter.SetScaleXY(0.05f);
+        endCharacter.SetOrigin(width/2, height/2);
+        endCharacter.SetXY(-55, -40);
+        AddChild(endCharacter);
+        alpha = 0f;
     }
 
     protected override void InCircle(Ball pMove, Vec2 pRel)
@@ -22,6 +30,8 @@ public class EndCircle : CircleMechanic {
 
         pMove.accel = moreVel * 0.03f * (pRel.Length());
         pMove.velocity *= 0.9f;
+
+        ((MyGame)game).end = true;
         if (endUI == null)
         {
            

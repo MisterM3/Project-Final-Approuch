@@ -56,12 +56,12 @@ public class Cannon : Sprite
 
 
         //  truck.SetXY(_position.x - 150, _position.y + 101);
-        truck.SetXY(_position.x - 50, _position.y + 126);
+        truck.SetXY(_position.x - 150, _position.y + 75);
 
         wheel = new Sprite("wheel.png");
      
         wheel.SetOrigin(wheel.width / 2, wheel.height / 2);
-        wheel.SetXY(_position.x + 51, _position.y + 8);
+        wheel.SetXY(_position.x + 25, _position.y + 4);
 
         wheel.width = wheel.width / 4;
         wheel.height = wheel.height / 4;
@@ -194,9 +194,9 @@ if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
         if (parent != null && first)
         {
             first = false;
-            parent.AddChild(truck);
             parent.AddChild(wheel);
-            parent.AddChild(alienCharacter);
+            parent.AddChild(truck);
+       //     parent.AddChild(alienCharacter);
         }
     
         alienCharacter.Animate(0.1f);

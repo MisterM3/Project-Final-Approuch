@@ -14,7 +14,7 @@ public class MyGame : Game
 
 	//If the game is paused or not
 	public bool frozen;
-
+	public bool end = false;
 	Canvas _lineContainer = null;
 
 	//public Cannon cannon;

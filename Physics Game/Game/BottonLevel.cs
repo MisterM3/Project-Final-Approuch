@@ -20,7 +20,7 @@ public class BottonLevel : Pivot
     public static SoundChannel buttonScreenChannel = new SoundChannel(1);
     //Sound buttonScreenMusic = new Sound("", true, false);
 
-    Sound buttonPress = new Sound("buttonTestSound.wav", false, false);
+    Sound buttonPress = new Sound("Sounds/Buttons/click.wav", false, false);
     Sound hoverButton = new Sound("", false, false);
 
     int _level;
@@ -136,23 +136,31 @@ public class BottonLevel : Pivot
         Hover();
     }
 
+    bool hover = false;
 
     public void Hover() {
 
         if (Input.mouseX < x + radius && Input.mouseX > x - radius && Input.mouseY < y + radius && Input.mouseY > y - radius)
         {
-            hoverButton.Play();
+            ((MyGame)game).SM.hoverBool = true;
+
+            hover = true;
             _hover.alpha = 1;
 
             if (Input.GetMouseButtonDown(0))
             {
-                buttonPress.Play(false);
-          
+             
+                ((MyGame)game).SM.ClickSFX();
+
                 ((MyGame)game).fade.SwitchScenes(levelInTotal + 2);
  
             }
            
         }
-        else _hover.alpha = 0;
+        else 
+        {
+     
+            _hover.alpha = 0;
+        }
     }
 } 

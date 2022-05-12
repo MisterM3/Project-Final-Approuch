@@ -45,7 +45,7 @@ public class Clouds : Pivot {
     public void Update() {
 
         if (poof) DeleteCloud(); 
-        if (wall || poof) return;
+        
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++) {
 
             Ball mover = myGame.GetMover(i);
@@ -58,7 +58,7 @@ public class Clouds : Pivot {
 
                         if (wall)
                         {
-                            ((MyGame)game).SM.RockSFX();
+                            ((MyGame)game).SM.CloudSFX();
                             mover.latestCollision = null;
                         }
                         else
@@ -78,7 +78,7 @@ public class Clouds : Pivot {
                     if (mover.latestCollision == caps[j])
                         if (wall)
                         {
-                            ((MyGame)game).SM.RockSFX();
+                            ((MyGame)game).SM.CloudSFX();
                             mover.latestCollision = null;
                         }
                         else {

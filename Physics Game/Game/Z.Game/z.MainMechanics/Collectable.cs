@@ -10,6 +10,8 @@ public class Collectable : CircleMechanic {
 
     Sprite collect;
     float rotatingSpeed;
+
+    bool fade = false;
     public Collectable(Vec2 pPos, int pRadius) : base(pPos, pRadius) {
 
         collect = new Sprite("collect.png");
@@ -28,17 +30,36 @@ public class Collectable : CircleMechanic {
 
     protected override void Update() {
 
-        if (((MyGame)game).frozen) return;
+        if (((MyGame)game).frozen && !((MyGame)game).end) return;
         collect.rotation += 3;
         base.Update();
     
     }
     protected override void InCircle()
     {
-        collectStar.Play();
-        CollectableSystem CS = myGame.GetCollectableSystem;
-        CS.AddStarsLevel();
-        this.LateDestroy();
+        if (!fade)
+        {
+            collectStar.Play();
+            CollectableSystem CS = myGame.GetCollectableSystem;
+            CS.AddStarsLevel();
+        fade = true;
+        }
+        Fade();
+    }
+
+    protected override void OutCircle()
+    {
+        Fade();
+    }
+
+    protected void Fade()
+    {
+
+        if (fade)
+        {
+            collect.alpha -= 0.05f;
+        }
+        if (collect.alpha <= 0) this.LateDestroy();
     }
 
 }

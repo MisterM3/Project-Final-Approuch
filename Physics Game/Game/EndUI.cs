@@ -25,10 +25,13 @@ public class EndUI : Pivot
     ButtonMenu Restart;
     ButtonMenu Next;
 
+   
+
 
     //Button should latedestroy this class
     public EndUI(int Stars) {
 
+        ((MyGame)game).SM.WinSFX();
         stars = Stars;
         CollectableSystem CS = ((MyGame)game).GetCollectableSystem;
         CS.CheckStars(((MyGame)game).GetCurrentScene - 1, stars);

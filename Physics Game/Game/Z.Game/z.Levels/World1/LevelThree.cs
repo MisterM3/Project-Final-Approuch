@@ -149,7 +149,7 @@ public class LeveThree : Levels
 
 
         //EndCircle
-        EndCircle endcircle = new EndCircle(new Vec2(1768, 140), 100);
+        EndCircle endcircle = new EndCircle(new Vec2(1768, 140), 100, 2);
         AddChild(endcircle);
     }
 

@@ -123,7 +123,7 @@ public class LevelOne : Levels
         myGame._colect[2] = new Collectable(new Vec2(1678, 887), 33);
 
 
-        EndCircle endCircle = new EndCircle(new Vec2(1712, 231), 100);
+        EndCircle endCircle = new EndCircle(new Vec2(1712, 231), 100, 1);
         AddChild(endCircle);
 
         Tutorial tut = new Tutorial();
