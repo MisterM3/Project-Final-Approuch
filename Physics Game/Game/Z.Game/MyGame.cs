@@ -12,7 +12,7 @@ public class MyGame : Game
 	public bool buttonPressed = false;
 
 	//If the game is paused or not
-	public bool frozen;
+	public bool frozen = false;
 	public bool end = false;
 	Canvas _lineContainer = null;
 
