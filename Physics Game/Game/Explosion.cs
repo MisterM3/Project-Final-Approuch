@@ -16,12 +16,12 @@ public class Explosion : AnimationSprite
 
     void Update() {
 
-        Animate(0.3f);
+        Animate(0.2f);
 
         x += speed.x;
         y += speed.y;
 
-        speed *= 0.99f;
+        speed *= 0.9f;
 
         if (currentFrame > 10) this.LateDestroy();
 
