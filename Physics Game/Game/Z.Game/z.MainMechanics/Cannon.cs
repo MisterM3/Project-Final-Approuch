@@ -35,6 +35,8 @@ public class Cannon : Sprite
     Sprite truck;
     Sprite wheel;
 
+    AnimationSprite alienCharacter = new AnimationSprite("characterSprites.png",8,1);
+
     bool first = true;
     public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannon.png")
     {
@@ -63,6 +65,9 @@ public class Cannon : Sprite
 
         wheel.width = wheel.width / 4;
         wheel.height = wheel.height / 4;
+
+        alienCharacter.SetXY(_position.x, _position.y + 320);
+        alienCharacter.SetCycle(1, 7);
 
 
     }
@@ -180,7 +185,9 @@ if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
             first = false;
             parent.AddChild(truck);
             parent.AddChild(wheel);
+            parent.AddChild(alienCharacter);
         }
+        alienCharacter.Animate(0.15f);
         Controls();
         GEQOLL();
         Shoot();
