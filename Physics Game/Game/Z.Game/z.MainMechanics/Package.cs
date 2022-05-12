@@ -50,9 +50,9 @@ public class Package : Ball
     void Update()
     {
 
-        if (((MyGame)game).frozen) return;
+        if (((MyGame)game).frozen && !((MyGame)game).end) return;
         base.Update();
-
+        if (!((MyGame)game).end) return;
 
         if (timer <= 0 || latestCollision is Enemy2Way)
         {

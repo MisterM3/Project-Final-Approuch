@@ -196,7 +196,7 @@ if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
             first = false;
             parent.AddChild(truck);
             parent.AddChild(wheel);
-            parent.AddChild(alienCharacter);
+       //     parent.AddChild(alienCharacter);
         }
     
         alienCharacter.Animate(0.1f);
