@@ -7,13 +7,18 @@ using GXPEngine;
 
 public class SoundManager : Pivot
 {
-
-    public Sound backgroundSound;
-    SoundChannel channel;
+    Sound bgSound = new Sound("Sounds/Background/MainBG.mp3");
+    public Sound backgroundSound = new Sound("Sounds/Background/CloudsBG.mp3");
+    public Sound menuSound = new Sound("Sounds/Background/MainBG.mp3");
+    SoundChannel channel1;
+    SoundChannel channel2;
 
     SoundChannel hover;
     bool switched = false;
 
+    public bool switching = true;
+    public Sound switchingSound;
+    public bool mainMenu = true;
     public bool hoverBool = false;
     Sound[] cloud = new Sound[8];
 
@@ -35,35 +40,57 @@ public class SoundManager : Pivot
         hover.Volume = 0;
 
 
+
     }
+
 
     void LoadSounds() {
         for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision " + i.ToString() + ".wav");
         pop = new Sound("Sounds/Ball/pop.wav");
         win = new Sound("Sounds/End/win.wav");
         lose = new Sound("Sounds/End/fail.wav");
+
+        channel1 = backgroundSound.Play();
+        channel2 = menuSound.Play();
+        channel2.Volume = 1;
+        channel1.Volume = 0;
     }
 
-    public void SwitchBGSound(string soundswitch)
-    {
-        if (channel == null) channel = backgroundSound.Play();
-
-        if (channel.Volume > 0 && !switched) channel.Volume -= 0.5f;
-        else if (!switched)
-        {
-            switched = true;
-            backgroundSound = new Sound(soundswitch);
-            
-        }
-        else if (channel.Volume < 1) channel.Volume += 0.5f;
 
 
 
-    }
+    
+
 
     void Update() {
         if (hoverBool) HoverButtonStart();
         else HoverButtonEnd();
+
+        if (switching)
+        {
+
+            if (channel1.Volume > 0)
+            {
+                channel1.Volume -= 0.05f;
+            }
+            else if (channel2.Volume < 1)
+            {
+                channel2.Volume += 0.05f;
+            }
+
+        }
+        else if (!switching)
+        {
+            if (channel2.Volume > 0)
+            {
+                channel2.Volume -= 0.05f;
+            }
+            else if (channel1.Volume < 1)
+            {
+                channel1.Volume += 0.05f;
+            }
+
+        }
     }
 
     public void WinSFX() { 
