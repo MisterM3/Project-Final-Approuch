@@ -75,6 +75,8 @@ public class Package : Ball
                         Console.WriteLine(lev.ballsActive);
                         myGame.RemoveBalls(this);
                         this.LateDestroy();
+
+                        ((MyGame)game).PS.Boom(position, 1, 1, 3, "bal.png");
                     }
                     
 

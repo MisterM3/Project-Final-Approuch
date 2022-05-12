@@ -9,9 +9,20 @@ public class Particle : Ball
 {
     float runTimer;
     public bool regen = false;
-    public Particle(int pRadius, Vec2 pPosition, Vec2 pVelocity = new Vec2(), float RunTime = 1.0f) : base(pRadius, pPosition, pVelocity, tr: true) 
+    public Particle(int pRadius, Vec2 pPosition, Vec2 pVelocity = new Vec2(), float RunTime = 1.0f, string spriteName = null) : base(pRadius, pPosition, pVelocity, tr: true) 
     {
         runTimer = RunTime + Utils.Random(-RunTime/4, RunTime/4);
+
+        if (spriteName != null) {
+            Sprite sprite = new Sprite(spriteName);
+            sprite.SetOrigin(sprite.width, sprite.height);
+            AddChild(sprite);
+         //   sprite.x = pPosition.x;
+         //   sprite.y = pPosition.y;
+            sprite.width = 10; 
+            sprite.height = 10;
+            alpha = 0f;
+        }
 
     }
 
