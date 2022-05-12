@@ -45,7 +45,7 @@ public class SoundManager : Pivot
 
 
     void LoadSounds() {
-        for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision " + i.ToString() + ".wav");
+        for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision_" + i.ToString() + ".wav");
         pop = new Sound("Sounds/Ball/pop.wav");
         win = new Sound("Sounds/End/win.wav");
         lose = new Sound("Sounds/End/fail.wav");

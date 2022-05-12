@@ -89,7 +89,7 @@ public class MovablePlatform : Pivot
 
                         if (wall)
                         {
-                            ((MyGame)game).SM.RockSFX();
+                            ((MyGame)game).SM.CloudSFX();
                             mover.latestCollision = null;
                         }
                         else
@@ -109,7 +109,7 @@ public class MovablePlatform : Pivot
                     if (mover.latestCollision == caps[j])
                         if (wall)
                         {
-                            ((MyGame)game).SM.RockSFX();
+                            ((MyGame)game).SM.CloudSFX();
                             mover.latestCollision = null;
                         }
                         else

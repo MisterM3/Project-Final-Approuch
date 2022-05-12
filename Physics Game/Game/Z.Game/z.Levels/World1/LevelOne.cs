@@ -58,8 +58,7 @@ public class LevelOne : Levels
 
 
         Sprite bg = new Sprite("1-1.png");
-        Console.WriteLine(myGame.width);
-        Console.WriteLine(myGame.height);
+
         bg.width = 1920;
         bg.height = 1080;
 
@@ -134,22 +133,7 @@ public class LevelOne : Levels
 
     }
 
-    protected override void Test()
-    {
-
-        
-        if (Input.GetKey(Key.W)) wind.y--;
-        if (Input.GetKey(Key.S)) wind.y++;
-        if (Input.GetKey(Key.D)) wind.x++;
-        if (Input.GetKey(Key.A)) wind.x--;
-        if (Input.GetKey(Key.Q)) wind.rotation--;
-        if (Input.GetKey(Key.E)) wind.rotation++;
-        if (Input.GetKey(Key.B))
-        {
-            Console.WriteLine(new Vec2(wind.x, wind.y));
-            Console.WriteLine(wind.rotation);
-        }
-    }
+   
 
 
 

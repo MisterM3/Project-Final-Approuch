@@ -202,9 +202,7 @@ public class MyGame : Game
 
 	void PrintInfo()
 	{
-		Console.WriteLine("Hold tab to slow down the frame rate.");
-		Console.WriteLine("Press R to reset scene");
-		Console.WriteLine("Press B to toggle high/low bounciness.");
+
 	}
 
 	void HandleInput()
