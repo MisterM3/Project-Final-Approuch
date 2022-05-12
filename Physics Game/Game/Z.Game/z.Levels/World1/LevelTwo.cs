@@ -17,6 +17,9 @@ public class LevelTwo : Levels
  //   AnimationSprite doorSprite;
 
     AnimationSprite wind;
+    AnimationSprite doorSprite;
+    Button but;
+
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
        
@@ -40,15 +43,15 @@ public class LevelTwo : Levels
         LineSegment ln = new LineSegment(new Vec2(756, 1036), new Vec2(756, 806));
         myGame.addLine(ln);
 
-        Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
+         but = new Button(new Vec2(1440, 80), ln, 160, 80);
         AddChild(but);
 
-        AnimationSprite doorSprite = new AnimationSprite("GateB.png", 6, 2);
+         doorSprite = ((MyGame)game).door;
      //   AddChild(doorSprite);
-        doorSprite.SetXY(-280, 677);
-        doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
         doorSprite.width = 80;
-        doorSprite.height = 200;
+        doorSprite.height = 210;
+        doorSprite.SetXY(-280 - doorSprite.width / 2, 677 - doorSprite.height / 2);
+       // doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
 
         but.lineSprite = doorSprite;
         but.AddChild(doorSprite);
@@ -166,7 +169,13 @@ public class LevelTwo : Levels
 
     }
 
-  
+    public override void UnLoadScene()
+    {
+        but.RemoveChild(doorSprite);
+        base.UnLoadScene();
+    }
+
+
 
 }
 
