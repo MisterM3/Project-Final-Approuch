@@ -13,7 +13,7 @@ public class LeveThree : Levels
 
     Sprite movePlatform;
     Sprite cloudSprite;
-    AnimationSprite doorSprite;
+    //AnimationSprite doorSprite;
     public LeveThree(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -44,7 +44,7 @@ public class LeveThree : Levels
         AddChild(but);
 
 
-        doorSprite = new AnimationSprite("GateA.png", 6,2);
+        AnimationSprite doorSprite = new AnimationSprite("GateB.png", 6,2);
       //  AddChild(doorSprite);
         doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
         doorSprite.SetXY(824, 188);
