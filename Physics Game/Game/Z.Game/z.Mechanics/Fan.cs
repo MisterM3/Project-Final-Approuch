@@ -21,7 +21,7 @@ public class Fan : BoxMechanic
     }
 
     protected void Update() {
-        if (sprite != null &&!((MyGame)game).frozen) sprite.Animate(Time.deltaTime / 100f);
+        if (sprite != null && (!((MyGame)game).frozen || ((MyGame)game).end)) sprite.Animate(Time.deltaTime / 100f);
         base.Update();
 }
     protected override void InBox(Package pPack) 

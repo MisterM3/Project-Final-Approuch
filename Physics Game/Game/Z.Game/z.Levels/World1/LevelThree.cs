@@ -14,6 +14,9 @@ public class LeveThree : Levels
     Sprite movePlatform;
     Sprite cloudSprite;
     AnimationSprite doorSprite;
+
+    Button but;
+    
     public LeveThree(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -40,17 +43,17 @@ public class LeveThree : Levels
         //AddChild(BackGround);
         LineSegment ln = new LineSegment(new Vec2(1461, 691), new Vec2(1867, 691));
         myGame.addLine(ln);
-        Button but = new Button(new Vec2(116, 151), ln, 120, 160, 90);
+        but = new Button(new Vec2(116, 151), ln, 120, 160, 90);
         AddChild(but);
 
 
-        doorSprite = new AnimationSprite("GateA.png", 6,2);
+        doorSprite = ((MyGame)game).door;
       //  AddChild(doorSprite);
-        doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
-        doorSprite.SetXY(824, 188);
-        doorSprite.rotation = 90;
+      //  doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
         doorSprite.width = 257;
         doorSprite.height = 268;
+        doorSprite.SetXY(824 + doorSprite.height/2, 188 - doorSprite.width/2);
+        doorSprite.rotation = 90;
 
         but.lineSprite = doorSprite;
         but.AddChild(doorSprite);
@@ -162,6 +165,12 @@ public class LeveThree : Levels
         CilliusPress.SetOrigin(CilliusPress.width / 2, CilliusPress.height / 2);
         CilliusPress.SetScaleXY(0.2f, 0.2f);
         AddChild(CilliusPress);
+    }
+
+    public override void UnLoadScene()
+    {
+        but.RemoveChild(doorSprite);
+        base.UnLoadScene();
     }
 
 
