@@ -125,6 +125,10 @@ public class LevelOne : Levels
 
         EndCircle endCircle = new EndCircle(new Vec2(1712, 231), 100);
         AddChild(endCircle);
+
+        Tutorial tut = new Tutorial();
+        tut.SetXY(-200, 0);
+        AddChild(tut);
     }
 
     protected override void Test()
