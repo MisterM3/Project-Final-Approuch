@@ -47,7 +47,7 @@ public class LeveThree : Levels
         AddChild(but);
 
 
-        doorSprite = ((MyGame)game).door;
+        doorSprite = ((MyGame)game).door2;
       //  AddChild(doorSprite);
       //  doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
         doorSprite.width = 257;

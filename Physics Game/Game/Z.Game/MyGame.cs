@@ -39,6 +39,7 @@ public class MyGame : Game
 	public AnimationSprite shootAni;
 
 	public AnimationSprite door;
+	public AnimationSprite door2;
 
 	public Dictionary<string, Sound> soundLibrary = new Dictionary<string, Sound>()
 	{
@@ -100,6 +101,7 @@ public class MyGame : Game
 		idleAni = new AnimationSprite("animation_idle.png", 4, 2);
 		shootAni = new AnimationSprite("animation_button.png", 4, 1);
 		door = new AnimationSprite("GateB.png", 6, 2);
+		door2 = new AnimationSprite("GateB.png", 6, 2);
 		_lineContainer = new Canvas(width, height);
 		AddChild(_lineContainer);
 
