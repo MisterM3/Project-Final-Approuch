@@ -65,6 +65,7 @@ public class Pause_FailUI : Pivot
 
     public void Start() {
 
+        
         endBox.visible = true;
 
         if (scale >= 0.9f) {

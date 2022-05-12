@@ -22,8 +22,9 @@ public class CircleMechanic : Sprite
 
     protected virtual void Update()
     {
-        myGame = ((MyGame)game);
+        if (myGame == null) myGame = ((MyGame)game);
 
+        if (myGame.frozen) return;
         for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
         {
             Ball mover = myGame.GetMover(i);

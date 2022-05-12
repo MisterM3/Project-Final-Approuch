@@ -100,6 +100,7 @@ public class EndUI : Pivot
    
     public void Update() {
 
+       
         /*
         if (Input.GetKey(Key.W)) star5.y--;
         if (Input.GetKey(Key.S)) star5.y++;

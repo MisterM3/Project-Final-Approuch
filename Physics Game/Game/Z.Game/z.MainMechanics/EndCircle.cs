@@ -30,7 +30,7 @@ public class EndCircle : CircleMechanic {
 
             endUI = new EndUI(CS.currentStarsLevel);
             parent.AddChild(endUI);
-
+            ((MyGame)game).frozen = true;
         }
     }
 

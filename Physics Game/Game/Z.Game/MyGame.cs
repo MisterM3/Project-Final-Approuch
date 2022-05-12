@@ -10,6 +10,9 @@ public class MyGame : Game
 	int currentLevel = 0;
 	int totalLevels = 5;
 
+	//If the game is paused or not
+	public bool frozen;
+
 	Canvas _lineContainer = null;
 
 	//public Cannon cannon;

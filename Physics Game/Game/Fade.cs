@@ -32,10 +32,12 @@ public class Fade : Pivot {
         if (grayBG.alpha < 1) grayBG.alpha += 0.05f;
         else
         {
+            ((MyGame)game).frozen = false;
+            fadeIn = false;
             SceneManager.instance.LoadScene(scene);
             Console.WriteLine(scene);
+          
       
-            fadeIn = false;
         }
         
         
@@ -45,7 +47,7 @@ public class Fade : Pivot {
 
         if (!fadeIn)
         {
-            Console.WriteLine("FadingIn");
+          
             scene = pScene;
             fadeIn = true;
         }

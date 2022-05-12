@@ -28,6 +28,7 @@ public class Collectable : CircleMechanic {
 
     protected override void Update() {
 
+        if (((MyGame)game).frozen) return;
         collect.rotation += 3;
         base.Update();
     
