@@ -9,6 +9,7 @@ public class MyGame : Game
 	int currentScene = 0;
 	int currentLevel = 0;
 	int totalLevels = 5;
+	public bool buttonPressed = false;
 
 	//If the game is paused or not
 	public bool frozen;
@@ -120,9 +121,6 @@ public class MyGame : Game
 		//LoadScene(_startSceneNumber);
 		SetUpScenes();
 		PrintInfo();
-
-
-
 
 		//LevelSelect ls = new LevelSelect(LevelSelect.Worlds.Nephelle);
 		//AddChild(ls);

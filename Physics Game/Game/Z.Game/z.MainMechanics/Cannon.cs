@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using GXPEngine;
 public class Cannon : Sprite
 {
-
-
     public int shots = 3;
     //public fields
     float _speed = 1;
@@ -28,6 +26,8 @@ public class Cannon : Sprite
 
     int left;
     int right;
+    float timer;
+    int waitTime = 700;
 
     Sprite sprite;
 
@@ -35,7 +35,7 @@ public class Cannon : Sprite
     Sprite truck;
     Sprite wheel;
 
-    AnimationSprite alienCharacter = new AnimationSprite("characterSprites.png",8,1);
+    public AnimationSprite alienCharacter = new AnimationSprite("cillusSheet.png",4,3);
 
     bool first = true;
     public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannon.png")
@@ -66,9 +66,8 @@ public class Cannon : Sprite
         wheel.width = wheel.width / 4;
         wheel.height = wheel.height / 4;
 
-        alienCharacter.SetXY(_position.x, _position.y + 320);
-        alienCharacter.SetCycle(1, 7);
-
+        alienCharacter.SetXY(_position.x - 20, _position.y + 320);
+        alienCharacter.SetCycle(1, 8);
 
     }
 
@@ -118,9 +117,6 @@ public class Cannon : Sprite
             {
                 Levels level = (Levels)parent;
                 level.ballsActive++;
-
-
-
             }
         //   HUD _hud = ((MyGame)game).GetHUD;
             ((MyGame)game).SM.ShootSFX();
@@ -167,6 +163,21 @@ public class Cannon : Sprite
         }
     }
 
+    void UpdateAnimation()
+    {
+        timer += Time.deltaTime;
+        if (((MyGame)game).buttonPressed == true)
+        {
+            alienCharacter.SetCycle(9, 3);
+            ((MyGame)game).buttonPressed = false;
+        } 
+        else if(timer > waitTime && ((MyGame)game).buttonPressed == false)
+        {
+            alienCharacter.SetCycle(1, 8);
+            timer = 0;
+        }
+    }
+
     public void Update()
     {
 
@@ -187,7 +198,9 @@ if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
             parent.AddChild(wheel);
             parent.AddChild(alienCharacter);
         }
-        alienCharacter.Animate(0.15f);
+    
+        alienCharacter.Animate(0.1f);
+        UpdateAnimation();
         Controls();
         GEQOLL();
         Shoot();

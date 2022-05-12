@@ -11,8 +11,8 @@ public class Button : BoxMechanic
 
     LineSegment Wall;
     public Sprite lineSprite;
-    bool pressed = false;
-
+    public bool pressed = false;
+ 
     Sprite top;
     Sprite bot;
     public Button(Vec2 pPos, LineSegment pWall, int pWidth, int pHeight, int pRot = 180) : base(pPos, pWidth, pHeight)
@@ -58,10 +58,8 @@ public class Button : BoxMechanic
                 LineSegment line = myGame.GetLine(j);
                 if (line == Wall)
                 {
+                    ((MyGame)game).buttonPressed = true;
                     myGame.RemoveLine(Wall);
-
-
-
                 }
             }
         }
