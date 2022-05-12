@@ -20,8 +20,8 @@ public class Levels : Scene
 
 
     bool shoot = false;
-    AnimationSprite Cillius;
-    AnimationSprite CilliusPress;
+    protected AnimationSprite Cillius;
+    protected AnimationSprite CilliusPress;
 
     public Levels(Dictionary<string, Sound> soundLibrary) : base() {
         sfxHandler = new SFXHandler(soundLibrary, .2f);
@@ -36,17 +36,18 @@ public class Levels : Scene
         MakeLevel();
         pauseMenu = new Pause_FailUI(true);
 
-        Cillius = new AnimationSprite("animation_idle.png", 4, 2);
-        Cillius.SetXY(184, 933);
-        Cillius.SetOrigin(Cillius.width/2, Cillius.height /2);
+        Cillius = myGame.idleAni;
+     //   Cillius.SetOrigin(Cillius.width / 2, Cillius.height / 2);
         Cillius.SetScaleXY(0.2f, 0.2f);
+        Cillius.SetXY(15, 771);
         AddChild(Cillius);
 
-        CilliusPress = new AnimationSprite("animation_button.png", 4, 1);
-        CilliusPress.SetXY(184, 933);
-        CilliusPress.SetOrigin(CilliusPress.width / 2, CilliusPress.height / 2);
+        CilliusPress = myGame.shootAni;
+    //    CilliusPress.SetOrigin(CilliusPress.width / 2, CilliusPress.height / 2);
         CilliusPress.SetScaleXY(0.2f, 0.2f);
+        CilliusPress.SetXY(15, 771);
         AddChild(CilliusPress);
+
 
         foreach (Ball _ball in myGame._movers)
         {
@@ -78,9 +79,12 @@ public class Levels : Scene
             LevelOne.levelOneBg.Stop();
             SceneManager.instance.TryLoadNextScene();
         }
-        if (Input.GetKeyDown(Key.TAB)) Pause();
 
+        if (Input.GetKeyDown(Key.TAB)) Pause();
         if (((MyGame)game).frozen && !((MyGame)game).end) return;
+
+
+        if (CilliusPress == null || Cillius == null) return;
         if (shoot == true && CilliusPress.currentFrame < 3)
         {
 
@@ -101,6 +105,7 @@ public class Levels : Scene
 
     void Pause() {
 
+        if (((MyGame)game).end) return;
         if (!((MyGame)game).frozen || paused)paused = !paused;
 
 
@@ -120,8 +125,12 @@ public class Levels : Scene
     public override void UnLoadScene()
     {
         paused = false;
+        RemoveChild(Cillius);
+        RemoveChild(CilliusPress);
         base.UnLoadScene();
     }
+
+
 
     protected virtual void MakeLevel() { }
     protected virtual void Test() { }

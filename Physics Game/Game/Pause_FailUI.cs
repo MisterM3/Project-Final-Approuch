@@ -70,6 +70,7 @@ public class Pause_FailUI : Pivot
         
         endBox.visible = true;
 
+        if (((MyGame)game).end) return;
         if (fail) {
             ((MyGame)game).SM.LoseSFX();
             fail = false;

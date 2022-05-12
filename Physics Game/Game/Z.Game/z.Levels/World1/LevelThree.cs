@@ -151,6 +151,17 @@ public class LeveThree : Levels
         //EndCircle
         EndCircle endcircle = new EndCircle(new Vec2(1768, 140), 100, 2);
         AddChild(endcircle);
+
+        Cillius = new AnimationSprite("animation_idle.png", 4, 2);
+        Cillius.SetXY(184, 933);
+        Cillius.SetOrigin(Cillius.width / 2, Cillius.height / 2);
+        Cillius.SetScaleXY(0.2f, 0.2f);
+        AddChild(Cillius);
+        CilliusPress = new AnimationSprite("animation_button.png", 4, 1);
+        CilliusPress.SetXY(184, 933);
+        CilliusPress.SetOrigin(CilliusPress.width / 2, CilliusPress.height / 2);
+        CilliusPress.SetScaleXY(0.2f, 0.2f);
+        AddChild(CilliusPress);
     }
 
 

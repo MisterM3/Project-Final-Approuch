@@ -35,7 +35,6 @@ public class Cannon : Sprite
     Sprite truck;
     Sprite wheel;
 
-    public AnimationSprite alienCharacter = new AnimationSprite("cillusSheet.png",4,3);
 
     bool first = true;
     public Cannon(float pX, float pY, float pSpeed, int leftBound = -47, int rightBound = 56) : base("cannon.png")
@@ -66,8 +65,7 @@ public class Cannon : Sprite
         wheel.width = wheel.width / 4;
         wheel.height = wheel.height / 4;
 
-        alienCharacter.SetXY(_position.x - 20, _position.y + 320);
-        alienCharacter.SetCycle(1, 8);
+
 
     }
 
@@ -163,20 +161,7 @@ public class Cannon : Sprite
         }
     }
 
-    void UpdateAnimation()
-    {
-        timer += Time.deltaTime;
-        if (((MyGame)game).buttonPressed == true)
-        {
-            alienCharacter.SetCycle(9, 3);
-            ((MyGame)game).buttonPressed = false;
-        } 
-        else if(timer > waitTime && ((MyGame)game).buttonPressed == false)
-        {
-            alienCharacter.SetCycle(1, 8);
-            timer = 0;
-        }
-    }
+
 
     public void Update()
     {
@@ -199,8 +184,8 @@ if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(wheel.x - x, wheel.y - y));
        //     parent.AddChild(alienCharacter);
         }
     
-        alienCharacter.Animate(0.1f);
-        UpdateAnimation();
+
+
         Controls();
         GEQOLL();
         Shoot();
