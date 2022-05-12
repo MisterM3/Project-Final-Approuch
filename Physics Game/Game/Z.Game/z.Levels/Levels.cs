@@ -27,10 +27,10 @@ public class Levels : Scene
     {
         isActive = true;
         objectOwner = new Pivot();
-        pauseMenu = new Pause_FailUI(true);
         myGame = (MyGame)game;
         ballsActive = 0;
         MakeLevel();
+        pauseMenu = new Pause_FailUI(true);
 
         
 
