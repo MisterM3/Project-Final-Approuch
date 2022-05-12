@@ -44,7 +44,7 @@ public class LeveThree : Levels
         AddChild(but);
 
 
-        doorSprite = new AnimationSprite("gate.png",6,2);
+        doorSprite = new AnimationSprite("GateA.png", 6,2);
       //  AddChild(doorSprite);
         doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
         doorSprite.SetXY(824, 188);
