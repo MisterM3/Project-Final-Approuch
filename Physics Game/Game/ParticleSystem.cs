@@ -33,7 +33,8 @@ public class ParticleSystem : Pivot {
             ball.velocity *= Utils.Random(0, veloctiy);
 
             //ball.velocity = new Vec2(Utils.Random(-3.0f, 3.0f), Utils.Random(-3.0f, 3.0f));
-            parent.AddChild(ball);
+            Scene scene = SceneManager.instance.GetActiveScene();
+            scene.AddChild(ball);
         }
     }
 

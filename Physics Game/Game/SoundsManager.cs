@@ -18,6 +18,9 @@ public class SoundManager : Pivot
     Sound[] cloud = new Sound[8];
 
     Sound click;
+    Sound pop;
+    Sound win;
+    Sound lose;
     public SoundManager() {
 
         //       backgroundSound = new Sound("cloudsBG.mp3", true);
@@ -36,6 +39,9 @@ public class SoundManager : Pivot
 
     void LoadSounds() {
         for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision " + i.ToString() + ".wav");
+        pop = new Sound("Sounds/Ball/pop.wav");
+        win = new Sound("Sounds/End/win.wav");
+        lose = new Sound("Sounds/End/fail.wav");
     }
 
     public void SwitchBGSound(string soundswitch)
@@ -59,6 +65,19 @@ public class SoundManager : Pivot
         if (hoverBool) HoverButtonStart();
         else HoverButtonEnd();
     }
+
+    public void WinSFX() { 
+    win.Play();
+    }
+
+    public void LoseSFX() { 
+    lose.Play();
+    }
+    public void PopSFX() { 
+    pop.Play();
+    }
+
+
 
     public void ShootSFX() {
 

@@ -88,6 +88,7 @@ public class Package : Ball
                         breakPackage.height = (int)(sprite.height * 1.45f);
                         breakPackage.SetOrigin(width / 2, height / 2);
                         lev.AddChild(breakPackage);
+                        ((MyGame)game).SM.PopSFX();
                         this.LateDestroy();
                      //   ((MyGame)game).PS.Boom(position, 1, 1, 3, "bal.png");
                     }

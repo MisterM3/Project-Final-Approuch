@@ -17,7 +17,7 @@ public class Pause_FailUI : Pivot
     public bool paused;
 
 
-
+     bool fail;
 
     public Pause_FailUI(bool isPaused) {
 
@@ -37,9 +37,11 @@ public class Pause_FailUI : Pivot
         if (isPaused)
         {
              background = new Sprite("pause_screen.png");
+            fail = false;
         }
         else {
              background = new Sprite("fail_screen.png");
+            fail = true;
         }
         background.SetOrigin(background.width / 2, background.height / 2);
         endBox.AddChild(background);
@@ -68,6 +70,10 @@ public class Pause_FailUI : Pivot
         
         endBox.visible = true;
 
+        if (fail) {
+            ((MyGame)game).SM.LoseSFX();
+            fail = false;
+        }
         if (scale >= 0.9f) {
             Menu.isActive = true;
             Restart.isActive = true;
