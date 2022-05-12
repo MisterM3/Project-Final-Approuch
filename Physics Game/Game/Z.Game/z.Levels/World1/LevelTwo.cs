@@ -158,7 +158,7 @@ public class LevelTwo : Levels
 
 
         //EndCircle
-        EndCircle endcircle = new EndCircle(new Vec2(610, 931), 100);
+        EndCircle endcircle = new EndCircle(new Vec2(610, 931), 100, 3);
         AddChild(endcircle);
     }
 
