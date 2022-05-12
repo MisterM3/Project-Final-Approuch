@@ -72,6 +72,16 @@ public class Levels : Scene
     {
         if (!base.isActive) return;
         if (Input.GetKeyDown(Key.SPACE)) shoot = true;
+
+        Test();
+        if (Input.GetKeyDown(Key.F3))
+        {
+            LevelOne.levelOneBg.Stop();
+            SceneManager.instance.TryLoadNextScene();
+        }
+        if (Input.GetKeyDown(Key.TAB)) Pause();
+
+        if (((MyGame)game).frozen && !((MyGame)game).end) return;
         if (shoot == true && CilliusPress.currentFrame < 3)
         {
 
@@ -87,14 +97,6 @@ public class Levels : Scene
             CilliusPress.alpha = 0;
             Cillius.Animate(0.1f);
         }
-
-        Test();
-        if (Input.GetKeyDown(Key.F3))
-        {
-            LevelOne.levelOneBg.Stop();
-            SceneManager.instance.TryLoadNextScene();
-        }
-        if (Input.GetKeyDown(Key.TAB)) Pause();
      
     }
 

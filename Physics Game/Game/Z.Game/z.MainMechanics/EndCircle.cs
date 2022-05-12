@@ -30,6 +30,8 @@ public class EndCircle : CircleMechanic {
 
         pMove.accel = moreVel * 0.03f * (pRel.Length());
         pMove.velocity *= 0.9f;
+
+        ((MyGame)game).end = true;
         if (endUI == null)
         {
            
