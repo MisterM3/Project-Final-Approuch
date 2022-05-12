@@ -9,12 +9,21 @@ public class Fan : BoxMechanic
 {
 
     Vec2 force;
+
+    public AnimationSprite sprite;
+
     public Fan(Vec2 Pos, int pWidth, int pHeight, float pRot = -90.0f, float pPower = 1f) : base(Pos, pWidth, pHeight)
     {
         force = Vec2.GetUnitVectorDeg(pRot) * pPower;
         Console.WriteLine(force);
+
+        alpha = 0f;
     }
 
+    protected void Update() {
+        if (sprite != null) sprite.Animate(Time.deltaTime / 100f);
+        base.Update();
+}
     protected override void InBox(Package pPack) 
     { 
         pPack.accel = force;
