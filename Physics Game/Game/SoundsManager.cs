@@ -26,6 +26,9 @@ public class SoundManager : Pivot
     Sound pop;
     Sound win;
     Sound lose;
+
+    Sound rotate;
+    SoundChannel rot;
     public SoundManager() {
 
         //       backgroundSound = new Sound("cloudsBG.mp3", true);
@@ -35,6 +38,7 @@ public class SoundManager : Pivot
         LoadSounds();
         Sound hoverSound = new Sound("Sounds/Buttons/hover.wav", true);
 
+       
        // hoverSound.Play();
         if (hover == null) hover = hoverSound.Play();
         hover.Volume = 0;
@@ -45,7 +49,7 @@ public class SoundManager : Pivot
 
 
     void LoadSounds() {
-        for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision " + i.ToString() + ".wav");
+        for (int i = 0; i < 8; i++) cloud[i] = new Sound("Sounds/CloudCol/collision_" + i.ToString() + ".wav");
         pop = new Sound("Sounds/Ball/pop.wav");
         win = new Sound("Sounds/End/win.wav");
         lose = new Sound("Sounds/End/fail.wav");
@@ -115,8 +119,14 @@ public class SoundManager : Pivot
         Console.WriteLine(sound);
         Sound shoot = new Sound(sound);
         
-        shoot.Play();
 
+        int j = Utils.Random(1, 3);
+
+        string sound2 = "Sounds/Shoot/canon_" + j.ToString() + ".wav";
+      //  Console.WriteLine(sound2);
+        Sound shoot2 = new Sound(sound2);    
+        shoot2.Play();
+      //  shoot.Play();
     }
 
     public void CloudSFX()
@@ -143,9 +153,37 @@ public class SoundManager : Pivot
         
     }
 
+   
+    public void Rotate() {
+        int i = Utils.Random(1, 5);
+
+        string sound = "Sounds/Shoot/turning" + i.ToString() + ".wav";
+
+        rotate = new Sound(sound);
+
+     
+            rot = rotate.Play();
+        
+        rot.Volume = 1;
+        
+    
+    }
+
+    public void StopRotate() {
+        if (rot != null)
+        {
+            rot.Mute = true;
+            rot.Stop();
+        }
+    }
+
     public void ClickSFX() {
 
         click.Play();
+    }
+
+    public void Shoot() { 
+    
     }
 
     

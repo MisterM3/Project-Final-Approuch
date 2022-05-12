@@ -78,12 +78,13 @@ public class Cannon : Sprite
         if (Input.GetKey(Key.LEFT))
         {
             rotation--;
+          //  ((MyGame)game).SM.Rotate();
         }
-
-        if (Input.GetKey(Key.RIGHT))
+        else if (Input.GetKey(Key.RIGHT))
         {
             rotation++;
-        }
+          //  ((MyGame)game).SM.Rotate();
+        } 
 
         if(rotation < left)
         {
@@ -104,7 +105,7 @@ public class Cannon : Sprite
 
     void Shoot()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(Key.SPACE)) && shots > 0)
+        if ((Input.GetKeyDown(Key.SPACE)) && shots > 0)
         {
            
             Package ball = new Package(bulletPos, velocity);

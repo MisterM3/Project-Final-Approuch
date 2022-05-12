@@ -73,7 +73,7 @@ public class Levels : Scene
         if (!base.isActive) return;
         if (Input.GetKeyDown(Key.SPACE)) shoot = true;
 
-        Test();
+      
         if (Input.GetKeyDown(Key.F3))
         {
             LevelOne.levelOneBg.Stop();
@@ -133,7 +133,6 @@ public class Levels : Scene
 
 
     protected virtual void MakeLevel() { }
-    protected virtual void Test() { }
 
 }
 

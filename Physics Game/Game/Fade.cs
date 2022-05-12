@@ -35,7 +35,7 @@ public class Fade : Pivot {
             ((MyGame)game).frozen = false;
             fadeIn = false;
             SceneManager.instance.LoadScene(scene);
-            Console.WriteLine(scene);
+    
           
       
         }

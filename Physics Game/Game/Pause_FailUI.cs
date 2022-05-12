@@ -117,7 +117,7 @@ public class Pause_FailUI : Pivot
 
             scale = scale * 0.95f  - 0.2f * 0.05f;
             endBox.SetScaleXY(scale, scale);
-            Console.WriteLine(scale);
+
             if (Menu.isActive)
             {
                 Menu.isActive = false;

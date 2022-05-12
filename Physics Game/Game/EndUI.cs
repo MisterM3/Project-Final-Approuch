@@ -34,7 +34,7 @@ public class EndUI : Pivot
         ((MyGame)game).SM.WinSFX();
         stars = Stars;
         CollectableSystem CS = ((MyGame)game).GetCollectableSystem;
-        CS.CheckStars(((MyGame)game).GetCurrentScene - 1, stars);
+        CS.CheckStars(((MyGame)game).GetCurrentScene - 2, stars);
      
         grayBG = new EasyDraw(1920, 1080);
         grayBG.x = -1920 / 2.0f;
@@ -104,13 +104,7 @@ public class EndUI : Pivot
     public void Update() {
 
        
-        /*
-        if (Input.GetKey(Key.W)) star5.y--;
-        if (Input.GetKey(Key.S)) star5.y++;
-        if (Input.GetKey(Key.D)) star5.x++;
-        if (Input.GetKey(Key.A)) star5.x--;
-        if (Input.GetKey(Key.B)) Console.WriteLine(new Vec2(star5.x, star5.y));
-        */
+
 
 
         if (scale >= 0.9f)
@@ -136,7 +130,7 @@ public class EndUI : Pivot
 
             scale = scale * 0.95f + 1.01f * 0.05f;
             endBox.SetScaleXY(scale, scale);
-            Console.WriteLine(scale);
+
         }
         if (grayBG.alpha <= 0.5f) grayBG.alpha += 0.01f;
 

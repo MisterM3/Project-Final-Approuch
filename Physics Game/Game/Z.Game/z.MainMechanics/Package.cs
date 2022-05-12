@@ -49,14 +49,14 @@ public class Package : Ball
 
     void Update()
     {
-        Console.WriteLine(((MyGame)game).end);
+    
         if (((MyGame)game).frozen && !((MyGame)game).end) return;
         base.Update();
         if (((MyGame)game).end) return;
 
         if (timer <= 0 || latestCollision is Enemy2Way)
         {
-            Console.WriteLine("stage1");
+         
 
             MyGame myGame = ((MyGame)game);
             for (int i = 0; i < myGame.GetNumberOfMovers(); i++)
@@ -64,7 +64,7 @@ public class Package : Ball
 
                 if (myGame.GetMover(i) == this)
                 {
-                    Console.WriteLine("stage2");
+ 
                     Scene scene = SceneManager.instance.GetActiveScene();
 
                     if (scene is Levels)
@@ -78,7 +78,7 @@ public class Package : Ball
                             failUI.paused = true;
                         }
                         lev.ballsActive--;
-                        Console.WriteLine(lev.ballsActive);
+            
                         myGame.RemoveBalls(this);
 
                         breakPackage = new Explosion(velocity);
@@ -104,7 +104,7 @@ public class Package : Ball
         {
             if (acid) timer -= Time.deltaTime / 500.0f;
             else timer -= Time.deltaTime / 1000.0f;
-            Console.WriteLine(timer);
+
          //   sprite.alpha = 0.2f * timer;
                 sprite.Animate(timer / 50);
             

@@ -30,8 +30,7 @@ public class LeveThree : Levels
         BackGround.height = 1080;
         AddChild(BackGround);
         Sprite bg = new Sprite("1-3.png");
-        Console.WriteLine(myGame.width);
-        Console.WriteLine(myGame.height);
+
         bg.width = 1920;
         bg.height = 1080;
 
@@ -165,25 +164,7 @@ public class LeveThree : Levels
     }
 
 
-    protected override void Test()
-    {
 
-
-        if (Input.GetKey(Key.W)) doorSprite.y--;
-        if (Input.GetKey(Key.S)) doorSprite.y++;
-        if (Input.GetKey(Key.D)) doorSprite.x++;
-        if (Input.GetKey(Key.A)) doorSprite.x--;
-        if (Input.GetKey(Key.Q)) doorSprite.width++;
-        if (Input.GetKey(Key.E)) doorSprite.height++;
-        if (Input.GetKey(Key.Z)) doorSprite.width--;
-        if (Input.GetKey(Key.X)) doorSprite.height--;
-        if (Input.GetKey(Key.B))
-        {
-            Console.WriteLine(new Vec2(doorSprite.x, doorSprite.y));
-            Console.WriteLine(new Vec2(doorSprite.width, doorSprite.height));
-            Console.WriteLine(doorSprite.rotation);
-        }
-    }
 
 
 }

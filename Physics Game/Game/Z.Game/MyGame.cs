@@ -202,50 +202,12 @@ public class MyGame : Game
 
 	void PrintInfo()
 	{
-		Console.WriteLine("Hold tab to slow down the frame rate.");
-		Console.WriteLine("Press R to reset scene");
-		Console.WriteLine("Press B to toggle high/low bounciness.");
+
 	}
 
 	void HandleInput()
 	{
-
-
-		targetFps = Input.GetKey(Key.C) ? 1 : 60;
-
-		if (Input.GetKeyDown(Key.B))
-		{
-			Ball.bounciness = 1.5f - Ball.bounciness;
-		}
-
-        if (Input.GetMouseButtonDown(1)) Console.WriteLine(new Vec2(Input.mouseX, Input.mouseY));
-        if (Input.GetKeyDown(Key.SPACE)) Console.WriteLine("###################################################################");
-
-        //Load/reset scenes:
-        if (Input.GetKeyDown(Key.F4))
-        {
-			//SceneManager.instance.LoadScene();
-        }
-        if (Input.GetKeyDown(Key.R))
-        {
-			//LevelOne.levelOneBg.Stop();
-			SceneManager.instance.LoadScene(GetCurrentScene);
-			CS.RestartStarsLevel();
-			//cannon.shots = 2;
-        }
-
-        if (Input.GetKeyDown(Key.F1))
-        {
-			SceneManager.instance.LoadScene(0);
-			CS.RestartStarsLevel();
-		}
-
-        if (Input.GetKeyDown(Key.F2))
-        {
-			LevelOne.levelOneBg.Stop();
-			SceneManager.instance.LoadScene(1);		
-			CS.RestartStarsLevel();
-		}
+		targetFps = 60;
 	}
 
 	public void NextLevel() {
