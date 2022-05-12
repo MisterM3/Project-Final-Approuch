@@ -13,6 +13,7 @@ public class LeveThree : Levels
 
     Sprite movePlatform;
     Sprite cloudSprite;
+    Sprite doorSprite;
     public LeveThree(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -42,6 +43,17 @@ public class LeveThree : Levels
         myGame.addLine(ln);
         Button but = new Button(new Vec2(116, 151), ln, 120, 160, 90);
         AddChild(but);
+
+
+        doorSprite = new Sprite("doorHor.png");
+      //  AddChild(doorSprite);
+        doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
+        doorSprite.SetXY(824, 208);
+        doorSprite.width = 257;
+        doorSprite.height = 208;
+
+        but.lineSprite = doorSprite;
+        but.AddChild(doorSprite);
 
         AddChild(bg);
 
@@ -146,19 +158,19 @@ public class LeveThree : Levels
     {
 
 
-        if (Input.GetKey(Key.W)) cloudSprite.y--;
-        if (Input.GetKey(Key.S)) cloudSprite.y++;
-        if (Input.GetKey(Key.D)) cloudSprite.x++;
-        if (Input.GetKey(Key.A)) cloudSprite.x--;
-        if (Input.GetKey(Key.Q)) cloudSprite.width++;
-        if (Input.GetKey(Key.E)) cloudSprite.height++;
-        if (Input.GetKey(Key.Z)) cloudSprite.width--;
-        if (Input.GetKey(Key.X)) cloudSprite.height--;
+        if (Input.GetKey(Key.W)) doorSprite.y--;
+        if (Input.GetKey(Key.S)) doorSprite.y++;
+        if (Input.GetKey(Key.D)) doorSprite.x++;
+        if (Input.GetKey(Key.A)) doorSprite.x--;
+        if (Input.GetKey(Key.Q)) doorSprite.width++;
+        if (Input.GetKey(Key.E)) doorSprite.height++;
+        if (Input.GetKey(Key.Z)) doorSprite.width--;
+        if (Input.GetKey(Key.X)) doorSprite.height--;
         if (Input.GetKey(Key.B))
         {
-            Console.WriteLine(new Vec2(cloudSprite.x, cloudSprite.y));
-            Console.WriteLine(new Vec2(cloudSprite.width, cloudSprite.height));
-            Console.WriteLine(cloudSprite.rotation);
+            Console.WriteLine(new Vec2(doorSprite.x, doorSprite.y));
+            Console.WriteLine(new Vec2(doorSprite.width, doorSprite.height));
+            Console.WriteLine(doorSprite.rotation);
         }
     }
 
