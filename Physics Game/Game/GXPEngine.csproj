@@ -43,6 +43,7 @@
     <Compile Include="BottonLevel.cs" />
     <Compile Include="ButtonMenus.cs" />
     <Compile Include="EndUI.cs" />
+    <Compile Include="Explosion.cs" />
     <Compile Include="Fade.cs" />
     <Compile Include="LineButton.cs" />
     <Compile Include="NephelleSelect.cs" />
