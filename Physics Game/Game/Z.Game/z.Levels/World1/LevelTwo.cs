@@ -14,6 +14,9 @@ public class LevelTwo : Levels
     Sprite cloudSprite;
     Sprite movePlatform;
 
+    Sprite doorSprite;
+
+    AnimationSprite wind;
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
        
@@ -40,6 +43,16 @@ public class LevelTwo : Levels
         Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
         AddChild(but);
 
+        doorSprite = new Sprite("door_vert.png");
+        AddChild(doorSprite);
+        doorSprite.SetXY(-280, 677);
+        doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
+        doorSprite.width = 80;
+        doorSprite.height = 200;
+
+        but.lineSprite = doorSprite;
+        but.AddChild(doorSprite);
+
         Sprite bg = new Sprite("1-2.png");
         Console.WriteLine(myGame.width);
         Console.WriteLine(myGame.height);
@@ -65,6 +78,17 @@ public class LevelTwo : Levels
 
         Fan fan = new Fan(new Vec2(1377, 938), 1000, 120, 180, pPower: 1f);
         AddChild(fan);
+
+
+        wind = new AnimationSprite("wind.png", 3, 2);
+        AddChild(wind);
+        wind.SetOrigin(wind.width / 2, wind.height / 2);
+        wind.width = 200;
+        wind.height = 75;
+        wind.rotation = -90;
+        fan.sprite = wind;
+        fan.AddChild(wind);
+        
 
         //myGame._endCircle = new EndCircle(new Vec2(400, 300));
         //AddChild(myGame._endCircle);
@@ -142,19 +166,19 @@ public class LevelTwo : Levels
     {
 
 
-        if (Input.GetKey(Key.W)) movePlatform.y--;
-        if (Input.GetKey(Key.S)) movePlatform.y++;
-        if (Input.GetKey(Key.D)) movePlatform.x++;
-        if (Input.GetKey(Key.A)) movePlatform.x--;
-        if (Input.GetKey(Key.Q)) movePlatform.width++;
-        if (Input.GetKey(Key.E)) movePlatform.height++;
-        if (Input.GetKey(Key.Z)) movePlatform.rotation--;
-        if (Input.GetKey(Key.X)) movePlatform.rotation++;
+        if (Input.GetKey(Key.W)) doorSprite.y--;
+        if (Input.GetKey(Key.S)) doorSprite.y++;
+        if (Input.GetKey(Key.D)) doorSprite.x++;
+        if (Input.GetKey(Key.A)) doorSprite.x--;
+        if (Input.GetKey(Key.Q)) doorSprite.width++;
+        if (Input.GetKey(Key.E)) doorSprite.height++;
+        if (Input.GetKey(Key.Z)) doorSprite.rotation--;
+        if (Input.GetKey(Key.X)) doorSprite.rotation++;
         if (Input.GetKey(Key.B))
         {
-            Console.WriteLine(new Vec2(movePlatform.x, movePlatform.y));
-            Console.WriteLine(new Vec2(movePlatform.width, movePlatform.height));
-            Console.WriteLine(movePlatform.rotation);
+            Console.WriteLine(new Vec2(doorSprite.x, doorSprite.y));
+            Console.WriteLine(new Vec2(doorSprite.width, doorSprite.height));
+            Console.WriteLine(doorSprite.rotation);
         }
     }
 

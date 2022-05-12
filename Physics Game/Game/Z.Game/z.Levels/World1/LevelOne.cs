@@ -11,6 +11,8 @@ public class LevelOne : Levels
   //  Sound levelOne = new Sound("cloudsBG.mp3", true, false);
 
     Sprite wires;
+
+    AnimationSprite wind;
     public LevelOne(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
     {
     }
@@ -41,6 +43,19 @@ public class LevelOne : Levels
 
         cannon = new Cannon(wires.x - 40, wires.y - 31, 15,  -75, 38);
         AddChild(cannon);
+
+        wind = new AnimationSprite("wind.png", 3, 2);
+        AddChild(wind);
+        wind.SetOrigin(wind.width / 2, wind.height / 2);
+        wind.width = 200;
+        wind.height = 75;
+
+        //Fan
+        Fan fan = new Fan(new Vec2(1322, 826), 120, 500, pPower: 1f);
+        AddChild(fan);
+        fan.sprite = wind;
+        fan.AddChild(wind);
+
 
         Sprite bg = new Sprite("1-1.png");
         Console.WriteLine(myGame.width);
@@ -98,9 +113,8 @@ public class LevelOne : Levels
         AddChild(cloud9);
 
 
-        //Fan
-        Fan fan = new Fan(new Vec2(1322, 826), 120, 500, pPower: 1f);
-        AddChild(fan);
+
+
 
 
         //Collectables
@@ -117,16 +131,16 @@ public class LevelOne : Levels
     {
 
         
-        if (Input.GetKey(Key.W)) wires.y--;
-        if (Input.GetKey(Key.S)) wires.y++;
-        if (Input.GetKey(Key.D)) wires.x++;
-        if (Input.GetKey(Key.A)) wires.x--;
-        if (Input.GetKey(Key.Q)) wires.rotation--;
-        if (Input.GetKey(Key.E)) wires.rotation++;
+        if (Input.GetKey(Key.W)) wind.y--;
+        if (Input.GetKey(Key.S)) wind.y++;
+        if (Input.GetKey(Key.D)) wind.x++;
+        if (Input.GetKey(Key.A)) wind.x--;
+        if (Input.GetKey(Key.Q)) wind.rotation--;
+        if (Input.GetKey(Key.E)) wind.rotation++;
         if (Input.GetKey(Key.B))
         {
-            Console.WriteLine(new Vec2(wires.x, wires.y));
-            Console.WriteLine(wires.rotation);
+            Console.WriteLine(new Vec2(wind.x, wind.y));
+            Console.WriteLine(wind.rotation);
         }
     }
 

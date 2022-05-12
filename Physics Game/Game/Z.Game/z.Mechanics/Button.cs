@@ -10,6 +10,7 @@ public class Button : BoxMechanic
 
 
     LineSegment Wall;
+    public Sprite lineSprite;
     bool pressed = false;
 
     Sprite top;
@@ -67,12 +68,17 @@ public class Button : BoxMechanic
         
         if (pressed && top.y >= -3 && top.rotation == 180){
             top.y--;
-         
             
-        
+
+
+
         } else if (pressed && top.x >= 0)
         {
             top.x--;
+        }
+
+        if (pressed && lineSprite.alpha > 0) { 
+        lineSprite.alpha -= 0.1f;
         }
 
     }
@@ -89,6 +95,11 @@ public class Button : BoxMechanic
         else if (pressed && top.x >= 0)
         {
             top.x--;
+        }
+
+        if (pressed && lineSprite.alpha > 0)
+        {
+            lineSprite.alpha -= 0.1f;
         }
     }
 }
