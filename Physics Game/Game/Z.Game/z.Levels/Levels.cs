@@ -74,11 +74,7 @@ public class Levels : Scene
         if (Input.GetKeyDown(Key.SPACE)) shoot = true;
 
       
-        if (Input.GetKeyDown(Key.F3))
-        {
-            LevelOne.levelOneBg.Stop();
-            SceneManager.instance.TryLoadNextScene();
-        }
+
 
         if (Input.GetKeyDown(Key.TAB)) Pause();
         if (((MyGame)game).frozen && !((MyGame)game).end) return;

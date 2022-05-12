@@ -55,7 +55,7 @@ public class SceneManager : GameObject
         int index = scenes.IndexOf(activeScene);
         if (index + 1 >= scenes.Count) return;
         index++;
-        Console.WriteLine((index));
+      //  Console.WriteLine((index));
         LoadScene((index));
     }
 

@@ -18,7 +18,7 @@ public class EndCircle : CircleMechanic {
         endCharacter = new Sprite("char" + level + ".png");
         endCharacter.SetScaleXY(0.05f);
         endCharacter.SetOrigin(width/2, height/2);
-        endCharacter.SetXY(-55, -40);
+        endCharacter.SetXY(-55, -35);
         AddChild(endCharacter);
         alpha = 0f;
     }
