@@ -38,11 +38,14 @@ public class ButtonMenu : Sprite
         {
             //      _hover.alpha = 1;
 
+            ((MyGame)game).SM.hoverBool = true;
             if (Input.GetMouseButtonDown(0))
             {
+                ((MyGame)game).SM.ClickSFX();
                 ((MyGame)game).GetCollectableSystem.RestartStarsLevel();
                 Console.WriteLine(scene);
                 ((MyGame)game).fade.SwitchScenes(scene);
+
             }
         }
         //else _hover.alpha = 0;

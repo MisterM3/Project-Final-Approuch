@@ -47,8 +47,15 @@ public class Fade : Pivot {
 
         if (!fadeIn)
         {
-          
             scene = pScene;
+                SoundManager SM = ((MyGame)game).SM;
+            if (scene > 1)
+            {
+                SM.switching = false;
+            }
+            else if (scene <= 1) {
+                SM.switching = true;
+            }
             fadeIn = true;
         }
         
