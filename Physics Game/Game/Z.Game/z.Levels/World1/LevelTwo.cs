@@ -14,7 +14,7 @@ public class LevelTwo : Levels
     Sprite cloudSprite;
     Sprite movePlatform;
 
-    Sprite doorSprite;
+    AnimationSprite doorSprite;
 
     AnimationSprite wind;
     public LevelTwo(Dictionary<string, Sound> soundLibrary) : base(soundLibrary)
@@ -43,7 +43,7 @@ public class LevelTwo : Levels
         Button but = new Button(new Vec2(1440, 80), ln, 160, 80);
         AddChild(but);
 
-        doorSprite = new Sprite("door_vert.png");
+        doorSprite = new AnimationSprite("gate.png",6,2);
         AddChild(doorSprite);
         doorSprite.SetXY(-280, 677);
         doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);

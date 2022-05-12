@@ -10,7 +10,7 @@ public class Button : BoxMechanic
 
 
     LineSegment Wall;
-    public Sprite lineSprite;
+    public AnimationSprite lineSprite;
     public bool pressed = false;
  
     Sprite top;
@@ -75,8 +75,10 @@ public class Button : BoxMechanic
             top.x--;
         }
 
-        if (pressed && lineSprite.alpha > 0) { 
-        lineSprite.alpha -= 0.1f;
+
+        if (pressed && lineSprite.currentFrame < 11)
+        {
+            lineSprite.Animate(0.1f);
         }
 
     }
@@ -95,9 +97,9 @@ public class Button : BoxMechanic
             top.x--;
         }
 
-        if (pressed && lineSprite.alpha > 0)
+        if (pressed && lineSprite.currentFrame < 11)
         {
-            lineSprite.alpha -= 0.1f;
+            lineSprite.Animate(0.1f);
         }
     }
 }
