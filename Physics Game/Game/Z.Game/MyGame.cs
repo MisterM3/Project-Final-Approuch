@@ -33,6 +33,10 @@ public class MyGame : Game
 
 	public EndCircle _endCircle;
 
+
+	public AnimationSprite idleAni;
+	public AnimationSprite shootAni;
+
 	public Dictionary<string, Sound> soundLibrary = new Dictionary<string, Sound>()
 	{
 		{"Shoot",new Sound("testShoot.wav",false)},
@@ -90,6 +94,8 @@ public class MyGame : Game
 	{
 		//	UnitTesting ut = new UnitTesting();
 
+		idleAni = new AnimationSprite("animation_idle.png", 4, 2);
+		shootAni = new AnimationSprite("animation_button.png", 4, 1);
 		_lineContainer = new Canvas(width, height);
 		AddChild(_lineContainer);
 
@@ -129,12 +135,14 @@ public class MyGame : Game
 		//	AddChild(_hud);
 
 		AddChild(fade);
+
 	}
 
 
 	public enum Scenes { Start, WorldSelect, LevelSelectNephelle, LevelSelectBethel, Nephelle_1, Nephelle_2, Nephelle_3, Bethel_1, Bethel_2, Bethel_3 }
 	public void SetUpScenes()
     {
+
 
 		LevelSelect neph = new LevelSelect(LevelSelect.Worlds.Nephelle);
 
@@ -266,11 +274,19 @@ public class MyGame : Game
 
 	void Update()
 	{
+
 		HandleInput();
+		if (idleAni == null) {
+			idleAni = new AnimationSprite("animation_idle.png", 4, 2);
+			shootAni = new AnimationSprite("animation_button.png", 4, 1);
+
+		}
 	}
 
 	static void Main()
 	{
+
 		new MyGame().Start();
+
 	}
 }

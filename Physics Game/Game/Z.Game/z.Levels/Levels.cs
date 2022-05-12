@@ -37,6 +37,17 @@ public class Levels : Scene
         MakeLevel();
         pauseMenu = new Pause_FailUI(true);
 
+        Cillius = myGame.idleAni;
+     //   Cillius.SetOrigin(Cillius.width / 2, Cillius.height / 2);
+        Cillius.SetScaleXY(0.2f, 0.2f);
+        Cillius.SetXY(15, 771);
+        AddChild(Cillius);
+
+        CilliusPress = myGame.shootAni;
+    //    CilliusPress.SetOrigin(CilliusPress.width / 2, CilliusPress.height / 2);
+        CilliusPress.SetScaleXY(0.2f, 0.2f);
+        CilliusPress.SetXY(15, 771);
+        AddChild(CilliusPress);
 
 
         foreach (Ball _ball in myGame._movers)
@@ -115,6 +126,8 @@ public class Levels : Scene
     public override void UnLoadScene()
     {
         paused = false;
+        RemoveChild(Cillius);
+        RemoveChild(CilliusPress);
         base.UnLoadScene();
     }
 
