@@ -54,7 +54,7 @@ public class LeveThree : Levels
         doorSprite.height = 268;
         doorSprite.SetXY(824 + doorSprite.height/2, 188 - doorSprite.width/2);
         doorSprite.rotation = 90;
-
+        doorSprite.currentFrame = 0;
         but.lineSprite = doorSprite;
         but.AddChild(doorSprite);
 

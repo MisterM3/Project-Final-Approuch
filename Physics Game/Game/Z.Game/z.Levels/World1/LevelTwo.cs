@@ -51,8 +51,8 @@ public class LevelTwo : Levels
         doorSprite.width = 80;
         doorSprite.height = 210;
         doorSprite.SetXY(-280 - doorSprite.width / 2, 677 - doorSprite.height / 2);
-       // doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
-
+        // doorSprite.SetOrigin(doorSprite.width / 2, doorSprite.height / 2);
+        doorSprite.currentFrame = 0;
         but.lineSprite = doorSprite;
         but.AddChild(doorSprite);
 
