@@ -72,7 +72,7 @@ public class SoundManager : Pivot
 
         if (switching)
         {
-
+            
             if (channel1.Volume > 0)
             {
                 channel1.Volume -= 0.05f;
